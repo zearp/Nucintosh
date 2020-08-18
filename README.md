@@ -39,7 +39,7 @@ Generate new serials with [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS). Th
 + Copy the EFI folder to the EFI partition on the USB installer
 + Install macOS
 
-\* Installers made with GibMacOS require a working internet connection. It downloads the full installer from Apple. Using the *createistallmedia* script makes an off-line installer.
+\* Installers made with GibMacOS require a working internet connection. It downloads the full installer from Apple. The *createistallmedia* script makes an off-line installer.
 
 ### Intel Bluetooth and wifi
 + Bluetooth works for HID devices such as mouse, keyboard and audio stuff.
