@@ -3,7 +3,7 @@
 This is a quick and dirty repo for Intel NUC 8th gen computers. It should work on all the Coffee Lake ones. I've used various sources to get to this point and did quite some testing. It should leave you with a stable and reliable build but as always, these things are never really finished. While it should work on older macOS versions, I've done all building and testing on Catalina.
 
 ### Details
-* Supported macOS: Catalina 10.15.x*
+* Supported macOS: *Catalina 10.15.x*
 * OpenCore bootloader with the following kexts:
   - Lilu
   - VirtualSMC
@@ -22,14 +22,24 @@ This is a quick and dirty repo for Intel NUC 8th gen computers. It should work o
   - Disable secure boot
   - Disable network boot
   - Enable legacy boot, but boot from UEFI
+  - Set portable device charging port to off
   - Set wake-on-lan S4/S5 to stay off
   - Disable VT-d
-  - Set sleep power led colour to amber at 0.1hz breathing and reduced brightness, much nicer than the default ;-)
-+ Create bootable USB with macOS Catalina
-+ `git clone --depth 1 https://github.com/zearp/Nucintosh`
-+ Copy the EFI folder to the USB installers EFI partition
-+ Generate MLB, ROM, SystemSerialNumber and SystemUUID with [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS) and edit them in config.plist (ROM is your ethernet mac address
+  - Set sleep power led colour to amber at 0.1hz breathing at a reduced brightness, much nicer than the default ;-)
++ Download macOS Catalina in the [App Store](https://apps.apple.com/us/app/macos-catalina/id1466841314) and create a USB installer with *[createinstallmedia](https://support.apple.com/en-us/HT201372)* on macOS (real mac/hack or vm) or use [gibMacOS](https://github.com/corpnewt/gibMacOS)\*
++ Download [this repo](https://github.com/zearp/Nucintosh/archive/master.zip) and extract the EFI folder from the archive
++ Edit config.plist with [ProperTree](https://github.com/corpnewt/ProperTree) and change the following fields;
+```
+PlatformInfo -> Generic -> MLB
+PlatformInfo -> Generic -> ROM
+PlatformInfo -> Generic -> SystemSerialNumber
+PlatformInfo -> Generic -> SystemUUID
+```
+Generate new serials with [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS). The ROM value is your ethernet (en0) mac address ([more info](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#fixing-en0)).
++ Copy the EFI folder to the EFI partition on the USB installer
 + Install macOS
+
+\* Installers made with GibMacOS require a working internet connection. It downloads the full installer from Apple. The *createistallmedia* script makes an off-line installer.
 
 ### Intel Bluetooth and wifi
 + Bluetooth works for HID devices such as mouse, keyboard and audio stuff.
