@@ -67,6 +67,9 @@ Consider getting a [supported](https://dortania.github.io/Wireless-Buyers-Guide/
 + Handoff/AirDrop are not supported (yet) on Intel chips
 + 4K [might need](https://github.com/acidanthera/WhateverGreen/blob/master/Manual/FAQ.IntelHD.en.md#lspcon-driver-support-to-enable-displayport-to-hdmi-20-output-on-igpu) some additional parameters and port mapping
 
+## Sleep
+After setting up iCloud I noticed some kind of scheduled wake-ups, running ```sudo pmset -a tcpkeepalive 0``` seems to have solved it. 
+
 ## Noise
 In order to reduce noise I've setup a custom fan profile, disabled the option that the fan can be turned off and set a 25% duty cycle for both CPU and RAM. The idle temps are slightly higher but the noise is a lot less. I've also limited the sustained tdp to 28 watts to match the CPU itself. The peak tdp has been left to its default of 50 watts. With CPUFriend I've set the lowest frequency to 800mhz and a applied a mild undervolt of -50 on the CPU and CPU cache and -25 on the iGPU. A duty cycle of 21 or lower gives me a silent computer but its not ideal to run the fans lower than 25%.
 
