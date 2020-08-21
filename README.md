@@ -13,7 +13,7 @@ This is a quick and dirty repo for Intel NUC 8th gen computers. It should work o
   - NVMeFix
   - CPUFriend
   - itlwm + Black80211-Catalina
-  - XHCI-unsupported and FakePCIID (needed for proper usb/hdmi)
+  - FakePCIID (without this audio over hdmi only works when re-plugging the cable)
   - IntelBluetoothFirmware (unstable, see Intel section below)
   
 ### How to install
