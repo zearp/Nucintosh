@@ -56,11 +56,11 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>SSDT-EC.aml</string>
+				<string>SSDT-EC-USBX.aml</string>
+				<key>Path</key>
+				<string>SSDT-EC-USBX.aml</string>
 				<key>Enabled</key>
 				<true/>
-				<key>Path</key>
-				<string>SSDT-EC.aml</string>
 			</dict>
 		</array>
 		<key>Patch</key>
@@ -73,7 +73,7 @@
 				<key>Enabled</key>
 				<true/>
 				<key>Find</key>
-				<data>X0NSUwigGQ==</data>
+				<data>JV9DUlM=</data>
 				<key>Limit</key>
 				<integer>0</integer>
 				<key>Mask</key>
@@ -81,7 +81,33 @@
 				<key>OemTableId</key>
 				<data>AAAAAA==</data>
 				<key>Replace</key>
-				<data>WENSUwigGQ==</data>
+				<data>JVhDUlM=</data>
+				<key>ReplaceMask</key>
+				<data></data>
+				<key>Skip</key>
+				<integer>0</integer>
+				<key>TableLength</key>
+				<integer>0</integer>
+				<key>TableSignature</key>
+				<data>AAAAAA==</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>RTC IRQ 8 Patch</string>
+				<key>Count</key>
+				<integer>0</integer>
+				<key>Enabled</key>
+				<true/>
+				<key>Find</key>
+				<data>IgABeQA=</data>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data></data>
+				<key>OemTableId</key>
+				<data>AAAAAA==</data>
+				<key>Replace</key>
+				<data>IgAAeQA=</data>
 				<key>ReplaceMask</key>
 				<data></data>
 				<key>Skip</key>
@@ -116,6 +142,16 @@
 				<integer>0</integer>
 				<key>TableSignature</key>
 				<data>AAAAAA==</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>rename _RMV to XRMV</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Find</key>
+				<data>X1JNVg==</data>
+				<key>Replace</key>
+				<data>WFJNVg==</data>
 			</dict>
 		</array>
 		<key>Quirks</key>
