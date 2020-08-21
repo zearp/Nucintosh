@@ -18,14 +18,16 @@ This is a quick and dirty repo for Intel NUC 8th gen computers. It should work o
   
 ### How to install
 
-+ Update to latest BIOS, load BIOS defaults
-  - Disable secure boot
-  - Disable network boot
-  - Enable legacy boot, but boot from UEFI
-  - Set portable device charging port to off
-  - Set wake-on-lan S4/S5 to stay off
-  - Disable VT-d
-  - Set sleep power led colour to amber at 0.1hz breathing at a reduced brightness, much nicer than the default ;-)
++ Update to latest BIOS, load BIOS defaults, click advanced and change;
+```
+Devices -> USB -> Port Device Charging Mode: off
+Security -> VT-d: Disable
+Security -> Thunderbolt Security Level: Legacy Mode
+Power -> Wake on LAN from S4/S5: Stay Off
+Boot -> Boot Priority -> UEFI + legacy: Enable
+Boot -> Boot Configuration -> Network Boot: Disable
+Boot -> Secure Boot -> Disable
+```
 + Download macOS Catalina in the [App Store](https://apps.apple.com/us/app/macos-catalina/id1466841314) and create a USB installer with *[createinstallmedia](https://support.apple.com/en-us/HT201372)* on macOS (real mac/hack or vm) or use [gibMacOS](https://github.com/corpnewt/gibMacOS)\*
 + Download [this repo](https://github.com/zearp/Nucintosh/archive/master.zip) and extract the EFI folder from the archive
 + Edit config.plist with [ProperTree](https://github.com/corpnewt/ProperTree) and change the following fields;
