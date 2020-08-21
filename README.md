@@ -58,6 +58,7 @@ Consider getting a [supported](https://dortania.github.io/Wireless-Buyers-Guide/
 - Please re-enable SIP if you don't need it disabled; change ```csr-active-config``` to ```00000000``` reboot and reset nvram. I have it disabled to make testing and undervolting easier
 - Check power management options with ```pmset -g``` and tweak to your liking
 - Check if TRIM is enabled, If not run ```sudo trimforce enable``` to enable it
+- Disable ```NVMeFix.kext``` if you don't have an NVMe drive
 
 > Tip: Once everything works and you installed and configured all your stuff, create a bootable clone of your system with a trial version of *Carbon Copy Cloner* or *Superduper!*. Don't forget to copy your EFI folder to the clone's EFI partition.
 
