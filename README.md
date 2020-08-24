@@ -88,9 +88,14 @@ While benchmarks don't really represent real life it can be handy when testing. 
 
 The default kexts provided give you the best performance and still lowers the lowest clockspeed to 800mhz which lower heat and power consumption a bit. I didn't see any difference between the performance and balanced performance profiles but I only ran some quick tests. It is pretty easy to create [your own](https://dortania.github.io/OpenCore-Post-Install/universal/pm.html#using-cpu-friend) profile.
 
-Maybe the power savings options are useful for passive cooling. I will test that once I receive my [Akasa](http://www.akasa.com.tw/search.php?seed=A-NUC45-M1B) case. I think it will be fine as is but every little bit helps and might help reduce thermal throttling.
+(It would be interesting to see how it scores with the fan forced to max rmp, the power limits maxed out and the power savings setting set to performance. Also interesting would be MacBook SMBIOS, it could help or worsen scores/pm/etc. The NUC is a mobile platform and some MacBooks have the exact same CPU but I haven't tested those yet.)
 
-It would be interesting to see how it scores with the fan forced to max rmp, the power limits maxed out and the power savings setting set to performance. Also interesting would be MacBook SMBIOS, it could help or worsen scores/pm/etc. The NUC is a mobile platform and some MacBooks have the exact same CPU but I haven't tested those yet.
+## Passive
+Received my [Akasa](http://www.akasa.com.tw/search.php?seed=A-NUC45-M1B) case. To my surprise it does a betetr job than the stock cooler. It's not cheap and the case is not finished very smoothly (it can hurt you lol). I have mine verically and didn't use any of the end cheeks. It would just introduce more options to hurt myself ;-)
+
+It works really well. So good I have set the power setting in the BIOS to max performance. It idles around 40-45c which is just fine considering my ambient temperature is around 25c. When put under load it doesn't get anywhere near 80c. I've ran the matrix test from ```stress-ng``` for a while and it stayed [stable around 70c](https://github.com/zearp/Nucintosh/blob/master/Stuff/passive_cooling.png?raw=true) the whole test. With some of the other tests it ran hotter and also used more power, 35 watts sustained. But it never needed to thermal throttle which is great!
+
+My only complaint is the rough finish. I wish they would've skipped on those cheeks and spend the money saved on a smooth finish, but thats besides the point of this thing. The silence is worth the occasional scratch
 
 ### Credits
 + https://github.com/acidanthera
