@@ -66,7 +66,8 @@ Consider getting a [supported](https://dortania.github.io/Wireless-Buyers-Guide/
 
 ### Not working/untested
 + Thunderbolt (untested, usb-c works and TB should work...)
-+ Card reader
++ Card reader (sort of works with v2.3-beta2 of [this](https://github.com/cholonam/Sinetek-rts) kext)
++ IR receiver (untested)
 + Handoff/AirDrop are not supported (yet) on Intel chips
 + 4K [might need](https://github.com/acidanthera/WhateverGreen/blob/master/Manual/FAQ.IntelHD.en.md#lspcon-driver-support-to-enable-displayport-to-hdmi-20-output-on-igpu) some additional parameters and port mapping
 
