@@ -12,3 +12,5 @@ Currently the SMBIOS has been set to MacBookPro 15,2 instead of Mac mini 8,1. I 
 I got a bunch of errors about diskXs5s1, note the additonal s1, it was related to an apfs snapshot. Booting into recovery and removing the snapshot fixed that.
 
 List the snapshots with ```diskutil apfs listSnapshots diskXs5s1``` and delete with ```diskutil apfs deleteSnapshot diskXs5s1 -uuid UUIDHERE```.
+
+This also fixed the -66 error when trying to remount the file system r/w.
