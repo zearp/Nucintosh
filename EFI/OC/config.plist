@@ -57,10 +57,10 @@
 			<dict>
 				<key>Comment</key>
 				<string>SSDT-EC-USBX.aml</string>
-				<key>Path</key>
-				<string>SSDT-EC-USBX.aml</string>
 				<key>Enabled</key>
 				<true/>
+				<key>Path</key>
+				<string>SSDT-EC-USBX.aml</string>
 			</dict>
 		</array>
 		<key>Patch</key>
@@ -543,6 +543,15 @@
 			<true/>
 			<key>XhciPortLimit</key>
 			<false/>
+		</dict>
+		<key>Scheme</key>
+		<dict>
+			<key>FuzzyMatch</key>
+			<false/>
+			<key>KernelArch</key>
+			<string>x86_64</string>
+			<key>KernelCache</key>
+			<string>Auto</string>
 		</dict>
 	</dict>
 	<key>Misc</key>
