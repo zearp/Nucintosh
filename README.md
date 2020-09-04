@@ -100,6 +100,17 @@ The default kexts provided give you the best performance and still lowers the lo
 
 (It would be interesting to see how it scores with the fan forced to max rmp, the power limits maxed out and the power savings setting set to performance. Also interesting would be MacBook SMBIOS, it could help or worsen scores/pm/etc. The NUC is a mobile platform and some MacBooks have the exact same CPU but I haven't tested those yet.)
 
+## Big Sur
++ Near the end of the install the system volume will be cryptographically sealed, this will take [some](https://dortania.github.io/OpenCore-Install-Guide/extras/big-sur/#troubleshooting) time
++ Disable; powernap, wake on lan and other related options post-install (pmset/Hackintool)
+
+I got a bunch of errors about diskXs5s1, note the additonal s1, it was related to an apfs snapshot. Booting into recovery and removing the snapshot fixed that.
+
+List the snapshots with ```diskutil apfs listSnapshots diskXs5s1``` and delete with ```diskutil apfs deleteSnapshot diskXs5s1 -uuid UUIDHERE```.
+
+This also fixed the -66 error when trying to remount the file system r/w.
+
+
 ### Credits
 + https://github.com/acidanthera
 + https://github.com/usr-sse2
