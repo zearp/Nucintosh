@@ -3,7 +3,7 @@
 This is a quick and dirty repo for Intel NUC 8th gen computers. It should work on all the Coffee Lake ones. I've used various sources to get to this point and did quite some testing. It should leave you with a stable and reliable build but as always, these things are never really finished. While it should work on older macOS versions, I've done all building and testing on Catalina and Big Sur.
 
 ### Details
-* Supported macOS: *Catalina 10.15.x*
+* Works withmacOS *Catalina* and *Big Sur*
 * OpenCore bootloader with the following kexts:
   - Lilu
   - VirtualSMC
@@ -45,15 +45,13 @@ Generate new serials with [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS). Th
 
 ### Intel Bluetooth and wifi
 + Bluetooth works for HID devices such as mouse, keyboard and audio stuff.
-  - Bluetooth may not always wake up after sleep in order to fix that you can grab a cheap dongle from [eBay](https://www.ebay.co.uk/itm/1PCS-Mini-USB-Bluetooth-V4-0-3Mbps-20M-Dongle-Dual-Mode-Wireless-Adapter-Device/324106977844) that works in macOS out of the box ~~and/or wait for the bugs te fixed~~. Mind you, both these routes will only support HID devices. Don't forget to disable the Intel Bluetooth kexts in the config and bluetooth in the BIOS.
+  - Bluetooth may not always wake up after sleep in order to fix that you can grab a cheap dongle from [eBay](https://www.ebay.co.uk/itm/1PCS-Mini-USB-Bluetooth-V4-0-3Mbps-20M-Dongle-Dual-Mode-Wireless-Adapter-Device/324106977844) that works in macOS out of the box ~~and/or wait for the bugs te fixed~~. Mind you, both these routes will only support HID devices. Don't forget to disable the Intel bluetooth kexts in the config and also disable bluetooth in the BIOS.
 + Wireless is now integrated with native macOS wireless management thanks to Black80211 and itlwm by [usr-sse2](https://github.com/usr-sse2).
-  - Currently both 2.4 and 5ghz bands are scanned properly but sometimes it fails to auto-connect. Turning wifi off and on again works for the time being. Speeds are not yet n/ac/ax but for normal usage it is fine. I'm getting around 70-80mbit locally.
+  - Currently both 2.4 and 5ghz bands are scanned properly but sometimes it fails to auto-connect. Turning wifi off and on again works for the time being. Speeds are not yet n/ac/ax but for normal usage its fine.
  
-> Please note that bluetooth and wifi integration is very recent and active development. So it may not work optimally yet. If you experience issues please replace ```itlwm.kext``` with the one found [here](https://github.com/zearp/Nucintosh/raw/master/Stuff/itlwm.kext.zip) **and** set the loading of ```Black80211.kext``` to *false* in the config. Then use [HeliPort](https://github.com/OpenIntelWireless/HeliPort/releases) to connect to a wireless network instead.
+> Please note that bluetooth and wifi integration is very recent and active development. So it may not work optimally yet. If you experience issues please replace ```itlwm.kext``` with the one found [here](https://github.com/zearp/Nucintosh/raw/master/Stuff/itlwm.kext.zip) ***and*** set the loading of ```Black80211.kext``` to *false* in the config. Then use [HeliPort](https://github.com/OpenIntelWireless/HeliPort/releases) to connect to a wireless network instead.
 
-Getting wifi and bluetooth to work on Intel is quite special as many said it would be impossible. Yet here we are, both are working and both appear native to macOS. Amazing effort by those involved! The remaining bugs are being squashed right now and improvements are made nearly daily.
-
-Consider getting a [supported](https://dortania.github.io/Wireless-Buyers-Guide/) wifi/bluetooth combo.
+For the best bluetooth and wifi experience consider getting a [supported](https://dortania.github.io/Wireless-Buyers-Guide/) wifi/bluetooth combo.
 
 ## Post install
 - Remove express card icon: Run ```sudo mount -uw / && killall Finder && sudo mv /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu.bak && sudo touch /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu```
@@ -103,6 +101,7 @@ The default kexts provided give you the best performance and still lowers the lo
 ## Big Sur
 + Near the end of the install the system volume will be cryptographically sealed, this will take [some](https://dortania.github.io/OpenCore-Install-Guide/extras/big-sur/#troubleshooting) time
 + Disable; powernap, wake on lan and other related options post-install (pmset/Hackintool)
++ Big Sur (for now) requires its own Black80211 kext which can be found [here](https://github.com/zearp/Nucintosh/raw/master/Stuff/Black80211-BigSur.kext.zip)
 
 I got a bunch of errors about diskXs5s1, note the additonal s1, it was related to an apfs snapshot. Booting into recovery and removing the snapshot fixed that.
 
