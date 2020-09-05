@@ -52,20 +52,9 @@ Generate new serials with [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS). Th
 
 > Tip: Once everything works and you installed and configured all your stuff, create a bootable clone of your system with a trial version of *Carbon Copy Cloner* or *Superduper!*. Don't forget to copy your EFI folder to the clone's EFI partition.
 
+
 ---
 
-### Intel Bluetooth and wifi
-+ Bluetooth works for HID devices such as mouse, keyboard and audio stuff.
-  - Bluetooth may not always wake up after sleep in order to fix that you can grab a cheap dongle from [eBay](https://www.ebay.co.uk/itm/1PCS-Mini-USB-Bluetooth-V4-0-3Mbps-20M-Dongle-Dual-Mode-Wireless-Adapter-Device/324106977844) that works in macOS out of the box ~~and/or wait for the bugs te fixed~~. Mind you, both these routes will only support HID devices. Don't forget to disable the Intel bluetooth kexts in the config and also disable bluetooth in the BIOS.
-+ Wireless is now integrated with native macOS wireless management thanks to Black80211 and itlwm by [usr-sse2](https://github.com/usr-sse2).
-  - Currently both 2.4 and 5ghz bands are scanned properly but sometimes it fails to auto-connect. Turning wifi off and on again works for the time being. Speeds are not yet n/ac/ax but for normal usage its fine.
- 
-> Please note that bluetooth and wifi integration is very recent and active development. So it may not work optimally yet. If you experience issues please replace ```itlwm.kext``` with the one found [here](https://github.com/zearp/Nucintosh/raw/master/Stuff/itlwm.kext.zip) ***and*** set the loading of ```Black80211.kext``` to *false* in the config. Then use [HeliPort](https://github.com/OpenIntelWireless/HeliPort/releases) to connect to a wireless network instead.
-
-For the best bluetooth and wifi experience consider getting a [supported](https://dortania.github.io/Wireless-Buyers-Guide/) wifi/bluetooth combo.
-
-### Sleep
-After setting up iCloud I noticed some kind of scheduled wake-ups, running ```sudo pmset -a tcpkeepalive 0``` seems to have solved it. 
 
 ### Big Sur
 + Near the end of the install the system volume will be cryptographically sealed, this will take [some](https://dortania.github.io/OpenCore-Install-Guide/extras/big-sur/#troubleshooting) time
@@ -78,6 +67,19 @@ List the snapshots with ```diskutil apfs listSnapshots diskXs5s1``` and delete w
 
 This also fixed the -66 error when trying to remount the file system r/w.
 
+### Sleep
+After setting up iCloud I noticed some kind of scheduled wake-ups, running ```sudo pmset -a tcpkeepalive 0``` seems to have solved it. 
+
+### Intel Bluetooth and wifi
++ Bluetooth works for HID devices such as mouse, keyboard and audio stuff.
+  - Bluetooth may not always wake up after sleep in order to fix that you can grab a cheap dongle from [eBay](https://www.ebay.co.uk/itm/1PCS-Mini-USB-Bluetooth-V4-0-3Mbps-20M-Dongle-Dual-Mode-Wireless-Adapter-Device/324106977844) that works in macOS out of the box ~~and/or wait for the bugs te fixed~~. Mind you, both these routes will only support HID devices. Don't forget to disable the Intel bluetooth kexts in the config and also disable bluetooth in the BIOS.
++ Wireless is now integrated with native macOS wireless management thanks to Black80211 and itlwm by [usr-sse2](https://github.com/usr-sse2).
+  - Currently both 2.4 and 5ghz bands are scanned properly but sometimes it fails to auto-connect. Turning wifi off and on again works for the time being. Speeds are not yet n/ac/ax but for normal usage its fine.
+ 
+> Please note that bluetooth and wifi integration is very recent and active development. So it may not work optimally yet. If you experience issues please replace ```itlwm.kext``` with the one found [here](https://github.com/zearp/Nucintosh/raw/master/Stuff/itlwm.kext.zip) ***and*** set the loading of ```Black80211.kext``` to *false* in the config. Then use [HeliPort](https://github.com/OpenIntelWireless/HeliPort/releases) to connect to a wireless network instead.
+
+For the best bluetooth and wifi experience consider getting a [supported](https://dortania.github.io/Wireless-Buyers-Guide/) wifi/bluetooth combo.
+
 ### Not working/untested
 + Thunderbolt (untested, usb-c works and TB should work...)
 + Card reader (sort of works with v2.3-beta2 of [this](https://github.com/cholonam/Sinetek-rts) kext)
@@ -85,8 +87,7 @@ This also fixed the -66 error when trying to remount the file system r/w.
 + Handoff/AirDrop are not supported (yet) on Intel chips
 + 4K [might need](https://github.com/acidanthera/WhateverGreen/blob/master/Manual/FAQ.IntelHD.en.md#lspcon-driver-support-to-enable-displayport-to-hdmi-20-output-on-igpu) some additional parameters and port mapping
 
-
-## Performance, power and noise
+### Performance, power and noise
 While benchmarks don't really represent real life it can be handy when testing. In my tests undervolting didn't have any impact on Geekbench results scores. But using CPUFriend can have some impact on (immediate) performance depending on which power profile you select.
 
 * Without CPUFriend: ~915 / ~4000
@@ -98,12 +99,12 @@ While benchmarks don't really represent real life it can be handy when testing. 
 
 The default kexts provided give you the best performance and still lowers the lowest clockspeed to 800mhz which lower heat and power consumption a bit. I didn't see any difference between the performance and balanced performance profiles but I only ran some quick tests. It is pretty easy to create [your own](https://dortania.github.io/OpenCore-Post-Install/universal/pm.html#using-cpu-friend) profile.
 
-# Noise
+### Noise
 In order to reduce noise I've setup a custom fan profile, disabled the option that the fan can be turned off and set a 25% duty cycle for both CPU and RAM. The idle temps are slightly higher but the noise is a lot less. I've also limited the sustained tdp to 28 watts to match the CPU itself. The peak tdp has been left to its default of 50 watts. With CPUFriend I've set the lowest frequency to 800mhz and a applied a mild undervolt of -50 on the CPU and CPU cache and -25 on the iGPU. A duty cycle of 21 or lower gives me a silent computer but its not ideal to run the fans lower than 25%.
 
 > Note: No longer using a fan, passive cooling ftw!
 
-# Passive cooling
+### Passive cooling
 Received my [Akasa](http://www.akasa.com.tw/search.php?seed=A-NUC45-M1B) case. To my surprise it does a better job than the stock cooler. It's not cheap and the case is not finished very smoothly (it can hurt you lol). I have mine verically and didn't use any of the end cheeks, only the feet. It would just introduce more options to hurt myself ;-)
 
 It works really well. So good I have set the power setting in the BIOS to max performance. It idles around 40-45c which is just fine considering my ambient temperature is around 25c. When put under load it doesn't get anywhere near 80c. I've ran the matrix test from ```stress-ng``` for a while and it stayed [stable around 70c](https://github.com/zearp/Nucintosh/blob/master/Stuff/passive_cooling.png) the whole test. With some of the other tests it ran hotter and also used more power, 35 watts sustained. A quick [5 minutes Intel XTU](https://github.com/zearp/Nucintosh/blob/master/Stuff/passive_intel_xtu_5m.png) stress test show similar results. Settling around 75c. Even with increased wattage it never needed to thermal throttle which is great!
