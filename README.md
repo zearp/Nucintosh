@@ -12,11 +12,11 @@ This is a quick and dirty repo for Intel NUC 8th gen computers. It should work o
   - IntelMausi
   - NVMeFix
   - CPUFriend
-  - itlwm + Black80211-Catalina
+  - usr-sse2's itlwm + Black80211 forks
   - FakePCIID (without this audio over hdmi only works when re-plugging the cable)
   - IntelBluetoothFirmware (unstable, see Intel section below)
   
-### How to install
+## Installation
 
 + Update to latest BIOS, load BIOS defaults, click advanced and change;
 ```
@@ -43,6 +43,17 @@ Generate new serials with [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS). Th
 
 \* Installers made with GibMacOS require a working internet connection. It downloads the full installer from Apple. The *createistallmedia* script makes an off-line installer.
 
+## Post install
+- Remove express card icon: Run ```sudo mount -uw / && killall Finder && sudo mv /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu.bak && sudo touch /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu```
+- Please re-enable SIP if you don't need it disabled; change ```csr-active-config``` to ```00000000``` reboot and reset nvram. I have it disabled to make testing and undervolting easier
+- Check power management options with ```pmset -g``` and tweak to your liking
+- Check if TRIM is enabled, If not run ```sudo trimforce enable``` to enable it
+- Disable ```NVMeFix.kext``` if you don't have an NVMe drive
+
+> Tip: Once everything works and you installed and configured all your stuff, create a bootable clone of your system with a trial version of *Carbon Copy Cloner* or *Superduper!*. Don't forget to copy your EFI folder to the clone's EFI partition.
+
+---
+
 ### Intel Bluetooth and wifi
 + Bluetooth works for HID devices such as mouse, keyboard and audio stuff.
   - Bluetooth may not always wake up after sleep in order to fix that you can grab a cheap dongle from [eBay](https://www.ebay.co.uk/itm/1PCS-Mini-USB-Bluetooth-V4-0-3Mbps-20M-Dongle-Dual-Mode-Wireless-Adapter-Device/324106977844) that works in macOS out of the box ~~and/or wait for the bugs te fixed~~. Mind you, both these routes will only support HID devices. Don't forget to disable the Intel bluetooth kexts in the config and also disable bluetooth in the BIOS.
@@ -53,38 +64,29 @@ Generate new serials with [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS). Th
 
 For the best bluetooth and wifi experience consider getting a [supported](https://dortania.github.io/Wireless-Buyers-Guide/) wifi/bluetooth combo.
 
-## Post install
-- Remove express card icon: Run ```sudo mount -uw / && killall Finder && sudo mv /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu.bak && sudo touch /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu```
-- Please re-enable SIP if you don't need it disabled; change ```csr-active-config``` to ```00000000``` reboot and reset nvram. I have it disabled to make testing and undervolting easier
-- Check power management options with ```pmset -g``` and tweak to your liking
-- Check if TRIM is enabled, If not run ```sudo trimforce enable``` to enable it
-- Disable ```NVMeFix.kext``` if you don't have an NVMe drive
+### Sleep
+After setting up iCloud I noticed some kind of scheduled wake-ups, running ```sudo pmset -a tcpkeepalive 0``` seems to have solved it. 
 
-> Tip: Once everything works and you installed and configured all your stuff, create a bootable clone of your system with a trial version of *Carbon Copy Cloner* or *Superduper!*. Don't forget to copy your EFI folder to the clone's EFI partition.
+### Big Sur
++ Near the end of the install the system volume will be cryptographically sealed, this will take [some](https://dortania.github.io/OpenCore-Install-Guide/extras/big-sur/#troubleshooting) time
++ Disable; powernap, wake on lan and other related options post-install (pmset/Hackintool)
++ Big Sur (for now) requires its own Black80211 kext which can be found [here](https://github.com/zearp/Nucintosh/raw/master/Stuff/Black80211-BigSur.kext.zip)
+
+I got a bunch of errors about diskXs5s1, note the additonal s1, it was related to an apfs snapshot. Booting into recovery and removing the snapshot fixed that.
+
+List the snapshots with ```diskutil apfs listSnapshots diskXs5s1``` and delete with ```diskutil apfs deleteSnapshot diskXs5s1 -uuid UUIDHERE```.
+
+This also fixed the -66 error when trying to remount the file system r/w.
 
 ### Not working/untested
 + Thunderbolt (untested, usb-c works and TB should work...)
 + Card reader (sort of works with v2.3-beta2 of [this](https://github.com/cholonam/Sinetek-rts) kext)
-+ IR receiver (untested)
++ IR receiver (it shows up in ioreg but no idea how to make macOS use it like on some MBP)
 + Handoff/AirDrop are not supported (yet) on Intel chips
 + 4K [might need](https://github.com/acidanthera/WhateverGreen/blob/master/Manual/FAQ.IntelHD.en.md#lspcon-driver-support-to-enable-displayport-to-hdmi-20-output-on-igpu) some additional parameters and port mapping
 
-## Sleep
-After setting up iCloud I noticed some kind of scheduled wake-ups, running ```sudo pmset -a tcpkeepalive 0``` seems to have solved it. 
 
-## Noise
-In order to reduce noise I've setup a custom fan profile, disabled the option that the fan can be turned off and set a 25% duty cycle for both CPU and RAM. The idle temps are slightly higher but the noise is a lot less. I've also limited the sustained tdp to 28 watts to match the CPU itself. The peak tdp has been left to its default of 50 watts. With CPUFriend I've set the lowest frequency to 800mhz and a applied a mild undervolt of -50 on the CPU and CPU cache and -25 on the iGPU. A duty cycle of 21 or lower gives me a silent computer but its not ideal to run the fans lower than 25%.
-
-> Note: No longer using a fan, passive cooling ftw!
-
-## Passive cooling
-Received my [Akasa](http://www.akasa.com.tw/search.php?seed=A-NUC45-M1B) case. To my surprise it does a better job than the stock cooler. It's not cheap and the case is not finished very smoothly (it can hurt you lol). I have mine verically and didn't use any of the end cheeks, only the feet. It would just introduce more options to hurt myself ;-)
-
-It works really well. So good I have set the power setting in the BIOS to max performance. It idles around 40-45c which is just fine considering my ambient temperature is around 25c. When put under load it doesn't get anywhere near 80c. I've ran the matrix test from ```stress-ng``` for a while and it stayed [stable around 70c](https://github.com/zearp/Nucintosh/blob/master/Stuff/passive_cooling.png) the whole test. With some of the other tests it ran hotter and also used more power, 35 watts sustained. A quick [5 minutes Intel XTU](https://github.com/zearp/Nucintosh/blob/master/Stuff/passive_intel_xtu_5m.png) stress test show similar results. Settling around 75c. Even with increased wattage it never needed to thermal throttle which is great!
-
-My only complaint is the rough finish. I wish they would've skipped on those cheeks and spend the money saved on a smooth finish, but thats besides the point of this thing. The silence is worth the occasional scratch.
-
-## Performance and power
+## Performance, power and noise
 While benchmarks don't really represent real life it can be handy when testing. In my tests undervolting didn't have any impact on Geekbench results scores. But using CPUFriend can have some impact on (immediate) performance depending on which power profile you select.
 
 * Without CPUFriend: ~915 / ~4000
@@ -96,21 +98,19 @@ While benchmarks don't really represent real life it can be handy when testing. 
 
 The default kexts provided give you the best performance and still lowers the lowest clockspeed to 800mhz which lower heat and power consumption a bit. I didn't see any difference between the performance and balanced performance profiles but I only ran some quick tests. It is pretty easy to create [your own](https://dortania.github.io/OpenCore-Post-Install/universal/pm.html#using-cpu-friend) profile.
 
-(It would be interesting to see how it scores with the fan forced to max rmp, the power limits maxed out and the power savings setting set to performance. Also interesting would be MacBook SMBIOS, it could help or worsen scores/pm/etc. The NUC is a mobile platform and some MacBooks have the exact same CPU but I haven't tested those yet.)
+# Noise
+In order to reduce noise I've setup a custom fan profile, disabled the option that the fan can be turned off and set a 25% duty cycle for both CPU and RAM. The idle temps are slightly higher but the noise is a lot less. I've also limited the sustained tdp to 28 watts to match the CPU itself. The peak tdp has been left to its default of 50 watts. With CPUFriend I've set the lowest frequency to 800mhz and a applied a mild undervolt of -50 on the CPU and CPU cache and -25 on the iGPU. A duty cycle of 21 or lower gives me a silent computer but its not ideal to run the fans lower than 25%.
 
-## Big Sur
-+ Near the end of the install the system volume will be cryptographically sealed, this will take [some](https://dortania.github.io/OpenCore-Install-Guide/extras/big-sur/#troubleshooting) time
-+ Disable; powernap, wake on lan and other related options post-install (pmset/Hackintool)
-+ Big Sur (for now) requires its own Black80211 kext which can be found [here](https://github.com/zearp/Nucintosh/raw/master/Stuff/Black80211-BigSur.kext.zip)
+> Note: No longer using a fan, passive cooling ftw!
 
-I got a bunch of errors about diskXs5s1, note the additonal s1, it was related to an apfs snapshot. Booting into recovery and removing the snapshot fixed that.
+# Passive cooling
+Received my [Akasa](http://www.akasa.com.tw/search.php?seed=A-NUC45-M1B) case. To my surprise it does a better job than the stock cooler. It's not cheap and the case is not finished very smoothly (it can hurt you lol). I have mine verically and didn't use any of the end cheeks, only the feet. It would just introduce more options to hurt myself ;-)
 
-List the snapshots with ```diskutil apfs listSnapshots diskXs5s1``` and delete with ```diskutil apfs deleteSnapshot diskXs5s1 -uuid UUIDHERE```.
+It works really well. So good I have set the power setting in the BIOS to max performance. It idles around 40-45c which is just fine considering my ambient temperature is around 25c. When put under load it doesn't get anywhere near 80c. I've ran the matrix test from ```stress-ng``` for a while and it stayed [stable around 70c](https://github.com/zearp/Nucintosh/blob/master/Stuff/passive_cooling.png) the whole test. With some of the other tests it ran hotter and also used more power, 35 watts sustained. A quick [5 minutes Intel XTU](https://github.com/zearp/Nucintosh/blob/master/Stuff/passive_intel_xtu_5m.png) stress test show similar results. Settling around 75c. Even with increased wattage it never needed to thermal throttle which is great!
 
-This also fixed the -66 error when trying to remount the file system r/w.
+My only complaint is the rough finish. I wish they would've skipped on those cheeks and spend the money saved on a smooth finish, but thats besides the point of this thing. The silence is worth the occasional scratch.
 
-
-### Credits
+## Credits
 + https://github.com/acidanthera
 + https://github.com/usr-sse2
 + https://dortania.github.io/OpenCore-Install-Guide/config.plist/coffee-lake.html
