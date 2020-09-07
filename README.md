@@ -1,5 +1,4 @@
 # NUC8IxBEx Hackintosh
-
 This is a quick and dirty repo for Intel NUC 8th gen computers. It should work on all the Coffee Lake ones. I've used various sources to get to this point and did quite some testing. It should leave you with a stable and reliable build but as always, these things are never really finished. While it should work on older macOS versions, I've done all building and testing on Catalina and Big Sur.
 
 ### Details
@@ -17,7 +16,6 @@ This is a quick and dirty repo for Intel NUC 8th gen computers. It should work o
   - IntelBluetoothFirmware (unstable, see Intel section below)
   
 ## Installation
-
 + Update to latest BIOS, load BIOS defaults, click advanced and change;
 ```
 Devices -> USB -> Port Device Charging Mode: off
@@ -46,17 +44,25 @@ Generate new serials with [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS). Th
 ## Post install
 - Remove express card icon: Run ```sudo mount -uw / && killall Finder && sudo mv /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu.bak && sudo touch /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu```
 - Please re-enable SIP if you don't need it disabled; change ```csr-active-config``` to ```00000000``` reboot and reset nvram. I have it disabled to make testing and undervolting easier
-- Check power management options with ```pmset -g``` and tweak to your liking
 - Check if TRIM is enabled, If not run ```sudo trimforce enable``` to enable it
-- Disable ```NVMeFix.kext``` if you don't have an NVMe drive
+- Disable ```NVMeFix.kext``` if you don't have an NVMe drive (optional)
+
+Finally make sure sleep works properly. You can skip some of these but it will make your machine wake up from time to time. Same as real Macs.
+```
+sudo pmset standby 0
+sudo pmset autopoweroff 0 
+sudo pmset proximitywake 0
+sudo pmset powernap 0 
+sudo pmset tcpkeepalive 0
+sudo pmset womp 0
+```
+The first two are needed the rest can be left on. Proximity wake can wake your machine when an iDevice is near. Power Nap wil lwake up the system from time to time to check mail, make backups, etc, etc. TCP keep alive has resovled periodic wake events after setting up iCloud. Womp is wake on lan, which is disabled in the BIOS as it (going by other people's experience) might cause issues. I never use WOL so no need to have it on. If you do use WOL please try enabling it in the BIOS and leave this setting on, the issues might have been bugs that haven been solved by now. Let me know if it works or not.
+
+That's it!
 
 > Tip: Once everything works and you installed and configured all your stuff, create a bootable clone of your system with a trial version of *Carbon Copy Cloner* or *Superduper!*. Don't forget to copy your EFI folder to the clone's EFI partition.
 
-
----
-
-
-### Big Sur
+## Big Sur
 + Near the end of the install the system volume will be cryptographically sealed, this will take [some](https://dortania.github.io/OpenCore-Install-Guide/extras/big-sur/#troubleshooting) time
 + Disable; powernap, wake on lan and other related options post-install (pmset/Hackintool)
 + Big Sur (for now) requires its own Black80211 kext which can be found [here](https://github.com/zearp/Nucintosh/raw/master/Stuff/Black80211-BigSur.kext.zip)
@@ -66,9 +72,6 @@ I got a bunch of errors about diskXs5s1, note the additonal s1, it was related t
 List the snapshots with ```diskutil apfs listSnapshots diskXs5s1``` and delete with ```diskutil apfs deleteSnapshot diskXs5s1 -uuid UUIDHERE```.
 
 This also fixed the -66 error when trying to remount the file system r/w.
-
-### Sleep
-After setting up iCloud I noticed some kind of scheduled wake-ups, running ```sudo pmset -a tcpkeepalive 0``` seems to have solved it. 
 
 ### Intel Bluetooth and wifi
 + Bluetooth works for HID devices such as mouse, keyboard and audio stuff.
@@ -80,14 +83,14 @@ After setting up iCloud I noticed some kind of scheduled wake-ups, running ```su
 
 For the best bluetooth and wifi experience consider getting a [supported](https://dortania.github.io/Wireless-Buyers-Guide/) wifi/bluetooth combo.
 
-### Not working/untested
+## Not working/untested
 + Thunderbolt (untested, usb-c works and TB should work...)
 + Card reader (sort of works with v2.3-beta2 of [this](https://github.com/cholonam/Sinetek-rts) kext)
 + IR receiver (it shows up in ioreg but no idea how to make macOS use it like on some MBP)
 + Handoff/AirDrop are not supported (yet) on Intel chips
 + 4K [might need](https://github.com/acidanthera/WhateverGreen/blob/master/Manual/FAQ.IntelHD.en.md#lspcon-driver-support-to-enable-displayport-to-hdmi-20-output-on-igpu) some additional parameters and port mapping
 
-### Performance, power and noise
+## Performance, power and noise
 While benchmarks don't really represent real life it can be handy when testing. In my tests undervolting didn't have any impact on Geekbench results scores. But using CPUFriend can have some impact on (immediate) performance depending on which power profile you select.
 
 * Without CPUFriend: ~915 / ~4000
