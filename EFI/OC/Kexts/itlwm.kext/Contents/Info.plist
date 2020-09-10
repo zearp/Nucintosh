@@ -17,27 +17,27 @@
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
-	<string>140</string>
+	<string>157</string>
 	<key>CFBundleSupportedPlatforms</key>
 	<array>
 		<string>MacOSX</string>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>140</string>
+	<string>157</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
-	<string>11E801a</string>
+	<string>11E608c</string>
 	<key>DTPlatformVersion</key>
 	<string>GM</string>
 	<key>DTSDKBuild</key>
-	<string>19G68</string>
+	<string>19E258</string>
 	<key>DTSDKName</key>
 	<string>macosx10.15</string>
 	<key>DTXcode</key>
-	<string>1170</string>
+	<string>1150</string>
 	<key>DTXcodeBuild</key>
-	<string>11E801a</string>
+	<string>11E608c</string>
 	<key>IOKitPersonalities</key>
 	<dict>
 		<key>itlwm</key>
@@ -82,6 +82,6 @@
 	<key>OSBundleRequired</key>
 	<string>Network-Root</string>
 	<key>XCBUILD</key>
-	<string>1.0.0</string>
+	<string>1.1.0</string>
 </dict>
 </plist>
