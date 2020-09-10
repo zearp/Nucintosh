@@ -70,7 +70,7 @@ That's all!
 
 ## Big Sur
 + Near the end of the install the system volume will be cryptographically sealed, this will take [some](https://dortania.github.io/OpenCore-Install-Guide/extras/big-sur/#troubleshooting) time
-+ Error 66 when trying to mount / in read/write mode and/or errors about diskXs5s1 when booting, this is due to apfs snapshots
++ Error 66 when trying to mount / in read/write mode and/or errors about diskXs5s1 when booting, this is due to apfs snapshots;
 
 Boot into recovery and open a terminal then list the snapshots with ```diskutil apfs listSnapshots diskXs5``` and delete them with ```diskutil apfs deleteSnapshot diskXs5 -uuid UUIDHERE```.
 
@@ -81,7 +81,7 @@ Replace diskX with the correct disk, if you only have one disk it will be disk1s
 + Bluetooth works for HID devices such as mouse, keyboard and audio stuff
   - Bluetooth may not always wake up after sleep in order to fix that you can grab a cheap dongle from [eBay](https://www.ebay.co.uk/itm/1PCS-Mini-USB-Bluetooth-V4-0-3Mbps-20M-Dongle-Dual-Mode-Wireless-Adapter-Device/324106977844) that works in macOS out of the box ~~and/or wait for the bugs te fixed~~ (bugs are due to Apple, the kext only loads the firmware). Don't forget to disable the Intel bluetooth kexts in the config and also disable bluetooth in the BIOS when using a dongle
 
-It is possible to use macOS to manage wireless networks, but it is still under heavy development and since beta 6 does not work on Big Sur anymore. To try you have to replace itlwm and add Black80211 by [usr-sse2](https://github.com/usr-sse2). Don't forget to add Black80211 to the config before rebooting.
+It is possible to use macOS to manage wireless networks, but it is still under heavy development and since beta 6 does not work on Big Sur anymore. To try you have to replace itlwm and add Black80211 kexts by [usr-sse2](https://github.com/usr-sse2). Don't forget to add Black80211 to the config before rebooting.
 
 For the best bluetooth and wifi experience consider getting a [supported](https://dortania.github.io/Wireless-Buyers-Guide/) wifi/bluetooth combo.
 
@@ -90,7 +90,7 @@ For the best bluetooth and wifi experience consider getting a [supported](https:
 + Card reader (sort of works with v2.3-beta2 of [this](https://github.com/cholonam/Sinetek-rts) kext)
 + IR receiver (it shows up in ioreg but no idea how to make macOS use it like on some MBP)
 + Handoff/AirDrop are not supported (yet) on Intel chips
-+ 4K [might need](https://github.com/acidanthera/WhateverGreen/blob/master/Manual/FAQ.IntelHD.en.md#lspcon-driver-support-to-enable-displayport-to-hdmi-20-output-on-igpu) some additional parameters and port mapping
++ 4K [might need](https://github.com/acidanthera/WhateverGreen/blob/master/Manual/FAQ.IntelHD.en.md#lspcon-driver-support-to-enable-displayport-to-hdmi-20-output-on-igpu) some additional parameters and a new portmap
 
 ## Performance, power and noise
 While benchmarks don't really represent real life it can be handy when testing. In my tests undervolting didn't have any impact on Geekbench results scores. But using CPUFriend can have some impact on (immediate) performance depending on which power profile you select.
