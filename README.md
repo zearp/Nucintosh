@@ -56,7 +56,7 @@ sudo pmset tcpkeepalive 0
 sudo pmset womp 0
 sudo pmset hibernatemode 0
 ```
-The first two are needed the rest can be left on. Proximity wake can wake your machine when an iDevice is near. Power Nap wil lwake up the system from time to time to check mail, make backups, etc, etc. TCP keep alive has resovled periodic wake events after setting up iCloud. Womp is wake on lan, which is disabled in the BIOS as it (going by other people's experience) might cause issues. I never use WOL so no need to have it on. If you do use WOL please try enabling it in the BIOS and leave this setting on, the issues might have been bugs that haven been solved by now. Let me know if it works or not. Hibernate is sometimes set to 3 in my testing. It could be possible to get hibernation to work by using (HibernationFixup)[https://github.com/acidanthera/HibernationFixup] but I haven't tested it. I'm fine with normal sleep.
+The first two are needed the rest can be left on. Proximity wake can wake your machine when an iDevice is near. Power Nap wil lwake up the system from time to time to check mail, make backups, etc, etc. TCP keep alive has resovled periodic wake events after setting up iCloud. Womp is wake on lan, which is disabled in the BIOS as it (going by other people's experience) might cause issues. I never use WOL so no need to have it on. If you do use WOL please try enabling it in the BIOS and leave this setting on, the issues might have been bugs that haven been solved by now. Let me know if it works or not. Hibernate is sometimes set to 3 in my testing. It could be possible to get hibernation to work by using [HibernationFixup](https://github.com/acidanthera/HibernationFixup) but I haven't tested it. I'm fine with normal sleep.
 
 With hibernation disabled you can delete the sleepimage file and create an empty folder in its place so macOS can't create it again, this saves some space and is optional.
 ```
@@ -64,7 +64,7 @@ sudo rm /var/vm/sleepimage
 sudo mkdir /var/vm/sleepimage
 ```
 
-That's it!
+That's all!
 
 > Tip: Once everything works and you installed and configured all your stuff, create a bootable clone of your system with a trial version of *Carbon Copy Cloner* or *Superduper!*. Don't forget to copy your EFI folder to the clone's EFI partition.
 
@@ -78,9 +78,9 @@ List the snapshots with ```diskutil apfs listSnapshots diskXs5s1``` and delete w
 This also fixed the -66 error when trying to remount the file system r/w.
 
 ### Intel Bluetooth and wifi
-+ To connect to wireless networks please use [HeliPort](https://github.com/OpenIntelWireless/HeliPort/releases)
-+ Bluetooth works for HID devices such as mouse, keyboard and audio stuff.
-  - Bluetooth may not always wake up after sleep in order to fix that you can grab a cheap dongle from [eBay](https://www.ebay.co.uk/itm/1PCS-Mini-USB-Bluetooth-V4-0-3Mbps-20M-Dongle-Dual-Mode-Wireless-Adapter-Device/324106977844) that works in macOS out of the box ~~and/or wait for the bugs te fixed~~ (bugs are due to Apple, the kext only loads the firmware). Don't forget to disable the Intel bluetooth kexts in the config and also disable bluetooth in the BIOS.
++ To connect to wireless networks please use [HeliPort](https://github.com/OpenIntelWireless/HeliPort/releases) or add them to the plist inside itlwm.kext like [this](https://github.com/OpenIntelWireless/itlwm/blob/master/itlwm/Info.plist)
++ Bluetooth works for HID devices such as mouse, keyboard and audio stuff
+  - Bluetooth may not always wake up after sleep in order to fix that you can grab a cheap dongle from [eBay](https://www.ebay.co.uk/itm/1PCS-Mini-USB-Bluetooth-V4-0-3Mbps-20M-Dongle-Dual-Mode-Wireless-Adapter-Device/324106977844) that works in macOS out of the box ~~and/or wait for the bugs te fixed~~ (bugs are due to Apple, the kext only loads the firmware). Don't forget to disable the Intel bluetooth kexts in the config and also disable bluetooth in the BIOS when using a dongle
 
 It is possible to use macOS to manage wireless networks, but it is still under heavy development and since beta 6 does not work on Big Sur anymore. To try you have to replace itlwm and add Black80211 by [usr-sse2](https://github.com/usr-sse2). Don't forget to add Black80211 to the config before rebooting.
 
