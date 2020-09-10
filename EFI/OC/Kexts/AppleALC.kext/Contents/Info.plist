@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.5.2</string>
+	<string>1.5.3</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleSupportedPlatforms</key>
@@ -25,11 +25,11 @@
 		<string>MacOSX</string>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1.5.2</string>
+	<string>1.5.3</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
-	<string>11E708</string>
+	<string>11E801a</string>
 	<key>DTPlatformVersion</key>
 	<string>GM</string>
 	<key>DTSDKBuild</key>
@@ -37,9 +37,9 @@
 	<key>DTSDKName</key>
 	<string>macosx10.15</string>
 	<key>DTXcode</key>
-	<string>1160</string>
+	<string>1170</string>
 	<key>DTXcodeBuild</key>
-	<string>11E708</string>
+	<string>11E801a</string>
 	<key>IOKitPersonalities</key>
 	<dict>
 		<key>HDA Hardware Config Resource</key>
@@ -10017,6 +10017,32 @@
 					<key>CodecID</key>
 					<integer>283904768</integer>
 					<key>CodecName</key>
+					<string>owen0o0 -  Realtek ALCS1200A</string>
+					<key>ConfigData</key>
+					<data>
+					AUccQAFHHVABRx4RAUcfkAFHDAIBZxxhAWcd
+					EAFnHgEBZx8BAVccYgFXHRABVx4BAVcfAQG3
+					HFABtx1AAbceIQG3HwIBtwwCAecccAHnHREB
+					5x5FAecfAQGHHBABhx0QAYceoQGHH5ABpxwg
+					AacdEAGnHoEBpx8BAZccgAGXHZABlx6hAZcf
+					AgF3HPABdx0AAXceAAF3H0ABFxzwARcdAAEX
+					HgABFx9A
+					</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>11</integer>
+					<key>WakeConfigData</key>
+					<data>
+					AUcMAgG3DAI=
+					</data>
+					<key>WakeVerbReinit</key>
+					<true/>
+				</dict>
+				<dict>
+					<key>CodecID</key>
+					<integer>283904768</integer>
+					<key>CodecName</key>
 					<string>VictorXu -  Realtek ALCS1200A for Asrock Z490M-ITX</string>
 					<key>ConfigData</key>
 					<data>
@@ -12063,32 +12089,6 @@
 					<key>WakeConfigData</key>
 					<data>
 					AUcMAgIXDAI=
-					</data>
-					<key>WakeVerbReinit</key>
-					<true/>
-				</dict>
-				<dict>
-					<key>CodecID</key>
-					<integer>283904768</integer>
-					<key>CodecName</key>
-					<string>owen0o0 -  Realtek ALCS1200A</string>
-					<key>ConfigData</key>
-					<data>
-					AUccEAFHHVABRx4RAUcfkQFHDAIBZxwRAWcd
-					EAFnHgEBZx8BAVccEgFXHRABVx4BAVcfAQG3
-					HCABtx1AAbceIQG3HwIBtwwCAeccMAHnHREB
-					5x5FAecfAQGHHEABhx0QAYceoQGHH5EBpxxA
-					AacdEAGnHoEBpx8BAZccUAGXHZABlx6BAZcf
-					AgF3HPABdx0AAXceAAF3H0ABFxzwARcdAAEX
-					HgABFx9A
-					</data>
-					<key>FuncGroup</key>
-					<integer>1</integer>
-					<key>LayoutID</key>
-					<integer>11</integer>
-					<key>WakeConfigData</key>
-					<data>
-					AUcMAgG3DAI=
 					</data>
 					<key>WakeVerbReinit</key>
 					<true/>
