@@ -63,7 +63,7 @@ That's it!
 > Tip: Once everything works and you installed and configured all your stuff, create a bootable clone of your system with a trial version of *Carbon Copy Cloner* or *Superduper!*. Don't forget to copy your EFI folder to the clone's EFI partition.
 
 ## Big Sur
-+ Beta 6; (the installer) won't boot unless you disable Black80211/itlwm and the IntelBluetooth kexts, they may require updates
++ Since beta 6; macOS won't boot unless you disable the Black80211 kext and replace the itlwm kext with [this](https://github.com/zearp/Nucintosh/raw/master/Stuff/itlwm.kext.zip) one, then use [HeliPort](https://github.com/OpenIntelWireless/HeliPort/releases) to connect to wifi's.
 + Near the end of the install the system volume will be cryptographically sealed, this will take [some](https://dortania.github.io/OpenCore-Install-Guide/extras/big-sur/#troubleshooting) time
 + Disable; powernap, wake on lan and other related options post-install (pmset/Hackintool)
 + Big Sur (for now) requires its own Black80211 kext which can be found [here](https://github.com/zearp/Nucintosh/raw/master/Stuff/Black80211-BigSur.kext.zip)
@@ -76,7 +76,7 @@ This also fixed the -66 error when trying to remount the file system r/w.
 
 ### Intel Bluetooth and wifi
 + Bluetooth works for HID devices such as mouse, keyboard and audio stuff.
-  - Bluetooth may not always wake up after sleep in order to fix that you can grab a cheap dongle from [eBay](https://www.ebay.co.uk/itm/1PCS-Mini-USB-Bluetooth-V4-0-3Mbps-20M-Dongle-Dual-Mode-Wireless-Adapter-Device/324106977844) that works in macOS out of the box ~~and/or wait for the bugs te fixed~~. Mind you, both these routes will only support HID devices. Don't forget to disable the Intel bluetooth kexts in the config and also disable bluetooth in the BIOS.
+  - Bluetooth may not always wake up after sleep in order to fix that you can grab a cheap dongle from [eBay](https://www.ebay.co.uk/itm/1PCS-Mini-USB-Bluetooth-V4-0-3Mbps-20M-Dongle-Dual-Mode-Wireless-Adapter-Device/324106977844) that works in macOS out of the box ~~and/or wait for the bugs te fixed~~ (bugs are due to Apple, the kext only loads the firmware). Don't forget to disable the Intel bluetooth kexts in the config and also disable bluetooth in the BIOS.
 + Wireless is now integrated with native macOS wireless management thanks to Black80211 and itlwm by [usr-sse2](https://github.com/usr-sse2).
   - Currently both 2.4 and 5ghz bands are scanned properly but sometimes it fails to auto-connect. Turning wifi off and on again works for the time being. Speeds are not yet n/ac/ax but for normal usage its fine.
  
