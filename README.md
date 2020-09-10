@@ -69,11 +69,12 @@ That's all!
 > Tip: Once everything works and you installed and configured all your stuff, create a bootable clone of your system with a trial version of *Carbon Copy Cloner* or *Superduper!*. Don't forget to copy your EFI folder to the clone's EFI partition.
 
 ## Big Sur
-Near the end of the install the system volume will be cryptographically sealed, this will take [some](https://dortania.github.io/OpenCore-Install-Guide/extras/big-sur/#troubleshooting) time. I alsop got a bunch of errors about diskXs5s1 when booting. note the additonal s1. It was related to an apfs snapshot. Booting into recovery and removing the snapshot fixed that.
++ Near the end of the install the system volume will be cryptographically sealed, this will take [some](https://dortania.github.io/OpenCore-Install-Guide/extras/big-sur/#troubleshooting) time
++ Error 66 when trying to mount / in read/write mode and/or errors about diskXs5s1 when booting, this is due to apfs snapshots
 
-List the snapshots with ```diskutil apfs listSnapshots diskXs5s1``` and delete with ```diskutil apfs deleteSnapshot diskXs5s1 -uuid UUIDHERE```.
+Boot into recovery and open a terminal then list the snapshots with ```diskutil apfs listSnapshots diskXs5``` and delete them with ```diskutil apfs deleteSnapshot diskXs5 -uuid UUIDHERE```.
 
-This also fixed the -66 error when trying to remount the file system r/w.
+Replace diskX with the correct disk, if you only have one disk it will be disk1s5. The UUID is the string above each snapshot.
 
 ### Intel Bluetooth and wifi
 + To connect to wireless networks please use [HeliPort](https://github.com/OpenIntelWireless/HeliPort/releases) or add them to the plist inside itlwm.kext like [this](https://github.com/OpenIntelWireless/itlwm/blob/master/itlwm/Info.plist)
