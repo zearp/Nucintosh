@@ -11,8 +11,8 @@ This is a quick and dirty repo for Intel NUC 8th gen computers. It should work o
   - IntelMausi
   - NVMeFix
   - CPUFriend
+  - OpenIntelWireless kexts for bluetooth and wifi
   - FakePCIID (without this audio over hdmi only works when re-plugging the cable)
-  - 
   
 ## Installation
 + Update to latest BIOS, load BIOS defaults, click advanced and change;
@@ -54,17 +54,22 @@ sudo pmset proximitywake 0
 sudo pmset powernap 0 
 sudo pmset tcpkeepalive 0
 sudo pmset womp 0
+sudo pmset hibernatemode 0
 ```
-The first two are needed the rest can be left on. Proximity wake can wake your machine when an iDevice is near. Power Nap wil lwake up the system from time to time to check mail, make backups, etc, etc. TCP keep alive has resovled periodic wake events after setting up iCloud. Womp is wake on lan, which is disabled in the BIOS as it (going by other people's experience) might cause issues. I never use WOL so no need to have it on. If you do use WOL please try enabling it in the BIOS and leave this setting on, the issues might have been bugs that haven been solved by now. Let me know if it works or not.
+The first two are needed the rest can be left on. Proximity wake can wake your machine when an iDevice is near. Power Nap wil lwake up the system from time to time to check mail, make backups, etc, etc. TCP keep alive has resovled periodic wake events after setting up iCloud. Womp is wake on lan, which is disabled in the BIOS as it (going by other people's experience) might cause issues. I never use WOL so no need to have it on. If you do use WOL please try enabling it in the BIOS and leave this setting on, the issues might have been bugs that haven been solved by now. Let me know if it works or not. Hibernate is sometimes set to 3 in my testing. It could be possible to get hibernation to work by using (HibernationFixup)[https://github.com/acidanthera/HibernationFixup] but I haven't tested it. I'm fine with normal sleep.
+
+With hibernation disabled you can delete the sleepimage file and create an empty folder in its place so macOS can't create it again, this saves some space and is optional.
+```
+sudo rm /var/vm/sleepimage
+sudo mkdir /var/vm/sleepimage
+```
 
 That's it!
 
 > Tip: Once everything works and you installed and configured all your stuff, create a bootable clone of your system with a trial version of *Carbon Copy Cloner* or *Superduper!*. Don't forget to copy your EFI folder to the clone's EFI partition.
 
 ## Big Sur
-+ Since beta 6; macOS won't boot unless you disable Black80211 and replace the itlwm with [this](https://github.com/zearp/Nucintosh/raw/master/Stuff/itlwm.kext.zip) one, then use [HeliPort](https://github.com/OpenIntelWireless/HeliPort/releases) to connect to wifi's.
 + Near the end of the install the system volume will be cryptographically sealed, this will take [some](https://dortania.github.io/OpenCore-Install-Guide/extras/big-sur/#troubleshooting) time
-+ Disable; powernap, wake on lan and other related options post-install (pmset/Hackintool)
 
 I got a bunch of errors about diskXs5s1, note the additonal s1, it was related to an apfs snapshot. Booting into recovery and removing the snapshot fixed that.
 
