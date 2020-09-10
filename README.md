@@ -63,10 +63,9 @@ That's it!
 > Tip: Once everything works and you installed and configured all your stuff, create a bootable clone of your system with a trial version of *Carbon Copy Cloner* or *Superduper!*. Don't forget to copy your EFI folder to the clone's EFI partition.
 
 ## Big Sur
-+ Since beta 6; macOS won't boot unless you disable the Black80211 kext and replace the itlwm kext with [this](https://github.com/zearp/Nucintosh/raw/master/Stuff/itlwm.kext.zip) one, then use [HeliPort](https://github.com/OpenIntelWireless/HeliPort/releases) to connect to wifi's.
++ Since beta 6; macOS won't boot unless you disable Black80211 and replace the itlwm with [this](https://github.com/zearp/Nucintosh/raw/master/Stuff/itlwm.kext.zip) one, then use [HeliPort](https://github.com/OpenIntelWireless/HeliPort/releases) to connect to wifi's.
 + Near the end of the install the system volume will be cryptographically sealed, this will take [some](https://dortania.github.io/OpenCore-Install-Guide/extras/big-sur/#troubleshooting) time
 + Disable; powernap, wake on lan and other related options post-install (pmset/Hackintool)
-+ Big Sur (for now) requires its own Black80211 kext which can be found [here](https://github.com/zearp/Nucintosh/raw/master/Stuff/Black80211-BigSur.kext.zip)
 
 I got a bunch of errors about diskXs5s1, note the additonal s1, it was related to an apfs snapshot. Booting into recovery and removing the snapshot fixed that.
 
