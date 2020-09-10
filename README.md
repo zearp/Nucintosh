@@ -63,6 +63,7 @@ That's it!
 > Tip: Once everything works and you installed and configured all your stuff, create a bootable clone of your system with a trial version of *Carbon Copy Cloner* or *Superduper!*. Don't forget to copy your EFI folder to the clone's EFI partition.
 
 ## Big Sur
++ Beta 6; (the installer) won't boot unless you disable Black80211/itlwm and the IntelBluetooth kexts, they may require updates
 + Near the end of the install the system volume will be cryptographically sealed, this will take [some](https://dortania.github.io/OpenCore-Install-Guide/extras/big-sur/#troubleshooting) time
 + Disable; powernap, wake on lan and other related options post-install (pmset/Hackintool)
 + Big Sur (for now) requires its own Black80211 kext which can be found [here](https://github.com/zearp/Nucintosh/raw/master/Stuff/Black80211-BigSur.kext.zip)
