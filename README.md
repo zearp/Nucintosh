@@ -11,9 +11,8 @@ This is a quick and dirty repo for Intel NUC 8th gen computers. It should work o
   - IntelMausi
   - NVMeFix
   - CPUFriend
-  - usr-sse2's itlwm + Black80211 forks
   - FakePCIID (without this audio over hdmi only works when re-plugging the cable)
-  - IntelBluetoothFirmware (unstable, see Intel section below)
+  - 
   
 ## Installation
 + Update to latest BIOS, load BIOS defaults, click advanced and change;
@@ -74,12 +73,11 @@ List the snapshots with ```diskutil apfs listSnapshots diskXs5s1``` and delete w
 This also fixed the -66 error when trying to remount the file system r/w.
 
 ### Intel Bluetooth and wifi
++ To connect to wireless networks please use [HeliPort](https://github.com/OpenIntelWireless/HeliPort/releases)
 + Bluetooth works for HID devices such as mouse, keyboard and audio stuff.
   - Bluetooth may not always wake up after sleep in order to fix that you can grab a cheap dongle from [eBay](https://www.ebay.co.uk/itm/1PCS-Mini-USB-Bluetooth-V4-0-3Mbps-20M-Dongle-Dual-Mode-Wireless-Adapter-Device/324106977844) that works in macOS out of the box ~~and/or wait for the bugs te fixed~~ (bugs are due to Apple, the kext only loads the firmware). Don't forget to disable the Intel bluetooth kexts in the config and also disable bluetooth in the BIOS.
-+ Wireless is now integrated with native macOS wireless management thanks to Black80211 and itlwm by [usr-sse2](https://github.com/usr-sse2).
-  - Currently both 2.4 and 5ghz bands are scanned properly but sometimes it fails to auto-connect. Turning wifi off and on again works for the time being. Speeds are not yet n/ac/ax but for normal usage its fine.
- 
-> Please note that bluetooth and wifi integration is very recent and active development. So it may not work optimally yet. If you experience issues please replace ```itlwm.kext``` with the one found [here](https://github.com/zearp/Nucintosh/raw/master/Stuff/itlwm.kext.zip) ***and*** set the loading of ```Black80211.kext``` to *false* in the config. Then use [HeliPort](https://github.com/OpenIntelWireless/HeliPort/releases) to connect to a wireless network instead.
+
+It is possible to use macOS to manage wireless networks, but it is still under heavy development and since beta 6 does not work on Big Sur anymore. To try you have to replace itlwm and add Black80211 by [usr-sse2](https://github.com/usr-sse2). Don't forget to add Black80211 to the config before rebooting.
 
 For the best bluetooth and wifi experience consider getting a [supported](https://dortania.github.io/Wireless-Buyers-Guide/) wifi/bluetooth combo.
 
@@ -116,10 +114,9 @@ My only complaint is the rough finish. I wish they would've skipped on those che
 
 ## Credits
 + https://github.com/acidanthera
-+ https://github.com/usr-sse2
++ https://github.com/OpenIntelWireless
 + https://dortania.github.io/OpenCore-Install-Guide/config.plist/coffee-lake.html
 + https://github.com/Rashed97/Intel-NUC-DSDT-Patch/commit/47476815b52f8e4c97e8f85df158c9ab1b6ecedd
 + https://github.com/csrutil/NUC8I5BEH
 + https://github.com/honglov3/NUC8I7BEH
 + https://github.com/sarkrui/NUC8i7BEH-Hackintosh-Build
-+ https://github.com/OpenIntelWireless/IntelBluetoothFirmware
