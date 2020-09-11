@@ -77,7 +77,7 @@ Boot into recovery and open a terminal then list the snapshots with ```diskutil 
 
 Replace diskX with the correct disk, if you only have one disk it will be disk1s5. The UUID is the string above each snapshot.
 
-### Intel Bluetooth and wifi
+## Intel Bluetooth and wifi
 + To connect to wireless networks please use [HeliPort](https://github.com/OpenIntelWireless/HeliPort/releases) or add them to the plist inside itlwm.kext like [this](https://github.com/OpenIntelWireless/itlwm/blob/master/itlwm/Info.plist)
 + Bluetooth works for HID devices such as mouse, keyboard and audio stuff
   - Bluetooth may not always wake up after sleep in order to fix that you can grab a cheap dongle from [eBay](https://www.ebay.co.uk/itm/1PCS-Mini-USB-Bluetooth-V4-0-3Mbps-20M-Dongle-Dual-Mode-Wireless-Adapter-Device/324106977844) that works in macOS out of the box ~~and/or wait for the bugs te fixed~~ (bugs are due to Apple, the kext only loads the firmware). Don't forget to disable the Intel bluetooth kexts in the config and also disable bluetooth in the BIOS when using a dongle
