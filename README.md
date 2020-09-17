@@ -68,6 +68,7 @@ That's all!
 > Tip: Once everything works and you installed and configured all your stuff, create a bootable clone of your system with a trial version of *Carbon Copy Cloner* or *Superduper!*. Don't forget to copy your EFI folder to the clone's EFI partition.
 
 ## Big Sur
++ Big Sur needs its own version of Airportitlwm, download the kext [here](https://github.com/OpenIntelWireless/itlwm/releases/download/v1.1.0/AirportItlwm_v1.0_Beta_BigSur.kext.zip) and put it in the kext folder replacing the other one
 + Near the end of the install the system volume will be cryptographically sealed, this will take [some](https://dortania.github.io/OpenCore-Install-Guide/extras/big-sur/#troubleshooting) time
 + To fully disable SIP you need to change ```csr-active-config``` to FF0F0000 in the config
 + Error 66 when trying to mount / in read/write mode and/or errors about diskXs5s1 when booting, this is due to apfs snapshots;
@@ -77,11 +78,8 @@ Boot into recovery and open a terminal then list the snapshots with ```diskutil 
 Replace diskX with the correct disk, if you only have one disk it will be disk1s5. The UUID is the string above each snapshot.
 
 ## Intel Bluetooth and wifi
-+ To connect to wireless networks please use [HeliPort](https://github.com/OpenIntelWireless/HeliPort/releases) or add them to the plist inside itlwm.kext like [this](https://github.com/OpenIntelWireless/itlwm/blob/master/itlwm/Info.plist)
 + Bluetooth works for HID devices such as mouse, keyboard and audio stuff
   - Bluetooth may not always wake up after sleep in order to fix that you can grab a cheap dongle from [eBay](https://www.ebay.co.uk/itm/1PCS-Mini-USB-Bluetooth-V4-0-3Mbps-20M-Dongle-Dual-Mode-Wireless-Adapter-Device/324106977844) that works in macOS out of the box ~~and/or wait for the bugs te fixed~~ (bugs are due to Apple, the kext only loads the firmware). Don't forget to disable the Intel bluetooth kexts in the config and also disable bluetooth in the BIOS when using a dongle
-
-It is possible to use macOS to manage wireless networks, but it is still under heavy development and since beta 6 does not work on Big Sur anymore. To try you have to replace itlwm and add Black80211 kexts by [usr-sse2](https://github.com/usr-sse2). Don't forget to add Black80211 to the config before rebooting.
 
 For the best bluetooth and wifi experience consider getting a [supported](https://dortania.github.io/Wireless-Buyers-Guide/) wifi/bluetooth combo.
 
