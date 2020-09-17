@@ -17,27 +17,27 @@
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
-	<string>157</string>
+	<string>174</string>
 	<key>CFBundleSupportedPlatforms</key>
 	<array>
 		<string>MacOSX</string>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>157</string>
+	<string>174</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
-	<string>11E608c</string>
+	<string>11E801a</string>
 	<key>DTPlatformVersion</key>
 	<string>GM</string>
 	<key>DTSDKBuild</key>
-	<string>19E258</string>
+	<string>19G68</string>
 	<key>DTSDKName</key>
 	<string>macosx10.15</string>
 	<key>DTXcode</key>
-	<string>1150</string>
+	<string>1170</string>
 	<key>DTXcodeBuild</key>
-	<string>11E608c</string>
+	<string>11E801a</string>
 	<key>IOKitPersonalities</key>
 	<dict>
 		<key>itlwm</key>
@@ -61,7 +61,7 @@
 		</dict>
 	</dict>
 	<key>LSMinimumSystemVersion</key>
-	<string>10.12</string>
+	<string>10.15</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2020 钟先耀. All rights reserved.</string>
 	<key>OSBundleLibraries</key>
