@@ -479,9 +479,9 @@
 				<key>MinKernel</key>
 				<string></string>
 				<key>ExecutablePath</key>
-				<string>Contents/MacOS/itlwm</string>
+				<string>Contents/MacOS/AirportItlwm</string>
 				<key>BundlePath</key>
-				<string>itlwm.kext</string>
+				<string>AirportItlwm.kext</string>
 			</dict>
 		</array>
 		<key>Block</key>

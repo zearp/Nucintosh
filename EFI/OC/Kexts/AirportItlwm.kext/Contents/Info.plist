@@ -7,23 +7,23 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
-	<string>itlwm</string>
+	<string>AirportItlwm</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.zxystd.itlwm</string>
+	<string>com.zxystd.AirportItlwm</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>itlwm</string>
+	<string>AirportItlwm</string>
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
-	<string>174</string>
+	<string>1.0</string>
 	<key>CFBundleSupportedPlatforms</key>
 	<array>
 		<string>MacOSX</string>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>174</string>
+	<string>1</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
@@ -43,9 +43,9 @@
 		<key>itlwm</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
-			<string>com.zxystd.itlwm</string>
+			<string>com.zxystd.AirportItlwm</string>
 			<key>IOClass</key>
-			<string>itlwm</string>
+			<string>AirportItlwm</string>
 			<key>IOMatchCategory</key>
 			<string>IODefaultMatchCategory</string>
 			<key>IOPCIPrimaryMatch</key>
@@ -54,10 +54,37 @@
 			<integer>2000</integer>
 			<key>IOProviderClass</key>
 			<string>IOPCIDevice</string>
-			<key>IOUserClientClass</key>
-			<string>ItlNetworkUserClient</string>
 			<key>WiFiConfig</key>
-			<dict/>
+			<dict>
+				<key>WiFi_1</key>
+				<dict>
+					<key>password</key>
+					<string>zxyssdt112233</string>
+					<key>ssid</key>
+					<string>ssdt</string>
+				</dict>
+				<key>WiFi_2</key>
+				<dict>
+					<key>password</key>
+					<string>zxyssdt112233</string>
+					<key>ssid</key>
+					<string>ssdt_5G</string>
+				</dict>
+				<key>WiFi_3</key>
+				<dict>
+					<key>password</key>
+					<string></string>
+					<key>ssid</key>
+					<string>Redmi</string>
+				</dict>
+				<key>WiFi_4</key>
+				<dict>
+					<key>password</key>
+					<string>9utc5c5f</string>
+					<key>ssid</key>
+					<string>CMCC-KtG6</string>
+				</dict>
+			</dict>
 		</dict>
 	</dict>
 	<key>LSMinimumSystemVersion</key>
@@ -66,6 +93,8 @@
 	<string>Copyright © 2020 钟先耀. All rights reserved.</string>
 	<key>OSBundleLibraries</key>
 	<dict>
+		<key>com.apple.iokit.IO80211Family</key>
+		<string>1200.12.2b1</string>
 		<key>com.apple.iokit.IONetworkingFamily</key>
 		<string>3.2</string>
 		<key>com.apple.iokit.IOPCIFamily</key>
@@ -79,9 +108,5 @@
 		<key>com.apple.kpi.mach</key>
 		<string>16.7</string>
 	</dict>
-	<key>OSBundleRequired</key>
-	<string>Network-Root</string>
-	<key>XCBUILD</key>
-	<string>1.1.0</string>
 </dict>
 </plist>
