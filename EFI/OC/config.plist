@@ -159,7 +159,7 @@
 			<key>FadtEnableReset</key>
 			<false/>
 			<key>NormalizeHeaders</key>
-			<true/>
+			<false/>
 			<key>RebaseRegions</key>
 			<false/>
 			<key>ResetHwSig</key>
@@ -178,7 +178,7 @@
 			<key>AvoidRuntimeDefrag</key>
 			<true/>
 			<key>DevirtualiseMmio</key>
-			<false/>
+			<true/>
 			<key>DisableSingleUser</key>
 			<false/>
 			<key>DisableVariableWrite</key>
@@ -188,7 +188,7 @@
 			<key>EnableSafeModeSlide</key>
 			<true/>
 			<key>EnableWriteUnprotector</key>
-			<true/>
+			<false/>
 			<key>ForceExitBootServices</key>
 			<false/>
 			<key>ProtectMemoryRegions</key>
@@ -196,7 +196,7 @@
 			<key>ProtectSecureBoot</key>
 			<false/>
 			<key>ProtectUefiServices</key>
-			<false/>
+			<true/>
 			<key>ProvideCustomSlide</key>
 			<false/>
 			<key>ProvideMaxSlide</key>
@@ -367,38 +367,6 @@
 				<key>MinKernel</key>
 				<string></string>
 				<key>ExecutablePath</key>
-				<string>Contents/MacOS/IntelBluetoothFirmware</string>
-				<key>BundlePath</key>
-				<string>IntelBluetoothFirmware.kext</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string></string>
-				<key>MaxKernel</key>
-				<string></string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
-				<key>Enabled</key>
-				<true/>
-				<key>MinKernel</key>
-				<string></string>
-				<key>ExecutablePath</key>
-				<string></string>
-				<key>BundlePath</key>
-				<string>IntelBluetoothInjector.kext</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string></string>
-				<key>MaxKernel</key>
-				<string></string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
-				<key>Enabled</key>
-				<true/>
-				<key>MinKernel</key>
-				<string></string>
-				<key>ExecutablePath</key>
 				<string>Contents/MacOS/IntelMausi</string>
 				<key>BundlePath</key>
 				<string>IntelMausi.kext</string>
@@ -482,6 +450,38 @@
 				<string>Contents/MacOS/AirportItlwm</string>
 				<key>BundlePath</key>
 				<string>AirportItlwm.kext</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string></string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+				<key>Enabled</key>
+				<true/>
+				<key>MinKernel</key>
+				<string></string>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/IntelBluetoothFirmware</string>
+				<key>BundlePath</key>
+				<string>IntelBluetoothFirmware.kext</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string></string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+				<key>Enabled</key>
+				<true/>
+				<key>MinKernel</key>
+				<string></string>
+				<key>ExecutablePath</key>
+				<string></string>
+				<key>BundlePath</key>
+				<string>IntelBluetoothInjector.kext</string>
 			</dict>
 		</array>
 		<key>Block</key>
@@ -660,10 +660,10 @@
 				<string>-v</string>
 				<key>csr-active-config</key>
 				<data>/wcAAA==</data>
-				<key>nvda_drv</key>
-				<data>MQ==</data>
 				<key>prev-lang:kbd</key>
 				<data>ZW4tQ046MjUy</data>
+				<key>run-efi-updater</key>
+				<string>No</string>
 			</dict>
 		</dict>
 		<key>Delete</key>
