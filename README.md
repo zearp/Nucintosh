@@ -21,7 +21,7 @@ Devices -> USB -> USB Legacy: off
 Devices -> USB -> Port Device Charging Mode: off
 Security -> Thunderbolt Security Level: Legacy Mode
 Power -> Wake on LAN from S4/S5: Stay Off
-Boot -> Boot Priority -> UEFI + legacy: Enable
+Boot -> Boot Priority -> UEFI: Enable + Legacy: Disable
 Boot -> Boot Configuration -> Network Boot: Disable
 Boot -> Secure Boot -> Disable
 ```
