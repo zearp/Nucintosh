@@ -85,8 +85,10 @@ Replace diskX with the correct disk, if you only have one disk it will be disk1s
 
 For the best bluetooth and wifi experience consider getting a [supported](https://dortania.github.io/Wireless-Buyers-Guide/) wifi/bluetooth combo.
 
+## ThunderBolt
+Should work as long as it's set to legacy mode. Thanks to [crp724](https://github.com/zearp/Nucintosh/issues/3) for confirming. He also confirmed eGPU works in his Mantiz TB3 enclosure. I assume that if eGPU works then all other Thunderbolt stuff works as well.
+
 ## Not working/untested
-+ Thunderbolt (untested, usb-c works and TB should work...)
 + Card reader (sort of works with v2.3-beta2 of [this](https://github.com/cholonam/Sinetek-rts) kext)
 + IR receiver (it shows up in ioreg but no idea how to make macOS use it like on some MBP)
 + Handoff/AirDrop are not supported (yet) on Intel chips
