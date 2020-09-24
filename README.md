@@ -91,8 +91,8 @@ Should work as long as it's set to legacy mode. Thanks to [crp724](https://githu
 ## Not working/untested
 + Card reader (sort of works with v2.3-beta2 of [this](https://github.com/cholonam/Sinetek-rts) kext)
 + IR receiver (it shows up in ioreg but no idea how to make macOS use it like on some MBP)
-+ Handoff/AirDrop are not supported (yet) on Intel chips
-+ 4K [might need](https://github.com/acidanthera/WhateverGreen/blob/master/Manual/FAQ.IntelHD.en.md#lspcon-driver-support-to-enable-displayport-to-hdmi-20-output-on-igpu) some additional parameters and a new portmap
++ ~~Handoff/AirDrop are not supported (yet) on Intel chips~~ Should now work, requires devices to be signed in to same iCloud
++ ~~4K [might need](https://github.com/acidanthera/WhateverGreen/blob/master/Manual/FAQ.IntelHD.en.md#lspcon-driver-support-to-enable-displayport-to-hdmi-20-output-on-igpu) some additional parameters and a new portmap~~ 4k also confirmed working. Thanks again to [crp724](https://github.com/zearp/Nucintosh/issues/3)
 
 ## Performance, power and noise
 While benchmarks don't really represent real life it can be handy when testing. In my tests undervolting didn't have any impact on Geekbench results scores. But using CPUFriend can have some impact on (immediate) performance depending on which power profile you select.
