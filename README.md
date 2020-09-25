@@ -17,7 +17,6 @@ This is a quick and dirty repo for Intel NUC 8th gen computers. It should work o
 ## Installation
 + Update to latest BIOS, load BIOS defaults, click advanced and change;
 ```
-Devices -> USB -> USB Legacy: off
 Devices -> USB -> Port Device Charging Mode: off
 Security -> Thunderbolt Security Level: Legacy Mode
 Power -> Wake on LAN from S4/S5: Stay Off
@@ -99,13 +98,14 @@ Should work as long as ThunderBolt security is set to legacy mode. Thanks to [cr
 + Bluetooth works for HID devices such as mouse, keyboard and audio stuff but connectiosn are flaky. It may also not wake up from sleep properly
 
 ## Natively supported bluetooth dongle
-I often use these cheap dongles rom [eBay](https://www.ebay.co.uk/itm/1PCS-Mini-USB-Bluetooth-V4-0-3Mbps-20M-Dongle-Dual-Mode-Wireless-Adapter-Device/324106977844) that work in macOS out of the box. When going this route don't forget to disable the Intel bluetooth kexts in the config and also disable bluetooth in the BIOS when using a dongle. You will also need to map the port it connects to as internal else sleep will be dodgy. You can do this easily by setting the port type to 255 in the USBPorts.kext info.plist file. You can find the port identifier (example HS03) with Hackintool.
+I often use these cheap dongles from [eBay](https://www.ebay.co.uk/itm/1PCS-Mini-USB-Bluetooth-V4-0-3Mbps-20M-Dongle-Dual-Mode-Wireless-Adapter-Device/324106977844) that work in macOS out of the box. When going this route don't forget to disable the Intel bluetooth kexts in the config and also disable bluetooth in the BIOS when using a dongle. You will also need to map the port it connects to as internal else sleep will be dodgy. You can do this easily by setting the port type to 255 in the USBPorts.kext info.plist file. You can find the port identifier (example HS03) with Hackintool.
 
 ## Not working/untested
 + Card reader (sort of works with v2.3-beta2 of [this](https://github.com/cholonam/Sinetek-rts) kext)
 + IR receiver (it shows up in ioreg but no idea how to make macOS use it like on some MBP)
 + ~~Handoff/AirDrop are not supported (yet) on Intel chips~~ Should work now, untested by me
-+ ~~4K [might need](https://github.com/acidanthera/WhateverGreen/blob/master/Manual/FAQ.IntelHD.en.md#lspcon-driver-support-to-enable-displayport-to-hdmi-20-output-on-igpu) some additional parameters and a new portmap~~ 4k also confirmed working. Thanks again to [crp724](https://github.com/zearp/Nucintosh/issues/3)
++ ~~4K [might need](https://github.com/acidanthera/WhateverGreen/blob/master/Manual/FAQ.IntelHD.en.md#lspcon-driver-support-to-enable-displayport-to-hdmi-20-output-on-igpu) some additional parameters and a new portmap~~ 4K confirmed working. Thanks again to [crp724](https://github.com/zearp/Nucintosh/issues/3)
++ You tell me!
 
 ## Performance, power and noise
 While benchmarks don't really represent real life it can be handy when testing. In my tests undervolting didn't have any impact on Geekbench results scores. But using CPUFriend can have some impact on (immediate) performance depending on which power profile you select.
