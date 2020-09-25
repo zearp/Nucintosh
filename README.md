@@ -78,10 +78,18 @@ Boot into recovery and open a terminal then list the snapshots with ```diskutil 
 
 Replace diskX with the correct disk, if you only have one disk it will be disk1s5. The UUID is the string above each snapshot.
 
-## Apple bluetooth and wifi
-For the best bluetooth and wifi experience consider getting a [supported](https://dortania.github.io/Wireless-Buyers-Guide/) wifi/bluetooth combo. Or even better, grab an Apple 6+12 pin to m.2 M-key [converter card](https://github.com/zearp/Nucintosh/blob/master/Stuff/NUC8-m2adapter.jpg?raw=true) and use a real Apple card like the BCM94360CS2.
+## Apple/3rd party bluetooth and wifi
+For the best bluetooth and wifi experience (HandOff, Sidecar, Airdrop, etc) consider getting a [supported](https://dortania.github.io/Wireless-Buyers-Guide/) wifi/bluetooth combo. You will need to add some kexts for these cards ([AirportBrcmFixup](https://github.com/acidanthera/AirportBrcmFixup) + [BrcmPatchRAM](https://github.com/acidanthera/BrcmPatchRAM)), read the instructions on the repo's and you'll be up and running in no time. You'll also want to set your country/region to ```#a``` as it allows for full 80mhz channel width on ac cards. It might not be a 100% legal depending on where you live. I've used this method on a few DW1820A cards and the speed increase was pretty amazing. This method may also apply when using real Apple cards, you will need AirportBrcmFixup to change the region/country.
 
-Some sellers on AliExpress have ones that already have the small 1.25mm pitch jst connector on it. They usally list them as NUC8 compatible. Most other cards do not come with this conenctor so you'd have to make your own. Mine came with a cable with standard internal usb header and a cable without any plugs so you can attach your own. Check the listing carefully before ordering. Also make sure the spacing pillar is in the correct position. Don't short the poor Airport out.
+Note: If the supported wireless card is not M key you will need a converter card for it. I don't think compatible M key cards exist.
+
+My preffered option is to grab an Apple 6+12 pin to m.2 M-key [converter card](https://dortania.github.io/Wireless-Buyers-Guide/Airport.html) and go native with something like the BCM94360CS2. Please note the number of antenna connectors. Some have more than 2, so you'll have to add some antenna's and maybe even mod your case.
+
+Some sellers on AliExpress have converter cards that already have [the small 1.25mm pitch jst](https://github.com/zearp/Nucintosh/blob/master/Stuff/NUC8-m2adapter.jpg?raw=true) connector on it. It connects to one of the two internal usb ports. I use one without issues in my NUC. They usally list them as NUC8 compatible and cost a bit more than other converter cards.
+
+Those other cards (and 3rd party ones) do not come with this connector so you'd have to make your own. My cheaper eBay card came with a cable with standard internal usb header and a cable without any plugs so you can attach your own. Check the listing carefully before ordering. Also make sure it converts to M key and once you have it that the spacing pillar is in the correct position. Don't short the poor Airport out.
+
+> Note: Going this route means you have to remap your usb ports. Which is quite easy and fast on the NUC as it has so few ports.
 
 ## ThunderBolt
 Should work as long as ThunderBolt security is set to legacy mode. Thanks to [crp724](https://github.com/zearp/Nucintosh/issues/3) for confirming. He also confirmed eGPU works in his Mantiz TB3 enclosure. I assume that if eGPU works then all other ThunderBolt stuff works as well.
