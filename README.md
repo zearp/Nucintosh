@@ -104,7 +104,7 @@ I often use these cheap dongles rom [eBay](https://www.ebay.co.uk/itm/1PCS-Mini-
 ## Not working/untested
 + Card reader (sort of works with v2.3-beta2 of [this](https://github.com/cholonam/Sinetek-rts) kext)
 + IR receiver (it shows up in ioreg but no idea how to make macOS use it like on some MBP)
-+ ~~Handoff/AirDrop are not supported (yet) on Intel chips~~ Should now work, requires devices to be signed in to same iCloud
++ ~~Handoff/AirDrop are not supported (yet) on Intel chips~~ Should work now, untested by me
 + ~~4K [might need](https://github.com/acidanthera/WhateverGreen/blob/master/Manual/FAQ.IntelHD.en.md#lspcon-driver-support-to-enable-displayport-to-hdmi-20-output-on-igpu) some additional parameters and a new portmap~~ 4k also confirmed working. Thanks again to [crp724](https://github.com/zearp/Nucintosh/issues/3)
 
 ## Performance, power and noise
