@@ -17,7 +17,6 @@ This is a quick and dirty repo for Intel NUC 8th gen computers. It should work o
 ## Installation
 + Update to latest BIOS, load BIOS defaults, click advanced and change;
 ```
-Devices -> USB -> USB Legacy: off
 Devices -> USB -> Port Device Charging Mode: off
 Security -> Thunderbolt Security Level: Legacy Mode
 Power -> Wake on LAN from S4/S5: Stay Off
@@ -25,7 +24,7 @@ Boot -> Boot Priority -> UEFI: Enable + Legacy: Disable
 Boot -> Boot Configuration -> Network Boot: Disable
 Boot -> Secure Boot -> Disable
 ```
-+ Download macOS App Store and create a USB installer with *[createinstallmedia](https://support.apple.com/en-us/HT201372)* on macOS (real mac/hack or vm) or use [gibMacOS](https://github.com/corpnewt/gibMacOS)\*
++ Download macOS form the App Store and create a USB installer with *[createinstallmedia](https://support.apple.com/en-us/HT201372)* on macOS (real mac/hack or vm) or use [gibMacOS](https://github.com/corpnewt/gibMacOS)\*
 + Download [this repo](https://github.com/zearp/Nucintosh/archive/master.zip) and extract the EFI folder from the archive
 + Edit config.plist with [ProperTree](https://github.com/corpnewt/ProperTree) and change the following fields;
 ```
@@ -78,21 +77,35 @@ Boot into recovery and open a terminal then list the snapshots with ```diskutil 
 
 Replace diskX with the correct disk, if you only have one disk it will be disk1s5. The UUID is the string above each snapshot.
 
-## Intel Bluetooth and wifi
-+ Wifi works and can be managed using native tools, speeds are still slow but connections are stable
-+ Bluetooth works for HID devices such as mouse, keyboard and audio stuff
-  - Bluetooth may not always wake up after sleep in order to fix that you can grab a cheap dongle from [eBay](https://www.ebay.co.uk/itm/1PCS-Mini-USB-Bluetooth-V4-0-3Mbps-20M-Dongle-Dual-Mode-Wireless-Adapter-Device/324106977844) that works in macOS out of the box ~~and/or wait for the bugs te fixed~~ (bugs are due to Apple, the kext only loads the firmware). Don't forget to disable the Intel bluetooth kexts in the config and also disable bluetooth in the BIOS when using a dongle
+## Apple/3rd party bluetooth and wifi
+For the best bluetooth and wifi experience (HandOff, Sidecar, Airdrop, etc) consider getting a [supported](https://dortania.github.io/Wireless-Buyers-Guide/) wifi/bluetooth combo. You will need to add some kexts for these cards ([AirportBrcmFixup](https://github.com/acidanthera/AirportBrcmFixup) + [BrcmPatchRAM](https://github.com/acidanthera/BrcmPatchRAM)), read the instructions on the repo's and you'll be up and running in no time. You'll also want to set your country/region to ```#a``` as it allows for full 80mhz channel width on ac cards. It might not be a 100% legal depending on where you live. I've used this method on a few DW1820A cards and the speed increase was pretty amazing. This method may also apply when using real Apple cards, you will need AirportBrcmFixup to change the region/country.
 
-For the best bluetooth and wifi experience consider getting a [supported](https://dortania.github.io/Wireless-Buyers-Guide/) wifi/bluetooth combo.
+Note: If the supported wireless card is not M key you will need a converter card for it. I don't think compatible M key cards exist.
+
+My preffered option is to grab an Apple 6+12 pin to m.2 M-key [converter card](https://dortania.github.io/Wireless-Buyers-Guide/Airport.html) and go native with something like the BCM94360CS2. Please note the number of antenna connectors. Some have more than 2, so you'll have to add some antenna's and maybe even mod your case.
+
+Some sellers on AliExpress have converter cards that already have [the small 1.25mm pitch jst](https://github.com/zearp/Nucintosh/blob/master/Stuff/NUC8-m2adapter.jpg?raw=true) connector on it. It connects to one of the two internal usb ports. I use one without issues in my NUC. They usally list them as NUC8 compatible and cost a bit more than other converter cards.
+
+Those other cards (and 3rd party ones) do not come with this connector so you'd have to make your own. My cheaper eBay card came with a cable with standard internal usb header and a cable without any plugs so you can attach your own. Check the listing carefully before ordering. Also make sure it converts to M key and once you have it that the spacing pillar is in the correct position. Don't short the poor Airport out.
+
+> Note: Going this route means you have to remap your usb ports. Which is quite easy and fast on the NUC as it has so few ports.
 
 ## ThunderBolt
-Should work as long as it's set to legacy mode. Thanks to [crp724](https://github.com/zearp/Nucintosh/issues/3) for confirming. He also confirmed eGPU works in his Mantiz TB3 enclosure. I assume that if eGPU works then all other Thunderbolt stuff works as well.
+Should work as long as ThunderBolt security is set to legacy mode. Thanks to [crp724](https://github.com/zearp/Nucintosh/issues/3) for confirming. He also confirmed eGPU works in his Mantiz TB3 enclosure. I assume that if eGPU works then all other ThunderBolt stuff works as well.
+
+## Intel bluetooth and wifi
++ Wifi works and can be managed using native tools, speeds are still slow but connections are stable
++ Bluetooth works for HID devices such as mouse, keyboard and audio stuff but connectiosn are flaky. It may also not wake up from sleep properly
+
+## Natively supported bluetooth dongle
+I often use these cheap dongles from [eBay](https://www.ebay.co.uk/itm/1PCS-Mini-USB-Bluetooth-V4-0-3Mbps-20M-Dongle-Dual-Mode-Wireless-Adapter-Device/324106977844) that work in macOS out of the box. When going this route don't forget to disable the Intel bluetooth kexts in the config and also disable bluetooth in the BIOS when using a dongle. You will also need to map the port it connects to as internal else sleep will be dodgy. You can do this easily by setting the port type to 255 in the USBPorts.kext info.plist file. You can find the port identifier (example HS03) with Hackintool.
 
 ## Not working/untested
 + Card reader (sort of works with v2.3-beta2 of [this](https://github.com/cholonam/Sinetek-rts) kext)
 + IR receiver (it shows up in ioreg but no idea how to make macOS use it like on some MBP)
-+ ~~Handoff/AirDrop are not supported (yet) on Intel chips~~ Should now work, requires devices to be signed in to same iCloud
-+ ~~4K [might need](https://github.com/acidanthera/WhateverGreen/blob/master/Manual/FAQ.IntelHD.en.md#lspcon-driver-support-to-enable-displayport-to-hdmi-20-output-on-igpu) some additional parameters and a new portmap~~ 4k also confirmed working. Thanks again to [crp724](https://github.com/zearp/Nucintosh/issues/3)
++ ~~Handoff/AirDrop are not supported (yet) on Intel chips~~ Should work now, untested by me
++ ~~4K [might need](https://github.com/acidanthera/WhateverGreen/blob/master/Manual/FAQ.IntelHD.en.md#lspcon-driver-support-to-enable-displayport-to-hdmi-20-output-on-igpu) some additional parameters and a new portmap~~ 4K confirmed working. Thanks again to [crp724](https://github.com/zearp/Nucintosh/issues/3)
++ You tell me!
 
 ## Performance, power and noise
 While benchmarks don't really represent real life it can be handy when testing. In my tests undervolting didn't have any impact on Geekbench results scores. But using CPUFriend can have some impact on (immediate) performance depending on which power profile you select.
