@@ -24,7 +24,7 @@ Boot -> Boot Priority -> UEFI: Enable + Legacy: Disable
 Boot -> Boot Configuration -> Network Boot: Disable
 Boot -> Secure Boot -> Disable
 ```
-+ Download macOS App Store and create a USB installer with *[createinstallmedia](https://support.apple.com/en-us/HT201372)* on macOS (real mac/hack or vm) or use [gibMacOS](https://github.com/corpnewt/gibMacOS)\*
++ Download macOS form the App Store and create a USB installer with *[createinstallmedia](https://support.apple.com/en-us/HT201372)* on macOS (real mac/hack or vm) or use [gibMacOS](https://github.com/corpnewt/gibMacOS)\*
 + Download [this repo](https://github.com/zearp/Nucintosh/archive/master.zip) and extract the EFI folder from the archive
 + Edit config.plist with [ProperTree](https://github.com/corpnewt/ProperTree) and change the following fields;
 ```
