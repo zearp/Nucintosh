@@ -15,12 +15,11 @@ This is a quick and dirty repo for Intel NUC 8th gen computers. It should work o
   - FakePCIID (without this audio over hdmi only works when re-plugging the cable)
   
 ## Installation
-+ Update to latest BIOS, load BIOS defaults, click advanced and change;
++ Update to latest BIOS -> load BIOS defaults -> click advanced and change;
 ```
 Devices -> USB -> Port Device Charging Mode: off
 Security -> Thunderbolt Security Level: Legacy Mode
 Power -> Wake on LAN from S4/S5: Stay Off
-Boot -> Boot Priority -> UEFI: Enable + Legacy: Disable
 Boot -> Boot Configuration -> Network Boot: Disable
 Boot -> Secure Boot -> Disable
 ```
@@ -37,7 +36,7 @@ Generate new serials with [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS). Th
 + Copy the EFI folder to the EFI partition on the USB installer
 + Install macOS
 
-\* Installers made with GibMacOS on Windows require a working internet connection as it uses the recovery image only, it then downloads the full installer from Apple. The *createistallmedia* script makes an off-line installer.
+\* Installers made with GibMacOS on Windows (Linux too?) require a working internet connection as it uses the recovery image only, it then downloads the full installer from Apple. The *createistallmedia* script makes an off-line installer.
 
 ## Post install
 - Remove express card icon: Run ```sudo mount -uw / && killall Finder && sudo mv /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu.bak && sudo touch /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu```
