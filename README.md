@@ -1,6 +1,17 @@
 # NUC8IxBEx Hackintosh
 This is a quick and dirty repo for Intel NUC 8th gen computers. It should work on all the Coffee Lake ones. I've used various sources to get to this point and did quite some testing. It should leave you with a stable and reliable build but as always, these things are never really finished. While it should work on older macOS versions, I've done all building and testing on Catalina and Big Sur.
 
+### Index
+* [Installation](#installation)
+* [Post install](#post-install)
+* [Big Sur](#big-sur)
+* [Apple and 3rd party wifi/bt](#apple3rd-party-bluetooth-and-wifi)
+* [ThunderBolt](#thunderbolt)
+* [Intel wifi/bt](#intel-bluetooth-and-wifi)
+* [Native bt dongle](#natively-supported-bluetooth-dongle)
+* [Performance, pwoer and noise](#performance-power-and-noise)
+* [Credits](#credits)
+
 ### Details
 * Works with macOS *Catalina* and *Big Sur*[\*](#big-sur)
 * OpenCore bootloader with the following kexts:
