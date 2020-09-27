@@ -22,7 +22,7 @@ This is a quick and dirty repo for Intel NUC 8th gen computers. It should work o
 * [ThunderBolt](#thunderbolt)
 * [Intel wifi/bt](#intel-bluetooth-and-wifi)
 * [Native bt dongle](#natively-supported-bluetooth-dongle)
-* [What works and what does't?](#not-workinguntested)
+* [What doesn't work?](#not-workinguntested)
 * [Performance, power and noise](#performance-power-and-noise)
   - [Noise](#noise)
   - [Passive cooling](#passive-cooling) 
