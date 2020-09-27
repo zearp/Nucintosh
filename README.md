@@ -15,12 +15,11 @@ This is a quick and dirty repo for Intel NUC 8th gen computers. It should work o
   - FakePCIID (without this audio over hdmi only works when re-plugging the cable)
   
 ## Installation
-+ Update to latest BIOS, load BIOS defaults, click advanced and change;
++ Update to latest BIOS -> load BIOS defaults -> click advanced and change;
 ```
 Devices -> USB -> Port Device Charging Mode: off
 Security -> Thunderbolt Security Level: Legacy Mode
 Power -> Wake on LAN from S4/S5: Stay Off
-Boot -> Boot Priority -> UEFI: Enable + Legacy: Disable
 Boot -> Boot Configuration -> Network Boot: Disable
 Boot -> Secure Boot -> Disable
 ```
@@ -37,7 +36,7 @@ Generate new serials with [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS). Th
 + Copy the EFI folder to the EFI partition on the USB installer
 + Install macOS
 
-\* Installers made with GibMacOS on Windows require a working internet connection as it uses the recovery image only, it then downloads the full installer from Apple. The *createistallmedia* script makes an off-line installer.
+\* Installers made with GibMacOS on Windows (Linux too?) require a working internet connection as it uses the recovery image only, it then downloads the full installer from Apple. The *createistallmedia* script makes an off-line installer.
 
 ## Post install
 - Remove express card icon: Run ```sudo mount -uw / && killall Finder && sudo mv /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu.bak && sudo touch /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu```
@@ -70,7 +69,7 @@ That's all!
 ## Big Sur
 + Big Sur needs its own version of Airportitlwm, download the kext [here](https://github.com/OpenIntelWireless/itlwm/releases/download/v1.1.0/AirportItlwm_v1.0_Beta_BigSur.kext.zip) and put it in the kext folder replacing the other one
 + Near the end of the install the system volume will be cryptographically sealed, this will take [some](https://dortania.github.io/OpenCore-Install-Guide/extras/big-sur/#troubleshooting) time
-+ To fully disable SIP you need to change ```csr-active-config``` to FF0F0000 in the config
++ To fully disable SIP you need to change ```csr-active-config``` to ```FF0F0000``` in the config
 + Error 66 when trying to mount / in read/write mode and/or errors about diskXs5s1 when booting, this is due to apfs snapshots;
 
 Boot into recovery and open a terminal then list the snapshots with ```diskutil apfs listSnapshots diskXs5``` and delete them with ```diskutil apfs deleteSnapshot diskXs5 -uuid UUIDHERE```.
@@ -88,7 +87,7 @@ Some sellers on AliExpress have converter cards that already have [the small 1.2
 
 Those other cards (and 3rd party ones) do not come with this connector so you'd have to make your own. My cheaper eBay card came with a cable with standard internal usb header and a cable without any plugs so you can attach your own. Check the listing carefully before ordering. Also make sure it converts to M key and once you have it that the spacing pillar is in the correct position. Don't short the poor Airport out.
 
-> Note: Going this route means you have to remap your usb ports. Which is quite easy and fast on the NUC as it has so few ports.
+The two internal usb ports are already mapped in the USBPorts.kext, if you made your own map you'll need to make a new map if you use the internal usb headers.
 
 ## ThunderBolt
 Should work as long as ThunderBolt security is set to legacy mode. Thanks to [crp724](https://github.com/zearp/Nucintosh/issues/3) for confirming. He also confirmed eGPU works in his Mantiz TB3 enclosure. I assume that if eGPU works then all other ThunderBolt stuff works as well.
