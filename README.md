@@ -25,7 +25,8 @@ This is a quick and dirty repo for Intel NUC 8th gen computers. It should work o
 * [What doesn't work?](#not-workinguntested)
 * [Performance, power and noise](#performance-power-and-noise)
   - [Noise](#noise)
-  - [Passive cooling](#passive-cooling) 
+  - [Passive cooling](#passive-cooling)
+* Todo
 * [Credits](#credits)
   
 ## Installation
@@ -97,7 +98,7 @@ For both 1st and 3rd party you will need a [supported](https://dortania.github.i
 
 1st party is my preffered option. Grab an Apple 6+12 pin to m.2 M-key [converter card](https://dortania.github.io/Wireless-Buyers-Guide/Airport.html) and go native with something like the BCM94360CS2. Please note the number of antenna connectors. Some have more than 2, so you'll have to add some antenna's and maybe even mod your case.
 
-One big plus of going native is that you gain HID-proxy. This means that when there is no OS running the Airport card will proxy any paired HID bluetooth devices to the machine as usb devices. This means you can enter the BIOS or boot menu using the bluetooth keyboard and mouse. This is not. feature you will find on many other cards, including the the one Intel put in here. Even the cheap BCM943224PCIEBT2 Airport card will do HID-proxy for you. I've personally verified this.
+One big plus of going native is that you gain HID-proxy. This means that when there is no OS running the Airport card will proxy any paired HID bluetooth devices to the machine as usb devices. This means you can enter the BIOS or boot menu using the bluetooth keyboard and mouse. This is not a feature you will find on many other cards, including the the one Intel put in here. Even expensive bluetooth cards often can not do this. But Apple has added it even in the cheap BCM943224PCIEBT2 Airport card. I've personally tested it and it still works fine in Catalina (native) and Big Sur (with some hackery).
 
 Some sellers on AliExpress have converter cards that already have [the small 1.25mm pitch jst](https://github.com/zearp/Nucintosh/blob/master/Stuff/NUC8-m2adapter.jpg?raw=true) connector on it. It connects to one of the two internal usb ports. I use one without issues in my NUC. They usally list them as NUC8 compatible and cost a bit more than other converter cards.
 
@@ -150,6 +151,12 @@ Received my [Akasa](http://www.akasa.com.tw/search.php?seed=A-NUC45-M1B) case. T
 It works really well. So good I have set the power setting in the BIOS to max performance. It idles around 35-40c (with undervolt) which is just fine considering my ambient temperature is around 25c. When put under load it doesn't get anywhere near 80c. I've ran the matrix test from ```stress-ng``` for a while and it stayed [stable around 70c](https://github.com/zearp/Nucintosh/blob/master/Stuff/passive_cooling.png) the whole test. With some of the other tests it ran hotter and also used more power, 35 watts sustained. A quick [5 minutes Intel XTU](https://github.com/zearp/Nucintosh/blob/master/Stuff/passive_intel_xtu_5m.png) stress test show similar results. Settling around 75c. Even with increased wattage it never needed to thermal throttle which is great!
 
 My only complaint is the rough finish. I wish they would've skipped on those cheeks and spend the money saved on a smooth finish, but thats besides the point of this thing. The silence is worth the occasional scratch.
+
+## Todo
++ Go by every single relevant OpenCore config option and make sure it is set correctly (~21% done)
++ Get rid of FakePCIID.kext and do what it does with a config entry or ACPI patch, feel free to submit a PR
++ Link to my [OptiHack repo](https://github.com/zearp/OptiHack) which has much more information that also applies to the NUC
++ Better README.md -- maybe merge above repo and this one's information into a gitbook and only keep install instructions here
 
 ## Credits
 + https://github.com/acidanthera
