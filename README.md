@@ -94,7 +94,7 @@ Replace diskX with the correct disk, if you only have one disk it will be disk1s
 ## Apple/3rd party bluetooth and wifi
 For both 1st and 3rd party you will need a [supported](https://dortania.github.io/Wireless-Buyers-Guide/) wifi/bluetooth combo card and an adapter (see below) to convert it to M key. As far as I know compatible M key combo cards don't exist. 
 
-3rd party cards will need these kexts: [AirportBrcmFixup](https://github.com/acidanthera/AirportBrcmFixup) + [BrcmPatchRAM](https://github.com/acidanthera/BrcmPatchRAM), read the instructions on the repo's and you'll be up and running in no time. I've tested the very affordable DW1820A in many machines including the NUC and it works great.
+3rd party cards will need these kexts: [AirportBrcmFixup](https://github.com/acidanthera/AirportBrcmFixup) + [BrcmPatchRAM](https://github.com/acidanthera/BrcmPatchRAM), read the instructions on the repo's and you'll be up and running in no time. I've tested the very affordable DW1820A in many machines including the NUC and it works great. For some cards you may need to create an entry under devices in the config that disables ASPM, this only needed if you have issues with sleep.
 
 1st party is my preffered option. Grab an Apple 6+12 pin to m.2 M-key [converter card](https://dortania.github.io/Wireless-Buyers-Guide/Airport.html) and go native with something like the BCM94360CS2. Please note the number of antenna connectors. Some have more than 2, so you'll have to add some antenna's and maybe even mod your case.
 
@@ -106,7 +106,7 @@ Those other cards (and 3rd party ones) do not come with this connector so you'd 
 
 - The two internal usb ports are already mapped in the USBPorts.kext, if you made your own map you'll need to make a new map if you use the internal usb headers
 - When using a 1st or 3rd party combo card you need to disable both bluetooth and wifi in the BIOS and also remove any Intel related bluetooth and wifi kexts
-- You will also need to remove the config block for HS10 from [Info.plist](https://github.com/zearp/Nucintosh/blob/master/EFI/OC/Kexts/USBPorts.kext/Contents/Info.plist#L158-L166) inside USBPorts.kext, without this step bluetooth won't work after sleep gets "stuck" in HID-proxy mode. Your bluetooth mouse and keyboard may still work but not optimally.
+- You will also need to remove the config block for HS10 from [Info.plist](https://github.com/zearp/Nucintosh/blob/master/EFI/OC/Kexts/USBPorts.kext/Contents/Info.plist#L158-L166) inside USBPorts.kext, without this step bluetooth won't work after sleep. On 1st party cards it gets "stuck" in HID-proxy mode; bluetooth mouse and keyboard may still work but not optimally and laggy.
 
 You'll also want to set your region to ```#a``` as it allows for full 80mhz channel width on ac cards. It might not be 100% legal depending on where you live. I've used this method on a few DW1820A cards and the speed increase was pretty amazing. This method may also apply when using real Apple cards, you will need add [AirportBrcmFixup](https://github.com/acidanthera/AirportBrcmFixup) on 1st party cards. To change the region simply add the following boot flag ```brcmfx-country=#a```.
 
