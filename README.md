@@ -25,7 +25,8 @@ This is a quick and dirty repo for Intel NUC 8th gen computers. It should work o
 * [What doesn't work?](#not-workinguntested)
 * [Performance, power and noise](#performance-power-and-noise)
   - [Noise](#noise)
-  - [Passive cooling](#passive-cooling) 
+  - [Passive cooling](#passive-cooling)
+* [Todo](#todo)
 * [Credits](#credits)
   
 ## Installation
@@ -91,17 +92,24 @@ Boot into recovery and open a terminal then list the snapshots with ```diskutil 
 Replace diskX with the correct disk, if you only have one disk it will be disk1s5. The UUID is the string above each snapshot.
 
 ## Apple/3rd party bluetooth and wifi
-For the best bluetooth and wifi experience (HandOff, Sidecar, Airdrop, etc) consider getting a [supported](https://dortania.github.io/Wireless-Buyers-Guide/) wifi/bluetooth combo. You will need to add some kexts for these cards ([AirportBrcmFixup](https://github.com/acidanthera/AirportBrcmFixup) + [BrcmPatchRAM](https://github.com/acidanthera/BrcmPatchRAM)), read the instructions on the repo's and you'll be up and running in no time. You'll also want to set your country/region to ```#a``` as it allows for full 80mhz channel width on ac cards. It might not be a 100% legal depending on where you live. I've used this method on a few DW1820A cards and the speed increase was pretty amazing. This method may also apply when using real Apple cards, you will need AirportBrcmFixup to change the region/country.
+For both 1st and 3rd party you will need a [supported](https://dortania.github.io/Wireless-Buyers-Guide/) wifi/bluetooth combo card and an adapter (see below) to convert it to M key. As far as I know compatible M key combo cards don't exist. 
 
-Note: If the supported wireless card is not M key you will need a converter card for it. I don't think compatible M key cards exist.
+3rd party cards will need these kexts: [AirportBrcmFixup](https://github.com/acidanthera/AirportBrcmFixup) + [BrcmPatchRAM](https://github.com/acidanthera/BrcmPatchRAM), read the instructions on the repo's and you'll be up and running in no time. I've tested the very affordable DW1820A in many machines including the NUC and it works great.
 
-My preffered option is to grab an Apple 6+12 pin to m.2 M-key [converter card](https://dortania.github.io/Wireless-Buyers-Guide/Airport.html) and go native with something like the BCM94360CS2. Please note the number of antenna connectors. Some have more than 2, so you'll have to add some antenna's and maybe even mod your case.
+1st party is my preffered option. Grab an Apple 6+12 pin to m.2 M-key [converter card](https://dortania.github.io/Wireless-Buyers-Guide/Airport.html) and go native with something like the BCM94360CS2. Please note the number of antenna connectors. Some have more than 2, so you'll have to add some antenna's and maybe even mod your case.
+
+One big plus of going native is that you gain HID-proxy. This means that when there is no OS running the Airport card will proxy any paired HID bluetooth devices to the machine as usb devices. This means you can enter the BIOS or boot menu using the bluetooth keyboard and mouse. This is not a feature you will find on many other cards, including the the one Intel put in here. Even expensive bluetooth cards often can not do this. But Apple has added it even in the cheap BCM943224PCIEBT2 Airport card. I've personally tested it and it still works fine in Catalina (native) and Big Sur (with some hackery).
 
 Some sellers on AliExpress have converter cards that already have [the small 1.25mm pitch jst](https://github.com/zearp/Nucintosh/blob/master/Stuff/NUC8-m2adapter.jpg?raw=true) connector on it. It connects to one of the two internal usb ports. I use one without issues in my NUC. They usally list them as NUC8 compatible and cost a bit more than other converter cards.
 
 Those other cards (and 3rd party ones) do not come with this connector so you'd have to make your own. My cheaper eBay card came with a cable with standard internal usb header and a cable without any plugs so you can attach your own. Check the listing carefully before ordering. Also make sure it converts to M key and once you have it that the spacing pillar is in the correct position. Don't short the poor Airport out.
 
-The two internal usb ports are already mapped in the USBPorts.kext, if you made your own map you'll need to make a new map if you use the internal usb headers.
+- The two internal usb ports are already mapped in the USBPorts.kext, if you made your own map you'll need to make a new map if you use the internal usb headers
+- When using a 1st or 3rd party combo card you need to disable both bluetooth and wifi in the BIOS and also remove any Intel related bluetooth and wifi kexts
+
+You'll also want to set your region to ```#a``` as it allows for full 80mhz channel width on ac cards. It might not be 100% legal depending on where you live. I've used this method on a few DW1820A cards and the speed increase was pretty amazing. This method may also apply when using real Apple cards, you will need add [AirportBrcmFixup](https://github.com/acidanthera/AirportBrcmFixup) on 1st party cards. To change the region simply add the following boot flag ```brcmfx-country=#a```.
+
+One last thing to remember is that waking the machine from sleep using bluetooth devices will not work. This is due to power being cut to the module. The module does start itself up very fast. When my screen wakes up my bluetooth devices are already reconnected. there is way to bypass this but it including either modding your adapter card or [making your own](https://github.com/BbIKTOP/M.2-key-M-to-wifi). I've asked some sellers on AliExpress to produce this card but didn't have any luck. If you can make it or know a seller who's willing to make it please let me know.
 
 ## ThunderBolt
 Should work as long as ThunderBolt security is set to legacy mode. Thanks to [crp724](https://github.com/zearp/Nucintosh/issues/3) for confirming. He also confirmed eGPU works in his Mantiz TB3 enclosure. I assume that if eGPU works then all other ThunderBolt stuff works as well.
@@ -143,6 +151,12 @@ Received my [Akasa](http://www.akasa.com.tw/search.php?seed=A-NUC45-M1B) case. T
 It works really well. So good I have set the power setting in the BIOS to max performance. It idles around 35-40c (with undervolt) which is just fine considering my ambient temperature is around 25c. When put under load it doesn't get anywhere near 80c. I've ran the matrix test from ```stress-ng``` for a while and it stayed [stable around 70c](https://github.com/zearp/Nucintosh/blob/master/Stuff/passive_cooling.png) the whole test. With some of the other tests it ran hotter and also used more power, 35 watts sustained. A quick [5 minutes Intel XTU](https://github.com/zearp/Nucintosh/blob/master/Stuff/passive_intel_xtu_5m.png) stress test show similar results. Settling around 75c. Even with increased wattage it never needed to thermal throttle which is great!
 
 My only complaint is the rough finish. I wish they would've skipped on those cheeks and spend the money saved on a smooth finish, but thats besides the point of this thing. The silence is worth the occasional scratch.
+
+## Todo
++ Go by every single relevant OpenCore config option and make sure it is set correctly (~21% done)
++ Get rid of FakePCIID.kext and do what it does with a config entry or ACPI patch, feel free to submit a PR
++ Link to my [OptiHack repo](https://github.com/zearp/OptiHack) which has much more information that also applies to the NUC
++ Better README.md -- maybe merge above repo and this one's information into a gitbook and only keep install instructions here
 
 ## Credits
 + https://github.com/acidanthera
