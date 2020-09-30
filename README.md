@@ -26,7 +26,7 @@ This is a quick and dirty repo for Intel NUC 8th gen computers. It should work o
 * [Performance, power and noise](#performance-power-and-noise)
   - [Noise](#noise)
   - [Passive cooling](#passive-cooling)
-* Todo
+* [Todo](#todo)
 * [Credits](#credits)
   
 ## Installation
