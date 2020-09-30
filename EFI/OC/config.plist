@@ -68,84 +68,36 @@
 			<dict>
 				<key>Comment</key>
 				<string>HPET _CRS to XCRS Rename</string>
-				<key>Count</key>
-				<integer>0</integer>
 				<key>Enabled</key>
 				<true/>
 				<key>Find</key>
 				<data>JV9DUlM=</data>
-				<key>Limit</key>
-				<integer>0</integer>
-				<key>Mask</key>
-				<data></data>
-				<key>OemTableId</key>
-				<data>AAAAAA==</data>
 				<key>Replace</key>
 				<data>JVhDUlM=</data>
-				<key>ReplaceMask</key>
-				<data></data>
-				<key>Skip</key>
-				<integer>0</integer>
-				<key>TableLength</key>
-				<integer>0</integer>
-				<key>TableSignature</key>
-				<data>AAAAAA==</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
 				<string>RTC IRQ 8 Patch</string>
-				<key>Count</key>
-				<integer>0</integer>
 				<key>Enabled</key>
 				<true/>
 				<key>Find</key>
 				<data>IgABeQA=</data>
-				<key>Limit</key>
-				<integer>0</integer>
-				<key>Mask</key>
-				<data></data>
-				<key>OemTableId</key>
-				<data>AAAAAA==</data>
 				<key>Replace</key>
 				<data>IgAAeQA=</data>
-				<key>ReplaceMask</key>
-				<data></data>
-				<key>Skip</key>
-				<integer>0</integer>
-				<key>TableLength</key>
-				<integer>0</integer>
-				<key>TableSignature</key>
-				<data>AAAAAA==</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
 				<string>TIMR IRQ 0 Patch</string>
-				<key>Count</key>
-				<integer>0</integer>
 				<key>Enabled</key>
 				<true/>
 				<key>Find</key>
 				<data>IgEAeQA=</data>
-				<key>Limit</key>
-				<integer>0</integer>
-				<key>Mask</key>
-				<data></data>
-				<key>OemTableId</key>
-				<data>AAAAAA==</data>
 				<key>Replace</key>
 				<data>IgAAeQA=</data>
-				<key>ReplaceMask</key>
-				<data></data>
-				<key>Skip</key>
-				<integer>0</integer>
-				<key>TableLength</key>
-				<integer>0</integer>
-				<key>TableSignature</key>
-				<data>AAAAAA==</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>rename _RMV to XRMV</string>
+				<string>Rename _RMV to XRMV</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Find</key>
@@ -496,6 +448,18 @@
 		</dict>
 		<key>Patch</key>
 		<array>
+			<dict>
+				<key>Comment</key>
+				<string>Whitelist BCM943224PCIEBT2</string>
+				<key>Enabled</key>
+				<false/>
+				<key>Find</key>
+				<data>TWFjLTJFNkZBQjk2NTY2RkU1OEM=</data>
+				<key>Replace</key>
+				<data>TWFjLTdCQTVCMkRGRTIyREREOEM=</data>
+				<key>Identifier</key>
+				<string>com.apple.driver.AirPort.Brcm4360</string>
+			</dict>
 		</array>
 		<key>Quirks</key>
 		<dict>
