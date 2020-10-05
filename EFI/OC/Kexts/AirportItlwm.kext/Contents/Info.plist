@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>19G2021</string>
+	<string>19H2</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -27,7 +27,7 @@
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
-	<string>12A7209</string>
+	<string>12A7300</string>
 	<key>DTPlatformName</key>
 	<string>macosx</string>
 	<key>DTPlatformVersion</key>
@@ -37,9 +37,9 @@
 	<key>DTSDKName</key>
 	<string>macosx10.15</string>
 	<key>DTXcode</key>
-	<string>1200</string>
+	<string>1201</string>
 	<key>DTXcodeBuild</key>
-	<string>12A7209</string>
+	<string>12A7300</string>
 	<key>IOKitPersonalities</key>
 	<dict>
 		<key>itlwm</key>
@@ -57,7 +57,36 @@
 			<key>IOProviderClass</key>
 			<string>IOPCIDevice</string>
 			<key>WiFiConfig</key>
-			<dict/>
+			<dict>
+				<key>WiFi_1</key>
+				<dict>
+					<key>password</key>
+					<string>zxyssdt112233</string>
+					<key>ssid</key>
+					<string>ssdt</string>
+				</dict>
+				<key>WiFi_2</key>
+				<dict>
+					<key>password</key>
+					<string>zxyssdt112233</string>
+					<key>ssid</key>
+					<string>ssdt_5G</string>
+				</dict>
+				<key>WiFi_3</key>
+				<dict>
+					<key>password</key>
+					<string></string>
+					<key>ssid</key>
+					<string>Redmi</string>
+				</dict>
+				<key>WiFi_4</key>
+				<dict>
+					<key>password</key>
+					<string>9utc5c5f</string>
+					<key>ssid</key>
+					<string>CMCC-KtG6</string>
+				</dict>
+			</dict>
 		</dict>
 	</dict>
 	<key>LSMinimumSystemVersion</key>
