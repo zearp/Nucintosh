@@ -11,7 +11,7 @@ This is a quick and dirty repo for Intel NUC 8th gen computers. It should work o
   - IntelMausi
   - NVMeFix
   - CPUFriend
-  - OpenIntelWireless kexts for bluetooth and wifi
+  - OpenIntelWireless kexts for Intel bluetooth and wifi
   - FakePCIID (without this audio over hdmi only works when re-plugging the cable)
   
 ## Index
@@ -51,13 +51,13 @@ Generate new serials with [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS). Th
 + Copy the EFI folder to the EFI partition on the USB installer
 + Install macOS
 
-\* Installers made with GibMacOS on Windows (Linux too?) require a working internet connection as it uses the recovery image only, it then downloads the full installer from Apple. The *createistallmedia* script makes an off-line installer.
+\* Installers made with GibMacOS on Windows and Linux require a working internet connection as it uses the recovery image only, it then downloads the full installer from Apple. The *createistallmedia* script makes an offline installer.
 
 ## Post install
 - Remove express card icon: Run ```sudo mount -uw / && killall Finder && sudo mv /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu.bak && sudo touch /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu```
-- Please re-enable SIP if you don't need it disabled; change ```csr-active-config``` to ```00000000``` reboot and reset nvram. I have it disabled to make testing and undervolting easier
+- Please re-enable SIP if you don't need it disabled; change ```csr-active-config``` to ```00000000``` reboot and reset nvram
 - Check if TRIM is enabled, If not run ```sudo trimforce enable``` to enable it
-- Disable ```NVMeFix.kext``` if you don't have an NVMe drive (optional)
+- Disable ```NVMeFix.kext``` if you don't have an NVMe drive
 
 Finally make sure sleep works properly. You can skip some of these but it will make your machine wake up from time to time. Same as real Macs.
 ```
@@ -69,7 +69,7 @@ sudo pmset tcpkeepalive 0
 sudo pmset womp 0
 sudo pmset hibernatemode 0
 ```
-The first two are needed the rest can be left on. Proximity wake can wake your machine when an iDevice is near. Power Nap wil lwake up the system from time to time to check mail, make backups, etc, etc. TCP keep alive has resovled periodic wake events after setting up iCloud. Womp is wake on lan, which is disabled in the BIOS as it (going by other people's experience) might cause issues. I never use WOL so no need to have it on. If you do use WOL please try enabling it in the BIOS and leave this setting on, the issues might have been bugs that haven been solved by now. Let me know if it works or not. Hibernate is sometimes set to 3 in my testing. It could be possible to get hibernation to work by using [HibernationFixup](https://github.com/acidanthera/HibernationFixup) but I haven't tested it. I'm fine with normal sleep.
+The first two are needed the rest can be left on. Proximity wake can wake your machine when an iDevice is near. Power Nap will wake up the system from time to time to check mail, make backups, etc, etc. TCP keep alive has resolved periodic wake events after setting up iCloud. Womp is wake on lan, which is disabled in the BIOS as it (going by other people's experience) might cause issues. I never use WOL so no need to have it on. If you do use WOL please try enabling it in the BIOS and leave this setting on, the issues might have been bugs that haven been solved by now. Let me know if it works or not. Hibernate is sometimes set to 3 in my testing. It could be possible to get hibernation to work by using [HibernationFixup](https://github.com/acidanthera/HibernationFixup) but I haven't tested it. I'm fine with normal sleep.
 
 With hibernation disabled you can delete the sleepimage file and create an empty folder in its place so macOS can't create it again, this saves some space and is optional.
 ```
@@ -96,7 +96,7 @@ For both 1st and 3rd party you will need a [supported](https://dortania.github.i
 
 3rd party cards will need these kexts: [AirportBrcmFixup](https://github.com/acidanthera/AirportBrcmFixup) + [BrcmPatchRAM](https://github.com/acidanthera/BrcmPatchRAM), read the instructions on the repo's and you'll be up and running in no time. I've tested the very affordable DW1820A in many machines including the NUC and it works great. For some cards you may need to create an entry under devices in the config that disables ASPM, this only needed if you have issues with sleep.
 
-1st party is my preffered option. Grab an Apple 6+12 pin to m.2 M-key [converter card](https://dortania.github.io/Wireless-Buyers-Guide/Airport.html) and go native with something like the BCM94360CS2. Please note the number of antenna connectors. Some have more than 2, so you'll have to add some antenna's and maybe even mod your case.
+1st party is my preffered option. Grab an Apple 6+12 pin to m.2 M-key [converter card](https://dortania.github.io/Wireless-Buyers-Guide/Airport.html) and go native with something like the BCM94360CS2. Please note the number of antenna connectors. Some have more than 2, so you'll have to add some antenna's and maybe even mod your case. Though there is some room under the plastic lid, it can fit internal antennas like [this](https://ae01.alicdn.com/kf/HTB1AAiAKVXXXXc4aXXXq6xXFXXX4/2pcs-Internal-Antennas-40cm-15-7-inches-IPEX-MHF4-2-4-5G-wifi-antennas-for-BCM94352Z.jpg). The lid can be removed with some strategic force and there's a hole to route the wires trough too. I would use those and leave the standard antenna's connected to the Intel module. They're very cheap and the antenna connectors on the Intel module are very fragile.
 
 One big plus of going native is that you gain HID-proxy. This means that when there is no OS running the Airport card will proxy any paired HID bluetooth devices to the machine as usb devices. This means you can enter the BIOS or boot menu using the bluetooth keyboard and mouse. This is not a feature you will find on many other cards, including the the one Intel put in here. Even expensive bluetooth cards often can not do this. But Apple has added it even in the cheap BCM943224PCIEBT2 Airport card. I've personally tested that card and it still works fine in Catalina and Big Sur by setting ```Kernel -> Patch -> 0``` to true. Big Sur will also need [a patched](https://github.com/barrykn/big-sur-micropatcher/tree/main/payloads/kexts) IO80211.kext.
 
@@ -139,7 +139,7 @@ While benchmarks don't really represent real life it can be handy when testing. 
   - Balanced power savings: ~875 / ~3800
   - Maximum power savings: ~715 / ~3300
 
-The default kexts provided give you the best performance and still lowers the lowest clockspeed to 800mhz which lower heat and power consumption a bit. I didn't see any difference between the performance and balanced performance profiles but I only ran some quick tests. It is pretty easy to create [your own](https://dortania.github.io/OpenCore-Post-Install/universal/pm.html#using-cpu-friend) profile.
+The default kexts provided give you the best performance and still lowers the lowest clockspeed to 800mhz. Which lowers heat and power consumption a bit. I didn't notice any difference between the performance and balanced performance profiles but I only ran some quick tests. It is pretty easy to create [your own](https://dortania.github.io/OpenCore-Post-Install/universal/pm.html#using-cpu-friend) profile or disable both CPUFriend kexts in the config.
 
 ### Noise
 In order to reduce noise I've setup a custom fan profile, disabled the option that the fan can be turned off and set a 25% duty cycle for both CPU and RAM. The idle temps are slightly higher but the noise is a lot less. I've also limited the sustained tdp to 28 watts to match the CPU itself. The peak tdp has been left to its default of 50 watts. With CPUFriend I've set the lowest frequency to 800mhz and a applied a mild undervolt of -50 on the CPU and CPU cache and -25 on the iGPU. A duty cycle of 21 or lower gives me a silent computer but its not ideal to run the fans lower than 25%.
@@ -149,15 +149,12 @@ In order to reduce noise I've setup a custom fan profile, disabled the option th
 ### Passive cooling
 Received my [Akasa](http://www.akasa.com.tw/search.php?seed=A-NUC45-M1B) case. To my surprise it does a better job than the stock cooler. It's not cheap and the case is not finished very smoothly (it can hurt you lol). I have mine verically and didn't use any of the end cheeks, only the feet. It would just introduce more options to hurt myself ;-)
 
-It works really well. So good I have set the power setting in the BIOS to max performance. It idles around 35-40c (with undervolt) which is just fine considering my ambient temperature is around 25c. When put under load it doesn't get anywhere near 80c. I've ran the matrix test from ```stress-ng``` for a while and it stayed [stable around 70c](https://github.com/zearp/Nucintosh/blob/master/Stuff/passive_cooling.png) the whole test. With some of the other tests it ran hotter and also used more power, 35 watts sustained. A quick [5 minutes Intel XTU](https://github.com/zearp/Nucintosh/blob/master/Stuff/passive_intel_xtu_5m.png) stress test show similar results. Settling around 75c. Even with increased wattage it never needed to thermal throttle which is great!
+It works really well. So good I have set the power setting in the BIOS to max performance. It idles around 35-40c (with undervolt) which is just fine considering my ambient temperature is around 25c. When put under load it doesn't get anywhere near 80c. I've ran the matrix test from ```stress-ng``` for a while and it stayed [stable around 70c](https://github.com/zearp/Nucintosh/blob/master/Stuff/passive_cooling.png) the whole test.
 
 My only complaint is the rough finish. I wish they would've skipped on those cheeks and spend the money saved on a smooth finish, but thats besides the point of this thing. The silence is worth the occasional scratch.
 
 ## Todo
-+ Go by every single relevant OpenCore config option and make sure it is set correctly (~21% done)
 + Get rid of FakePCIID.kext and do what it does with a config entry or ACPI patch, feel free to submit a PR
-+ Link to my [OptiHack repo](https://github.com/zearp/OptiHack) which has much more information that also applies to the NUC
-+ Better README.md -- maybe merge above repo and this one's information into a gitbook and only keep install instructions here
 
 ## Credits
 + https://github.com/acidanthera
