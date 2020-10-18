@@ -69,7 +69,13 @@ sudo pmset tcpkeepalive 0
 sudo pmset womp 0
 sudo pmset hibernatemode 0
 ```
-The first two are needed the rest can be left on. Proximity wake can wake your machine when an iDevice is near. Power Nap will wake up the system from time to time to check mail, make backups, etc, etc. TCP keep alive has resolved periodic wake events after setting up iCloud. Womp is wake on lan, which is disabled in the BIOS as it (going by other people's experience) might cause issues. I never use WOL so no need to have it on. If you do use WOL please try enabling it in the BIOS and leave this setting on, the issues might have been bugs that haven been solved by now. Let me know if it works or not. Hibernate is sometimes set to 3 in my testing. It could be possible to get hibernation to work by using [HibernationFixup](https://github.com/acidanthera/HibernationFixup) but I haven't tested it. I'm fine with normal sleep.
+The first two need to be ```0``` the rest can be left on if you want.
+
+- Proximity wake can wake your machine when an iDevice is near
+- Power Nap will wake up the system from time to time to check mail, make Time Machine backups, etc, etc
+- TCP keep alive has resolved periodic wake events after setting up iCloud
+- Womp is wake on lan, which is disabled in the BIOS as it (going by other people's experience) might cause issues. I never use WOL, if you do use WOL please try enabling it in the BIOS and leave this setting on, the issues might have been due to bugs that haven been solved by now. Let me know if it works or not.
+- Hibernate is sometimes set to 3 in my testing. It could be possible to get hibernation to work by using [HibernationFixup](https://github.com/acidanthera/HibernationFixup) but I haven't tested it. I'm fine with normal sleep.
 
 With hibernation disabled you can delete the sleepimage file and create an empty folder in its place so macOS can't create it again, this saves some space and is optional.
 ```
