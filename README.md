@@ -51,13 +51,13 @@ Generate new serials with [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS). Th
 + Copy the EFI folder to the EFI partition on the USB installer
 + Install macOS
 
-\* Installers made with GibMacOS on Windows (Linux too?) require a working internet connection as it uses the recovery image only, it then downloads the full installer from Apple. The *createistallmedia* script makes an off-line installer.
+\* Installers made with GibMacOS on Windows and Linux require a working internet connection as it uses the recovery image only, it then downloads the full installer from Apple. The *createistallmedia* script makes an offline installer.
 
 ## Post install
 - Remove express card icon: Run ```sudo mount -uw / && killall Finder && sudo mv /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu.bak && sudo touch /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu```
-- Please re-enable SIP if you don't need it disabled; change ```csr-active-config``` to ```00000000``` reboot and reset nvram. I have it disabled to make testing and undervolting easier
+- Please re-enable SIP if you don't need it disabled; change ```csr-active-config``` to ```00000000``` reboot and reset nvram
 - Check if TRIM is enabled, If not run ```sudo trimforce enable``` to enable it
-- Disable ```NVMeFix.kext``` if you don't have an NVMe drive (optional)
+- Disable ```NVMeFix.kext``` if you don't have an NVMe drive
 
 Finally make sure sleep works properly. You can skip some of these but it will make your machine wake up from time to time. Same as real Macs.
 ```
@@ -69,7 +69,7 @@ sudo pmset tcpkeepalive 0
 sudo pmset womp 0
 sudo pmset hibernatemode 0
 ```
-The first two are needed the rest can be left on. Proximity wake can wake your machine when an iDevice is near. Power Nap wil lwake up the system from time to time to check mail, make backups, etc, etc. TCP keep alive has resovled periodic wake events after setting up iCloud. Womp is wake on lan, which is disabled in the BIOS as it (going by other people's experience) might cause issues. I never use WOL so no need to have it on. If you do use WOL please try enabling it in the BIOS and leave this setting on, the issues might have been bugs that haven been solved by now. Let me know if it works or not. Hibernate is sometimes set to 3 in my testing. It could be possible to get hibernation to work by using [HibernationFixup](https://github.com/acidanthera/HibernationFixup) but I haven't tested it. I'm fine with normal sleep.
+The first two are needed the rest can be left on. Proximity wake can wake your machine when an iDevice is near. Power Nap will wake up the system from time to time to check mail, make backups, etc, etc. TCP keep alive has resolved periodic wake events after setting up iCloud. Womp is wake on lan, which is disabled in the BIOS as it (going by other people's experience) might cause issues. I never use WOL so no need to have it on. If you do use WOL please try enabling it in the BIOS and leave this setting on, the issues might have been bugs that haven been solved by now. Let me know if it works or not. Hibernate is sometimes set to 3 in my testing. It could be possible to get hibernation to work by using [HibernationFixup](https://github.com/acidanthera/HibernationFixup) but I haven't tested it. I'm fine with normal sleep.
 
 With hibernation disabled you can delete the sleepimage file and create an empty folder in its place so macOS can't create it again, this saves some space and is optional.
 ```
@@ -96,7 +96,7 @@ For both 1st and 3rd party you will need a [supported](https://dortania.github.i
 
 3rd party cards will need these kexts: [AirportBrcmFixup](https://github.com/acidanthera/AirportBrcmFixup) + [BrcmPatchRAM](https://github.com/acidanthera/BrcmPatchRAM), read the instructions on the repo's and you'll be up and running in no time. I've tested the very affordable DW1820A in many machines including the NUC and it works great. For some cards you may need to create an entry under devices in the config that disables ASPM, this only needed if you have issues with sleep.
 
-1st party is my preffered option. Grab an Apple 6+12 pin to m.2 M-key [converter card](https://dortania.github.io/Wireless-Buyers-Guide/Airport.html) and go native with something like the BCM94360CS2. Please note the number of antenna connectors. Some have more than 2, so you'll have to add some antenna's and maybe even mod your case.
+1st party is my preffered option. Grab an Apple 6+12 pin to m.2 M-key [converter card](https://dortania.github.io/Wireless-Buyers-Guide/Airport.html) and go native with something like the BCM94360CS2. Please note the number of antenna connectors. Some have more than 2, so you'll have to add some antenna's and maybe even mod your case. Though there is some room under the plastic lid and a hole to get them there, it can fit internal antennas like [this](https://ae01.alicdn.com/kf/HTB1AAiAKVXXXXc4aXXXq6xXFXXX4/2pcs-Internal-Antennas-40cm-15-7-inches-IPEX-MHF4-2-4-5G-wifi-antennas-for-BCM94352Z.jpg). The lid can be removed with some strategic force. I would use those and leave the standard antenna's connected to the Intel module. They're very cheap and the antenna connectors of the Intel module are very fragile.
 
 One big plus of going native is that you gain HID-proxy. This means that when there is no OS running the Airport card will proxy any paired HID bluetooth devices to the machine as usb devices. This means you can enter the BIOS or boot menu using the bluetooth keyboard and mouse. This is not a feature you will find on many other cards, including the the one Intel put in here. Even expensive bluetooth cards often can not do this. But Apple has added it even in the cheap BCM943224PCIEBT2 Airport card. I've personally tested that card and it still works fine in Catalina and Big Sur by setting ```Kernel -> Patch -> 0``` to true. Big Sur will also need [a patched](https://github.com/barrykn/big-sur-micropatcher/tree/main/payloads/kexts) IO80211.kext.
 
