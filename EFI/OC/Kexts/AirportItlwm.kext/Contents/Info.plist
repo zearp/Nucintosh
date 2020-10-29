@@ -56,8 +56,6 @@
 			<integer>2000</integer>
 			<key>IOProviderClass</key>
 			<string>IOPCIDevice</string>
-			<key>WiFiConfig</key>
-			<dict/>
 		</dict>
 	</dict>
 	<key>LSMinimumSystemVersion</key>
