@@ -1,5 +1,5 @@
 # NUC8IxBEx Hackintosh
-This is a quick and dirty repo for Intel NUC 8th gen computers. It should work on all the Coffee Lake ones. I've used various sources to get to this point and did quite some testing. It should leave you with a stable and reliable build but as always, these things are never really finished. While it should work on older macOS versions, I've done all building and testing on Catalina and Big Sur.
+This is a quick and dirty repo for Intel NUC 8th gen computers. It should work on all the Coffee Lake ones. I've used various sources (see credits) to build my EFI and did quite some testing. It should leave you with a stable and reliable build but as always, these things are never really finished. While it should work on older macOS versions, I've done all building and testing on Catalina and Big Sur. If you want to use your machine as a stable and reliable daily driver, I suggest sticking to Catalina.
 
 ## Details
 * Works with macOS *Catalina* and *Big Sur*[\*](#big-sur)
@@ -90,7 +90,7 @@ That's all!
 
 ## Big Sur
 + Big Sur needs its own version of Airportitlwm, download the kext [here](https://github.com/zearp/Nucintosh/raw/master/Stuff/AirportItlwm.kext-BigSur.zip) and put it in the kext folder replacing the other one
-+ When you see ```Forcing CS_RUNTIME for entitlement``` displayed macOS did not hang; its sealing the filesystem do ***not*** reboot!
++ When you see ```Forcing CS_RUNTIME for entitlement``` displayed macOS did not hang; its sealing the filesystem, do ***not*** reboot!
 + To fully disable SIP you need to change ```csr-active-config``` to ```FF0F0000``` in the config
 + Error 66 when trying to mount / in read/write mode and/or errors about diskXs5s1 when booting, this is due to apfs snapshots;
 
@@ -124,10 +124,10 @@ Should work as long as ThunderBolt security is set to legacy mode. Thanks to [cr
 
 ## Intel bluetooth and wifi
 + Wifi works and can be managed using native tools, speeds are still slow but connections are stable
-+ Bluetooth works for HID devices such as mouse, keyboard and audio stuff but connectiosn are flaky. It may also not wake up from sleep properly
++ Bluetooth works for HID devices such as mouse, keyboard and audio stuff but connections are flaky. It may also not wake up from sleep properly
 
 ## Natively supported bluetooth dongle
-I often use these cheap dongles from [eBay](https://www.ebay.co.uk/itm/1PCS-Mini-USB-Bluetooth-V4-0-3Mbps-20M-Dongle-Dual-Mode-Wireless-Adapter-Device/324106977844) that work in macOS out of the box. When going this route don't forget to disable the Intel bluetooth kexts in the config and also disable bluetooth in the BIOS when using a dongle. You will also need to map the port it connects to as internal else sleep will be dodgy. You can do this easily by setting the port type to 255 in the USBPorts.kext info.plist file. You can find the port identifier (example HS03) with Hackintool.
+I often use these cheap dongles from [eBay](https://www.ebay.co.uk/itm/1PCS-Mini-USB-Bluetooth-V4-0-3Mbps-20M-Dongle-Dual-Mode-Wireless-Adapter-Device/324106977844) that work in macOS out of the box. When going this route don't forget to disable the Intel bluetooth kexts in the config and also disable bluetooth in the BIOS when using a dongle. You will also need to map the port it connects to as internal else sleep will be dodgy. You can do this easily by setting the port type to 255 in the USBPorts.kext info.plist file. You can find the port identifier (example HS03) with Hackintool. Because power isn't cut when entering sleep you can wake the machine up with bluetooth devices.
 
 ## Not working/untested
 + Card reader (sort of works with v2.3-beta2 of [this](https://github.com/cholonam/Sinetek-rtsx) kext)
