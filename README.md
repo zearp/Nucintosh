@@ -30,7 +30,7 @@ This is a quick and dirty repo for Intel NUC 8th gen computers. It should work o
 * [Credits](#credits)
   
 ## Installation
-+ Update to latest (0085) BIOS -> load BIOS defaults -> click advanced and change;
++ Update to the latest (0085) BIOS -> load BIOS defaults -> click advanced and change;
 ```
 Devices -> USB -> Port Device Charging Mode: off
 Security -> Thunderbolt Security Level: Legacy Mode
@@ -39,7 +39,7 @@ Boot -> Boot Configuration -> Network Boot: Disable
 Boot -> Secure Boot -> Disable
 ```
 + Download macOS form the App Store and create a USB installer with *[createinstallmedia](https://support.apple.com/en-us/HT201372)* on macOS (real mac/hack or vm) or use [gibMacOS](https://github.com/corpnewt/gibMacOS)\*
-+ Download [this repo](https://github.com/zearp/Nucintosh/archive/master.zip) and extract the EFI folder from the archive
++ Download the EFI folder [here](https://github.com/zearp/Nucintosh/releases) or download/clone the complete repo for latest builds
 + Edit config.plist with [ProperTree](https://github.com/corpnewt/ProperTree) and change the following fields;
 ```
 PlatformInfo -> Generic -> MLB
@@ -49,6 +49,7 @@ PlatformInfo -> Generic -> SystemUUID
 ```
 Generate new serials with [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS). The ROM value is your ethernet (en0) mac address ([more info](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#fixing-en0)).
 + Copy the EFI folder to the EFI partition on the USB installer
++ Clear NVRAM from the OpenCore picker
 + Install macOS
 
 \* Installers made with GibMacOS on Windows and Linux require a working internet connection as it uses the recovery image only, it then downloads the full installer from Apple. The *createistallmedia* script makes an offline installer.
@@ -89,9 +90,8 @@ That's all!
 
 ## Big Sur
 + Big Sur needs its own version of Airportitlwm, download the kext [here](https://github.com/zearp/Nucintosh/raw/master/Stuff/AirportItlwm.kext-BigSur.zip) and put it in the kext folder replacing the other one
-+ Near the end of the install the system volume will be cryptographically sealed, this will take [some](https://dortania.github.io/OpenCore-Install-Guide/extras/big-sur/#troubleshooting) time
++ When you see ```Forcing CS_RUNTIME for entitlement``` displayed macOS did not hang; its sealing the filesystem do ***not*** reboot!
 + To fully disable SIP you need to change ```csr-active-config``` to ```FF0F0000``` in the config
-+ ~~In b10 you'll need to set ```SecureBootModel``` to disabled in the config, else it will panic or bootloop~~ Shouldn't be needed anymore.
 + Error 66 when trying to mount / in read/write mode and/or errors about diskXs5s1 when booting, this is due to apfs snapshots;
 
 Boot into recovery and open a terminal then list the snapshots with ```diskutil apfs listSnapshots diskXs5``` and delete them with ```diskutil apfs deleteSnapshot diskXs5 -uuid UUIDHERE```.
