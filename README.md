@@ -91,7 +91,7 @@ That's all!
 ## Big Sur
 + Big Sur needs its own version of Airportitlwm, download the kext [here](https://github.com/zearp/Nucintosh/raw/master/Stuff/AirportItlwm.kext-BigSur.zip) and put it in the kext folder replacing the other one
 + When you see ```Forcing CS_RUNTIME for entitlement``` displayed macOS did not hang; its sealing the filesystem, do ***not*** reboot!
-+ To fully disable SIP you need to change ```csr-active-config``` to ```FF0F0000``` in the config
++ To fully disable SIP you need to change ```csr-active-config``` to ```FF0F0000``` in the config, in order to remove the express card icon SIP needs to be disabled!
 + Error 66 when trying to mount / in read/write mode and/or errors about diskXs5s1 when booting, this is due to apfs snapshots;
 
 Boot into recovery and open a terminal then list the snapshots with ```diskutil apfs listSnapshots diskXs5``` and delete them with ```diskutil apfs deleteSnapshot diskXs5 -uuid UUIDHERE```.
