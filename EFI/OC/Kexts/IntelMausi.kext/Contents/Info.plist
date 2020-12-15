@@ -52,9 +52,7 @@
 			<dict>
 				<key>enableCSO6</key>
 				<true/>
-				<key>enableTSO4</key>
-				<false/>
-				<key>enableTSO6</key>
+				<key>enableWakeOnAddrMatch</key>
 				<false/>
 				<key>maxIntrRate10</key>
 				<integer>3000</integer>
