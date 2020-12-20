@@ -59,6 +59,7 @@ Generate new serials with [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS). Th
 - Please re-enable SIP if you don't need it disabled; change ```csr-active-config``` to ```00000000``` reboot and reset nvram
 - Check if TRIM is enabled, If not run ```sudo trimforce enable``` to enable it
 - Disable ```NVMeFix.kext``` if you don't have an NVMe drive
+- Don't forget to copy the EFI folder from the installer's EFI partition to the internal disk's EFI partition, you can use [EFI Agent](https://github.com/headkaze/EFI-Agent) to easily mount EFI partitions.
 
 Finally make sure sleep works properly. You can skip some of these but it will make your machine wake up from time to time. Same as real Macs.
 ```
