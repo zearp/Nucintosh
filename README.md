@@ -163,7 +163,7 @@ CPU BaseFreq: 2300, CPU MaxFreq(1/2/4): 3800/3800/3600 (mhz)  PL1: 35W PL2: 65W
 CPU Freq: 0.8ghz, Voltage: 0.6144v, Power:pkg 3.53w /core 0.80w,Temp: 94 c
 ```
 
-Take note of your Pl1 and Pl2 numbers. Close all open apps and start out with only applying undervolting to CPU and CPU Cache by running ```./voltageshift offset -25 0 -25```. This will apply a very mild undervolt and you'll see a message like this;
+Take note of your Pl1 and Pl2 numbers. Close all open apps and start out with only applying some light undervolting to CPU and CPU Cache by running ```./voltageshift offset -25 0 -25``` and you'll see a message like this;
 
 ```
 zearp@nuc ~ % ./voltageshift offset -25 0 -25                                       
