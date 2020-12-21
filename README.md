@@ -12,7 +12,7 @@ This is a quick and dirty repo for Intel NUC 8th gen computers. It should work o
   - NVMeFix
   - CPUFriend
   - OpenIntelWireless kexts for Intel bluetooth and wifi
-  - FakePCIID (without this audio over hdmi only works when re-plugging the cable)
+  - FakePCIID (without this audio over HDMI only works when re-plugging the cable)
   
 ## Index
 * [Installation](#installation)
@@ -23,6 +23,7 @@ This is a quick and dirty repo for Intel NUC 8th gen computers. It should work o
 * [Intel wifi/bt](#intel-bluetooth-and-wifi)
 * [Native bt dongle](#natively-supported-bluetooth-dongle)
 * [What doesn't work?](#not-workinguntested)
+* [Undervolting](#undervolting)
 * [Performance, power and noise](#performance-power-and-noise)
   - [Noise](#noise)
   - [Passive cooling](#passive-cooling)
@@ -104,11 +105,11 @@ For both 1st and 3rd party you will need a [supported](https://dortania.github.i
 
 3rd party cards will need these kexts: [AirportBrcmFixup](https://github.com/acidanthera/AirportBrcmFixup) + [BrcmPatchRAM](https://github.com/acidanthera/BrcmPatchRAM), read the instructions on the repo's and you'll be up and running in no time. I've tested the very affordable DW1820A in many machines including the NUC and it works great. For some cards you may need to create an entry under devices in the config that disables ASPM, this only needed if you have issues with sleep.
 
-1st party is my preffered option. Grab an Apple 6+12 pin to m.2 M-key [converter card](https://dortania.github.io/Wireless-Buyers-Guide/Airport.html) and go native with something like the BCM94360CS2. Please note the number of antenna connectors. Some have more than 2, so you'll have to add some antenna's and maybe even mod your case. Though there is some room under the plastic lid, it can fit internal antennas like [this](https://ae01.alicdn.com/kf/HTB1AAiAKVXXXXc4aXXXq6xXFXXX4/2pcs-Internal-Antennas-40cm-15-7-inches-IPEX-MHF4-2-4-5G-wifi-antennas-for-BCM94352Z.jpg). The lid can be removed with some strategic force and there's a hole to route the wires trough too. I would use those and leave the standard antenna's connected to the Intel module. They're very cheap and the antenna connectors on the Intel module are very fragile.
+1st party is my preferred option. Grab an Apple 6+12 pin to m.2 M-key [converter card](https://dortania.github.io/Wireless-Buyers-Guide/Airport.html) and go native with something like the BCM94360CS2. Please note the number of antenna connectors. Some have more than 2, so you'll have to add some antenna's and maybe even mod your case. Though there is some room under the plastic lid, it can fit internal antennas like [this](https://ae01.alicdn.com/kf/HTB1AAiAKVXXXXc4aXXXq6xXFXXX4/2pcs-Internal-Antennas-40cm-15-7-inches-IPEX-MHF4-2-4-5G-wifi-antennas-for-BCM94352Z.jpg). The lid can be removed with some strategic force and there's a hole to route the wires trough too. I would use those and leave the standard antenna's connected to the Intel module. They're very cheap and the antenna connectors on the Intel module are very fragile.
 
 One big plus of going native is that you gain HID-proxy. This means that when there is no OS running the Airport card will proxy any paired HID bluetooth devices to the machine as usb devices. This means you can enter the BIOS or boot menu using the bluetooth keyboard and mouse. This is not a feature you will find on many other cards, including the the one Intel put in here. Even expensive bluetooth cards often can not do this. But Apple has added it even in the cheap BCM943224PCIEBT2 Airport card. I've personally tested that card and it still works fine in Catalina and Big Sur by setting ```Kernel -> Patch -> 0``` to true. Big Sur will also need [a patched](https://github.com/barrykn/big-sur-micropatcher/tree/main/payloads/kexts) IO80211.kext.
 
-Some sellers on AliExpress have converter cards that already have [the small 1.25mm pitch jst](https://github.com/zearp/Nucintosh/blob/master/Stuff/NUC8-m2adapter.jpg?raw=true) connector on it. It connects to one of the two internal usb ports. I use one without issues in my NUC. They usally list them as NUC8 compatible and cost a bit more than other converter cards.
+Some sellers on AliExpress have converter cards that already have [the small 1.25mm pitch jst](https://github.com/zearp/Nucintosh/blob/master/Stuff/NUC8-m2adapter.jpg?raw=true) connector on it. It connects to one of the two internal usb ports. I use one without issues in my NUC. They usually list them as NUC8 compatible and cost a bit more than other converter cards.
 
 Those other cards (and 3rd party ones) do not come with this connector so you'd have to make your own. My cheaper eBay card came with a cable with standard internal usb header and a cable without any plugs so you can attach your own. Check the listing carefully before ordering. Also make sure it converts to M key and once you have it that the spacing pillar is in the correct position. Don't short the poor Airport out.
 
@@ -137,6 +138,58 @@ I often use these cheap dongles from [eBay](https://www.ebay.co.uk/itm/1PCS-Mini
 + ~~4K [might need](https://github.com/acidanthera/WhateverGreen/blob/master/Manual/FAQ.IntelHD.en.md#lspcon-driver-support-to-enable-displayport-to-hdmi-20-output-on-igpu) some additional parameters and a new portmap~~ 4K confirmed working. Thanks again to [crp724](https://github.com/zearp/Nucintosh/issues/3)
 + You tell me!
 
+## Undervolting
+Undervolting is a great way to to maximmise performance, lower power consumption and reduce temperatures. The amount of undervolt you can apply depends on your luck in the [silicon lottery](https://en.wikipedia.org/wiki/Product_binning#Overclocking_and_core_unlocking). You'll have to lower the voltage step by step and test stability with [stress-ng](https://wiki.ubuntu.com/Kernel/Reference/stress-ng), [Prime95](https://www.mersenne.org/download/) or other tools like it.
+
+Please read [this](https://github.com/sicreative/VoltageShift/blob/master/README.md) page for an explanation of all the options and what they do, I'm only focusing on the basics here. Also heed the warning displayed but realise this warning doesn't really apply when undervolting, but this tool can also do overvolting which could indeed be dangerous. The worst thing that can happen when undervolting is data loss due to system freeze. So only do this after [making a backup](https://github.com/zearp/OptiHack/blob/master/text/CLONE_IT.md).
+
+Installation is easy, I've compiled a version that will load from EFI so there's no need to disable SIP or allow loading of unsigned kexts. Simply download [this](https://github.com/zearp/Nucintosh/raw/master/Stuff/VoltageShift.zip) and place the kext file inside the kext folder of OpenCore in your EFI and place the ```voltageshift```binary file in your home directory or somewhere else where it is not in your way. Don't forget to add to the kext to your config file too. Using ProperTree's snapshot function makes it easy to do this quickly. Once this is done reboot and verify the kext is loaded by running ```kextstat | grep VoltageShift``` in a terminal.
+
+Once you confirmed the kext is loaded you can start undervolting. In the terminal go to the folder where you placed the ```voltageshift``` binary and run the follow command ```./voltageshift info``` if all is well it will return the current configuration, in my case;
+
+```
+zearp@nuc ~ % ./voltageshift info
+------------------------------------------------------
+   VoltageShift Info Tool
+------------------------------------------------------
+CPU voltage offset: 0mv
+GPU voltage offset: 0mv
+CPU Cache voltage offset: 0mv
+System Agency offset: 0mv
+Analogy I/O: 0mv
+OC mailbox cmd failed
+Digital I/O: 0mv
+CPU BaseFreq: 2300, CPU MaxFreq(1/2/4): 3800/3800/3600 (mhz)  PL1: 35W PL2: 65W 
+CPU Freq: 0.8ghz, Voltage: 0.6144v, Power:pkg 3.53w /core 0.80w,Temp: 94 c
+```
+
+Take note of your Pl1 and Pl2 numbers. Close all open apps and start out with only applying undervolting to CPU and CPU Cache by running ```./voltageshift offset -25 0 -25```. This will apply a very mild undervolt and you'll see a message like this;
+
+```
+zearp@nuc ~ % ./voltageshift offset -25 0 -25                                       
+--------------------------------------------------------------------------
+VoltageShift offset Tool
+--------------------------------------------------------------------------
+Before CPU voltageoffset: 0mv
+Before GPU voltageoffset: 0mv
+Before CPU Cache: 0mv
+--------------------------------------------------------------------------
+After CPU voltageoffset: -25mv
+After GPU voltageoffset: 0mv
+After CPU Cache: -25mv
+--------------------------------------------------------------------------
+```
+
+Now run a stress test for 5-10 minutes and if it doesn't freeze you can try to go lower. Repeat this until the system freezes and then use the last voltage that didn't cause a freeze. In my testing I've found that applying an undervolt of -75 to -125 on the CPU/CPU Cache works fine, but it will differ on every system. Once you found the perfect offset you can have this apply at boot by running; ```sudo ./voltageshift buildlaunchd -75 0 -75 0 0 0 1 35 65 0 120```.
+
+You will need to change -75/-75 to your magic numbers and change 35/65 to whatever PL1/Pl2 values were when running the info command. PL1/PL2 values change depending on BIOS settings. I've changed mine to 35/65 since my cooling solution is better than stock. Lowering it below 28watts may decrease temps but also performance. The tdp of the i5 is 28 watt according to Intel and I think the stock values are 30/50. This setting regulates the amount of power the NUC is allowed to consume when running normally and in turbo mode. change 120 to whatever interval you wish to have the script check if undervoltage has been applied. Sleep can reset the settings, with it set to 120 minutes you'll be without an undervolt after waking from sleep for a max of 2 hours. Change to your liking or set to 0 to disable. Refer to the [documentation](https://github.com/sicreative/VoltageShift/blob/master/README.md) for an explanation about every single option. For example the ```1``` is to keep turbo enabled. A zero means the offset isn't changed.
+
+If you want your stock cooled NUC to be more silent with a little performance penatly you can disable turbo and set PL1/PL2 both to 28 watts. This will result in a much cooler and quieter machine but with some performance loss. With these setting and a custom fan curve you can get your NUC to be silent pretty much all the time unless you really push it. It can pay off to play around with these to find the perfect balance between nosie and performance.
+
+There are a lot more things you can do but as a start just undervolting CPU/CPU Cache is enough. In my testing undervolting GPU didn't make any difference but maybe on yours it does help. Experiment and see what works best for you.
+
+> Tip: Use Intel Power Gadet and/or HWMonitor to check current voltages and temperatures.
+
 ## Performance, power and noise
 While benchmarks don't really represent real life it can be handy when testing. In my tests undervolting didn't have any impact on Geekbench results scores. But using CPUFriend can have some impact on (immediate) performance depending on which power profile you select.
 
@@ -147,7 +200,7 @@ While benchmarks don't really represent real life it can be handy when testing. 
   - Balanced power savings: ~875 / ~3800
   - Maximum power savings: ~715 / ~3300
 
-The default kexts provided give you the best performance and still lowers the lowest clockspeed to 800mhz. Which lowers heat and power consumption a bit. I didn't notice any difference between the performance and balanced performance profiles but I only ran some quick tests. It is pretty easy to create [your own](https://dortania.github.io/OpenCore-Post-Install/universal/pm.html#using-cpu-friend) profile or disable both CPUFriend kexts in the config.
+The default kexts provided give you the best performance and still lowers the lowest clock speed to 800mhz. Which lowers heat and power consumption a bit. I didn't notice any difference between the performance and balanced performance profiles but I only ran some quick tests. It is pretty easy to create [your own](https://dortania.github.io/OpenCore-Post-Install/universal/pm.html#using-cpu-friend) profile or disable both CPUFriend kexts in the config.
 
 ### Noise
 In order to reduce noise I've setup a custom fan profile, disabled the option that the fan can be turned off and set a 25% duty cycle for both CPU and RAM. The idle temps are slightly higher but the noise is a lot less. I've also limited the sustained tdp to 28 watts to match the CPU itself. The peak tdp has been left to its default of 50 watts. With CPUFriend I've set the lowest frequency to 800mhz and a applied a mild undervolt of -50 on the CPU and CPU cache and -25 on the iGPU. A duty cycle of 21 or lower gives me a silent computer but its not ideal to run the fans lower than 25%.
@@ -155,7 +208,7 @@ In order to reduce noise I've setup a custom fan profile, disabled the option th
 > Note: No longer using a fan, passive cooling ftw!
 
 ### Passive cooling
-Received my [Akasa](http://www.akasa.com.tw/search.php?seed=A-NUC45-M1B) case. To my surprise it does a better job than the stock cooler. It's not cheap and the case is not finished very smoothly (it can hurt you lol). I have mine verically and didn't use any of the end cheeks, only the feet. It would just introduce more options to hurt myself ;-)
+Received my [Akasa](http://www.akasa.com.tw/search.php?seed=A-NUC45-M1B) case. To my surprise it does a better job than the stock cooler. It's not cheap and the case is not finished very smoothly (it can hurt you lol). I have mine vertically and didn't use any of the end cheeks, only the feet. It would just introduce more options to hurt myself ;-)
 
 It works really well. So good I have set the power setting in the BIOS to max performance. It idles around 35-40c (with undervolt) which is just fine considering my ambient temperature is around 25c. When put under load it doesn't get anywhere near 80c. I've ran the matrix test from ```stress-ng``` for a while and it stayed [stable around 70c](https://github.com/zearp/Nucintosh/blob/master/Stuff/passive_cooling.png) the whole test.
 
