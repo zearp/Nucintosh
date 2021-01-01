@@ -34,6 +34,7 @@ This is a quick and dirty repo for Intel NUC 8th gen computers. It should work o
 + Update to the latest (0085) BIOS -> load BIOS defaults -> click advanced and change;
 ```
 Devices -> USB -> Port Device Charging Mode: off
+Devices -> USB -> USB Legacy -> Disabled
 Security -> Thunderbolt Security Level: Legacy Mode
 Power -> Wake on LAN from S4/S5: Stay Off
 Boot -> Boot Configuration -> Network Boot: Disable
