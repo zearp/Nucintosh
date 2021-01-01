@@ -70,6 +70,36 @@
 					<data>
 					AwAAAA==
 					</data>
+					<key>Codec</key>
+					<string>agasecond - Realtek ALC256 (3246) for Xiaomi Pro Enhanced 2019</string>
+					<key>CodecID</key>
+					<integer>283902550</integer>
+					<key>ConfigData</key>
+					<data>
+					ASccIAEnHQEBJx6mAScfkAE3HPABNx0AATce
+					AAE3H0ABRxzwAUcdAAFHHgABRx9AAYcc8AGH
+					HQABhx4AAYcfQAGXHEABlx0QAZceqwGXHwQB
+					pxzwAacdAAGnHgABpx9AAbccEAG3HQEBtx4X
+					AbcfkAG3DAIB1xzwAdcdAAHXHgAB1x9AAecc
+					8AHnHQAB5x4AAecfQAIXHDACFx0QAhceKwIX
+					HwQCFwwCAgUAEAIEACACBQBGAgQwpA==
+					</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>69</integer>
+					<key>WakeConfigData</key>
+					<data>
+					AbcMAgIXDAI=
+					</data>
+					<key>WakeVerbReinit</key>
+					<true/>
+				</dict>
+				<dict>
+					<key>AFGLowPowerState</key>
+					<data>
+					AwAAAA==
+					</data>
 					<key>CodecID</key>
 					<integer>283902569</integer>
 					<key>Comment</key>
@@ -840,6 +870,32 @@
 					<key>WakeConfigData</key>
 					<data>
 					AXcMAgGnByQCFwwC
+					</data>
+					<key>WakeVerbReinit</key>
+					<true/>
+				</dict>
+				<dict>
+					<key>AFGLowPowerState</key>
+					<data>
+					AwAAAA==
+					</data>
+					<key>Codec</key>
+					<string>ALC222 aka ALC3205-CG for HP EliteDesk 800 G6 Mini</string>
+					<key>CodecID</key>
+					<integer>283902498</integer>
+					<key>ConfigData</key>
+					<data>
+					AXccEAF3HQEBdx4XAXcfkAF3DAIBhxxAAYcd
+					AAGHHqABhx+QAhccUAIXHRACFx4hAhcfAgIX
+					DAI=
+					</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>11</integer>
+					<key>WakeConfigData</key>
+					<data>
+					AXcMAg==
 					</data>
 					<key>WakeVerbReinit</key>
 					<true/>
@@ -2782,6 +2838,32 @@
 					<key>WakeConfigData</key>
 					<data>
 					AUcMAgIXDAIBlwckAbcHJAIXCIM=
+					</data>
+					<key>WakeVerbReinit</key>
+					<true/>
+				</dict>
+				<dict>
+					<key>AFGLowPowerState</key>
+					<data>
+					AwAAAA==
+					</data>
+					<key>Codec</key>
+					<string>Realtek ALC256 for Dell OptiPlex 7080</string>
+					<key>CodecID</key>
+					<integer>283902550</integer>
+					<key>ConfigData</key>
+					<data>
+					AUccEAFHHQEBRx4XAUcfkAGXHEABlx0QAZce
+					iwGXHwIBtxwgAbcdEAG3HgEBtx8BAhccMAIX
+					HRACFx4rAhcfAgFHDAIBtwwCAhcMAg==
+					</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>67</integer>
+					<key>WakeConfigData</key>
+					<data>
+					AUcMAgG3DAICFwwC
 					</data>
 					<key>WakeVerbReinit</key>
 					<true/>
