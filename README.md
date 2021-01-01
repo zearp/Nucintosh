@@ -1,5 +1,5 @@
 # NUC8IxBEx Hackintosh
-This is a quick and dirty repo for Intel NUC 8th gen computers. It should work on all the Coffee Lake ones. I've used various sources (see credits) to build my EFI and did quite some testing. It should leave you with a stable and reliable build but as always, these things are never really finished. While it should work on older macOS versions, I've done all building and testing on Catalina and Big Sur. If you want to use your machine as a stable and reliable daily driver, I suggest sticking with Catalina.
+This is a quick and dirty repo for Intel NUC 8th gen computers. It should work on all the Coffee Lake ones. I've used various sources (see credits) to build my EFI and did quite some testing. It should leave you with a stable and reliable build but as always, these things are never really finished. While it should work on older macOS versions, I've done all building and testing on Catalina and Big Sur. If you want to use your machine as a stable and reliable daily driver, I suggest sticking with Catalina. Mojave and older will only boot when you set [SecureBootModel](https://github.com/zearp/Nucintosh/blob/master/EFI/OC/config.plist#L593-L594) to disabled.
 
 ## Details
 * Works with macOS *Catalina* and *Big Sur*[\*](#big-sur)
