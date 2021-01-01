@@ -1,5 +1,5 @@
 # NUC8IxBEx Hackintosh
-This is a quick and dirty repo for Intel NUC 8th gen computers. It should work on all the Coffee Lake ones. I've used various sources (see credits) to build my EFI and did quite some testing. It should leave you with a stable and reliable build but as always, these things are never really finished. While it should work on older macOS versions, I've done all building and testing on Catalina and Big Sur. If you want to use your machine as a stable and reliable daily driver, I suggest sticking with Catalina.
+This is a quick and dirty repo for Intel NUC 8th gen computers. It should work on all the Coffee Lake ones. I've used various sources (see credits) to build my EFI and did quite some testing. It should leave you with a stable and reliable build but as always, these things are never really finished. While it should work on older macOS versions, I've done all building and testing on Catalina and Big Sur. If you want to use your machine as a stable and reliable daily driver, I suggest sticking with Catalina. Mojave and older will only boot when you set [SecureBootModel](https://github.com/zearp/Nucintosh/blob/master/EFI/OC/config.plist#L593-L594) to disabled, if left enabled you will end up in macOS recovery after an automatic reboot.
 
 ## Details
 * Works with macOS *Catalina* and *Big Sur*[\*](#big-sur)
@@ -60,7 +60,7 @@ Generate new serials with [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS). Th
 - Please re-enable SIP if you don't need it disabled; change ```csr-active-config``` to ```00000000``` reboot and reset nvram
 - Check if TRIM is enabled, If not run ```sudo trimforce enable``` to enable it
 - Disable ```NVMeFix.kext``` if you don't have an NVMe drive
-- Don't forget to copy the EFI folder from the installer's EFI partition to the internal disk's EFI partition, you can use [EFI Agent](https://github.com/headkaze/EFI-Agent) to easily mount EFI partitions.
+- Don't forget to copy the EFI folder from the installer's EFI partition to the internal disk's EFI partition. This is needed to boot from the internal disk. You can use [EFI Agent](https://github.com/headkaze/EFI-Agent) to easily mount EFI partition.
 
 Finally make sure sleep works properly. You can skip some of these but it will make your machine wake up from time to time. Same as real Macs.
 ```
@@ -215,7 +215,7 @@ It works really well. So good I have set the power setting in the BIOS to max pe
 My only complaint is the rough finish. I wish they would've skipped on those cheeks and spend the money saved on a smooth finish, but thats besides the point of this thing. The silence is worth the occasional scratch.
 
 ## Todo
-+ Get rid of FakePCIID.kext and do what it does with a config entry or ACPI patch, feel free to submit a PR
++ Get rid of FakePCIID.kext and do what it does with a config entry or ACPI patch, feel free to contribute [here](https://github.com/zearp/Nucintosh/issues/18)
 
 ## Credits
 + https://github.com/acidanthera
