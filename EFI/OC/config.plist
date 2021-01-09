@@ -530,6 +530,8 @@
 			<false/>
 			<key>PickerMode</key>
 			<string>Builtin</string>
+			<key>PickerVariant</key>
+			<string>Auto</string>
 			<key>PollAppleHotKeys</key>
 			<true/>
 			<key>ShowPicker</key>
