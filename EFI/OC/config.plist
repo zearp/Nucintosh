@@ -181,6 +181,8 @@
 				<data>AQAAAA==</data>
 				<key>enable-lspcon-support</key>
 				<data>AQAAAA==</data>
+				<key>force-online</key>
+				<data>AQAAAA==</data>
 				<key>framebuffer-con0-enable</key>
 				<data>AQAAAA==</data>
 				<key>framebuffer-con0-index</key>
@@ -198,8 +200,6 @@
 				<key>framebuffer-con2-index</key>
 				<data>AQAAAA==</data>
 				<key>framebuffer-patch-enable</key>
-				<data>AQAAAA==</data>
-				<key>force-online</key>
 				<data>AQAAAA==</data>
 			</dict>
 		</dict>
@@ -680,6 +680,8 @@
 			<false/>
 			<key>MLB</key>
 			<string></string>
+			<key>MaxBIOSVersion</key>
+			<false/>
 			<key>ProcessorType</key>
 			<integer>0</integer>
 			<key>ROM</key>
