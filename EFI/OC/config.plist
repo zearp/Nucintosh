@@ -139,7 +139,7 @@
 			<key>DiscardHibernateMap</key>
 			<false/>
 			<key>EnableSafeModeSlide</key>
-			<true/>
+			<false/>
 			<key>EnableWriteUnprotector</key>
 			<false/>
 			<key>ForceExitBootServices</key>
@@ -674,6 +674,8 @@
 	<dict>
 		<key>Automatic</key>
 		<true/>
+		<key>CustomMemory</key>
+		<false/>
 		<key>Generic</key>
 		<dict>
 			<key>AdviseWindows</key>
