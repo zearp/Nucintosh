@@ -31,7 +31,7 @@ This is a quick and dirty repo for Intel NUC 8th gen computers. It should work o
 * [Credits](#credits)
   
 ## Installation
-+ Update to the latest (0085) BIOS -> load BIOS defaults -> click advanced and change;
++ Update to the latest (0087) BIOS -> load BIOS defaults -> click advanced and change;
 ```
 Devices -> USB -> Port Device Charging Mode: off
 Devices -> USB -> USB Legacy -> Disabled
@@ -184,6 +184,12 @@ After CPU Cache: -25mv
 ```
 
 Now run a stress test for 5-10 minutes and if it doesn't freeze you can try to go lower. Repeat this until the system freezes and then use the last voltage that didn't cause a freeze. In my testing I've found that applying an undervolt of -75 to -125 on the CPU/CPU Cache works fine, but it will differ on every system. If you don't want to spend time finding the perfect numbers you can apply -50 for both, it should be stable and still help a bit. Once you found the perfect offset you can have this apply at boot by running; ```sudo ./voltageshift buildlaunchd -75 0 -75 0 0 0 1 35 65 0 120```.
+
+Please note that the util will exit with an error, this is normal as we modified it to run from EFI. It will execute some commands that fail which causes it to display an error. To verify the launch deamon has been created you can check if it exits:
+```
+zearp@nuc ~ % file /Library/LaunchDaemons/com.sicreative.VoltageShift.plist
+/Library/LaunchDaemons/com.sicreative.VoltageShift.plist: XML document text, ASCII text, with very long lines
+```
 
 You will need to change -75/-75 to your magic numbers and change 35/65 to whatever PL1/PL2 values were when running the info command. PL1/PL2 values change depending on BIOS settings. I've changed mine in the BIOS to 35/65 since my cooling solution is better than stock. Lowering it below 28watts may decrease temps but also performance. The tdp of the i5 is 28 watts according to Intel and I think the stock values are 30/50. This setting regulates the amount of power the NUC is allowed to consume when running normally and in turbo mode. Change 120 to whatever interval you wish to have the script check if undervoltage has been applied. Sleep can reset the settings, with it set to 120 minutes you'll be without an undervolt after waking from sleep for a max of 2 hours. Change to your liking or set to 0 to disable. Refer to the [documentation](https://github.com/sicreative/VoltageShift/blob/master/README.md) for an explanation about every single option. For example the ```1``` is to keep turbo enabled. A zero means the offset isn't changed.
 
