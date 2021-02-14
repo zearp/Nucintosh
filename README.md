@@ -103,6 +103,9 @@ That's all!
 
 As of 11.1 the above no longer seems to work. Will update when I find a method that works and isn't overtly complicated.
 
+The current EFI will work on all versions of Big Sur including 11.3 beta builds.
+![alt text](https://raw.githubusercontent.com/zearp/Nucintosh/master/Stuff/Big%20Sur%2011.3%20Beta.png?raw=true)
+
 ## Apple/3rd party bluetooth and wifi
 For both 1st and 3rd party you will need a [supported](https://dortania.github.io/Wireless-Buyers-Guide/) wifi/bluetooth combo card and an adapter (see below) to convert it to M key. As far as I know compatible M key combo cards don't exist. 
 
