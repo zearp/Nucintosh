@@ -16,9 +16,9 @@ This is a quick and dirty repo for Intel NUC 8th gen computers. It should work o
   
 ## Index
 * [Installation](#installation)
-* [Updating](#updating)
 * [Post install](#post-install)
 * [Big Sur](#big-sur)
+* [Updating](#updating)
 * [Apple and 3rd party wifi/bt](#apple3rd-party-bluetooth-and-wifi)
 * [ThunderBolt](#thunderbolt)
 * [Intel wifi/bt](#intel-bluetooth-and-wifi)
@@ -56,9 +56,6 @@ Generate new serials with [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS). Th
 + Install macOS
 
 \* Installers made with GibMacOS on Windows and Linux require a working internet connection as it uses the recovery image only, it then downloads the full installer from Apple. The *createistallmedia* script makes an offline installer.
-
-## Updating
-Updating is easy, first copy the MLB/ROM/SystemSerialNumber/SystemUUID values from your current config to a text file then delete the whole EFI folder and replace it with the latest release/clone from this repo. Copy your PlatformInfo fields from the text file into the new config. Unless you made other changes this is all thats needed.
 
 ## Post install
 - Remove express card icon: Run ```sudo mount -uw / && killall Finder && sudo mv /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu.bak && sudo touch /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu``` -- This no logner works on Big Sur, but you can use a cool and free app called [Hidden Bar](https://github.com/dwarvesf/hidden) to hide it with instead.
@@ -109,6 +106,9 @@ As of 11.1 the above no longer seems to work. Will update when I find a method t
 
 The current EFI will work on all versions of Big Sur including 11.3 beta builds.
 ![alt text](https://raw.githubusercontent.com/zearp/Nucintosh/master/Stuff/Big%20Sur%2011.3%20Beta.png?raw=true)
+
+## Updating
+Updating is easy, first copy the MLB/ROM/SystemSerialNumber/SystemUUID values from your current config to a text file then delete the whole EFI folder and replace it with the latest release/clone from this repo. Copy your PlatformInfo fields from the text file into the new config. Unless you made other changes this is all thats needed.
 
 ## Apple/3rd party bluetooth and wifi
 For both 1st and 3rd party you will need a [supported](https://dortania.github.io/Wireless-Buyers-Guide/) wifi/bluetooth combo card and an adapter (see below) to convert it to M key. As far as I know compatible M key combo cards don't exist. 
