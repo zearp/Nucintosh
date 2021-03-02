@@ -8,11 +8,11 @@
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>SSDT-NUC8BEH.aml</string>
+				<string>SSDT-NUC8iXBEX.aml</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
-				<string>SSDT-NUC8BEH.aml</string>
+				<string>SSDT-NUC8iXBEX.aml</string>
 			</dict>
 		</array>
 		<key>Delete</key>
