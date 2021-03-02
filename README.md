@@ -19,8 +19,8 @@ This is a quick and dirty repo for Intel NUC 8th gen computers. It should work o
 * [Post install](#post-install)
 * [Big Sur](#big-sur)
 * [Updating](#updating)
-* [Apple and 3rd party wifi/bt](#apple3rd-party-bluetooth-and-wifi)
 * [Thunderbolt](#Thunderbolt)
+* [Apple and 3rd party wifi/bt](#apple3rd-party-bluetooth-and-wifi)
 * [Intel wifi/bt](#intel-bluetooth-and-wifi)
 * [Native bt dongle](#natively-supported-bluetooth-dongle)
 * [What doesn't work?](#not-workinguntested)
@@ -110,6 +110,11 @@ The current EFI will work on all versions of Big Sur including 11.3 beta builds.
 ## Updating
 Updating is easy, first copy the MLB/ROM/SystemSerialNumber/SystemUUID values from your current config to a text file then delete the whole EFI folder and replace it with the latest release/clone from this repo. Copy your PlatformInfo fields from the text file into the new config. Unless you made other changes this is all thats needed.
 
+## Thunderbolt
+Should work as long as Thunderbolt security is set to legacy mode. Thanks to [crp724](https://github.com/zearp/Nucintosh/issues/3) for confirming. He also confirmed eGPU works in his Mantiz TB3 enclosure. I assume that if eGPU works then all other Thunderbolt stuff works as well.
+
+In order for Thunderbolt hotplugging to work you will need to modify the firmware. I will add instructions here once I've tested this procedure a few times. Till then hotplugging may not work for all devices. One caveat of modifying the firmware is that hotplugging in Windows will be broken. This might be fixed by (force) installing Apple's own drivers. Those can be found inside Boot Camp driver packages. I'm not sure which Apple machine has the same Thunderbolt interface though. Needs more investigation.
+
 ## Apple/3rd party bluetooth and wifi
 For both 1st and 3rd party you will need a [supported](https://dortania.github.io/Wireless-Buyers-Guide/) wifi/bluetooth combo card and an adapter (see below) to convert it to M key. As far as I know compatible M key combo cards don't exist. 
 
@@ -130,11 +135,6 @@ Those other cards (and 3rd party ones) do not come with this connector so you'd 
 You'll also want to set your region to ```#a``` as it allows for full 80mhz channel width on ac cards. It might not be 100% legal depending on where you live. I've used this method on a few DW1820A cards and the speed increase was pretty amazing. This method may also apply when using real Apple cards, you will need add [AirportBrcmFixup](https://github.com/acidanthera/AirportBrcmFixup) on 1st party cards. To change the region simply add the following boot flag ```brcmfx-country=#a```.
 
 One last thing to remember is that waking the machine from sleep using bluetooth devices will not work. This is due to power being cut to the module. The module does start itself up very fast. By the time my screen wakes up my bluetooth devices are already reconnected. There is way to bypass this but it includes either modding your adapter card or [making your own](https://github.com/BbIKTOP/M.2-key-M-to-wifi). I've asked some sellers on AliExpress to produce this card but didn't have any luck. If you can make it or know a seller who's willing to make it please let me know.
-
-## Thunderbolt
-Should work as long as Thunderbolt security is set to legacy mode. Thanks to [crp724](https://github.com/zearp/Nucintosh/issues/3) for confirming. He also confirmed eGPU works in his Mantiz TB3 enclosure. I assume that if eGPU works then all other Thunderbolt stuff works as well.
-
-In order for Thunderbolt hotplugging to work you will need to modify the firmware. I will add instructions here once I've tested this procedure a few times. Till then hotplugging may not work for all devices. One caveat of modifying the firmware is that hotplugging in Windows will be broken. This might be fixed by (force) installing Apple's own drivers. Those can be found inside Boot Camp driver packages. I'm not sure which Apple machine has the same Thunderbolt interface though. Needs more investigation.
 
 ## Intel bluetooth and wifi
 + Wifi works and can be managed using native tools, speeds are still slow but connections are stable
