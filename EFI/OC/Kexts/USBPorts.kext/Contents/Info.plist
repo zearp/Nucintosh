@@ -22,57 +22,6 @@
 	<string>1.0</string>
 	<key>IOKitPersonalities</key>
 	<dict>
-		<key>Macmini8,1-TBTU</key>
-		<dict>
-			<key>CFBundleIdentifier</key>
-			<string>com.apple.driver.AppleUSBMergeNub</string>
-			<key>IOClass</key>
-			<string>AppleUSBMergeNub</string>
-			<key>IONameMatch</key>
-			<string>TBTU</string>
-			<key>IOPCIPrimaryMatch</key>
-			<string>0x15db8086</string>
-			<key>IOProbeScore</key>
-			<integer>5000</integer>
-			<key>IOProviderClass</key>
-			<string>AppleUSBXHCIAR</string>
-			<key>IOProviderMergeProperties</key>
-			<dict>
-				<key>kUSBSleepPortCurrentLimit</key>
-				<integer>2100</integer>
-				<key>kUSBSleepPowerSupply</key>
-				<integer>3600</integer>
-				<key>kUSBWakePortCurrentLimit</key>
-				<integer>2100</integer>
-				<key>kUSBWakePowerSupply</key>
-				<integer>5100</integer>
-				<key>port-count</key>
-				<data>AwAAAA==</data>
-				<key>ports</key>
-				<dict>
-					<key>UB21</key>
-					<dict>
-						<key>UsbConnector</key>
-						<integer>9</integer>
-						<key>name</key>
-						<string>UB21</string>
-						<key>port</key>
-						<data>AQAAAA==</data>
-					</dict>
-					<key>UB31</key>
-					<dict>
-						<key>UsbConnector</key>
-						<integer>9</integer>
-						<key>name</key>
-						<string>UB31</string>
-						<key>port</key>
-						<data>AwAAAA==</data>
-					</dict>
-				</dict>
-			</dict>
-			<key>model</key>
-			<string>Macmini8,1</string>
-		</dict>
 		<key>Macmini8,1-XHC</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
@@ -96,7 +45,7 @@
 				<key>kUSBWakePortCurrentLimit</key>
 				<integer>2100</integer>
 				<key>kUSBWakePowerSupply</key>
-				<integer>5100</integer>
+				<integer>5200</integer>
 				<key>port-count</key>
 				<data>EAAAAA==</data>
 				<key>ports</key>
@@ -199,6 +148,75 @@
 						<string>SS04</string>
 						<key>port</key>
 						<data>EAAAAA==</data>
+					</dict>
+				</dict>
+			</dict>
+			<key>model</key>
+			<string>Macmini8,1</string>
+		</dict>
+		<key>Macmini8,1-TBTU</key>
+		<dict>
+			<key>CFBundleIdentifier</key>
+			<string>com.apple.driver.AppleUSBMergeNub</string>
+			<key>IOClass</key>
+			<string>AppleUSBMergeNub</string>
+			<key>IONameMatch</key>
+			<string>TBTU</string>
+			<key>IOPCIPrimaryMatch</key>
+			<string>0x15db8086</string>
+			<key>IOProbeScore</key>
+			<integer>5000</integer>
+			<key>IOProviderClass</key>
+			<string>AppleUSBXHCIAR</string>
+			<key>IOProviderMergeProperties</key>
+			<dict>
+				<key>kUSBSleepPortCurrentLimit</key>
+				<integer>2100</integer>
+				<key>kUSBSleepPowerSupply</key>
+				<integer>3600</integer>
+				<key>kUSBWakePortCurrentLimit</key>
+				<integer>2100</integer>
+				<key>kUSBWakePowerSupply</key>
+				<integer>5200</integer>
+				<key>port-count</key>
+				<data>BAAAAA==</data>
+				<key>ports</key>
+				<dict>
+					<key>HS01</key>
+					<dict>
+						<key>UsbConnector</key>
+						<integer>9</integer>
+						<key>name</key>
+						<string>HS01</string>
+						<key>port</key>
+						<data>AQAAAA==</data>
+					</dict>
+					<key>HS02</key>
+					<dict>
+						<key>UsbConnector</key>
+						<integer>9</integer>
+						<key>name</key>
+						<string>HS02</string>
+						<key>port</key>
+						<data>AgAAAA==</data>
+					</dict>
+					<key>SSP1</key>
+					<dict>
+						<key>UsbConnector</key>
+						<integer>9</integer>
+						<key>name</key>
+						<string>SSP1</string>
+						<key>port</key>
+						<data>AwAAAA==</data>
+					</dict>
+					<key>SSP2</key>
+					<dict>
+						<key>UsbConnector</key>
+						<integer>9</integer>
+						<key>name</key>
+						<string>SSP2</string>
+						<key>port</key>
+						<data>BAAAAA==</data>
 					</dict>
 				</dict>
 			</dict>

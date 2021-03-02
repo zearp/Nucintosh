@@ -134,6 +134,8 @@ One last thing to remember is that waking the machine from sleep using bluetooth
 ## ThunderBolt
 Should work as long as ThunderBolt security is set to legacy mode. Thanks to [crp724](https://github.com/zearp/Nucintosh/issues/3) for confirming. He also confirmed eGPU works in his Mantiz TB3 enclosure. I assume that if eGPU works then all other ThunderBolt stuff works as well.
 
+In order for ThunderBolt hotplugging to work you will need to modify the firmware. I will add instructions here once I've tesed this procedure a few times. Till then hotplugging may not work for all devices. One caveat of modifying the firmware is that hotplugging in Windows will be broken. This might be fixed by (force) installing Apple's own drivers. Those can be found inside Boot Camp driver packages. I'm not sure wich Apple machine has the same ThunderBolt interface though. Needs more investigation.
+
 ## Intel bluetooth and wifi
 + Wifi works and can be managed using native tools, speeds are still slow but connections are stable
 + Bluetooth works for HID devices such as mouse, keyboard and audio stuff but connections are flaky. It may also not wake up from sleep properly
