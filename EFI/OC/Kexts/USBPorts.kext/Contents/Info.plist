@@ -80,7 +80,7 @@
 					<key>HS04</key>
 					<dict>
 						<key>UsbConnector</key>
-						<integer>3</integer>
+						<integer>0</integer>
 						<key>name</key>
 						<string>HS04</string>
 						<key>port</key>
