@@ -20,7 +20,7 @@ This is a quick and dirty repo for Intel NUC 8th gen computers. It should work o
 * [Big Sur](#big-sur)
 * [Updating](#updating)
 * [Apple and 3rd party wifi/bt](#apple3rd-party-bluetooth-and-wifi)
-* [ThunderBolt](#thunderbolt)
+* [Thunderbolt](#Thunderbolt)
 * [Intel wifi/bt](#intel-bluetooth-and-wifi)
 * [Native bt dongle](#natively-supported-bluetooth-dongle)
 * [What doesn't work?](#not-workinguntested)
@@ -58,7 +58,7 @@ Generate new serials with [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS). Th
 \* Installers made with GibMacOS on Windows and Linux require a working internet connection as it uses the recovery image only, it then downloads the full installer from Apple. The *createistallmedia* script makes an offline installer.
 
 ## Post install
-- Remove express card icon: Run ```sudo mount -uw / && killall Finder && sudo mv /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu.bak && sudo touch /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu``` -- This no logner works on Big Sur, but you can use a cool and free app called [Hidden Bar](https://github.com/dwarvesf/hidden) to hide it with instead.
+- Remove express card icon: Run ```sudo mount -uw / && killall Finder && sudo mv /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu.bak && sudo touch /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu``` -- This no longer works on Big Sur, but you can use a cool and free app called [Hidden Bar](https://github.com/dwarvesf/hidden) to hide it with instead.
 - Please re-enable SIP if you don't need it disabled; change ```csr-active-config``` to ```00000000``` reboot and reset nvram
 - Check if TRIM is enabled, If not run ```sudo trimforce enable``` to enable it
 - Disable ```NVMeFix.kext``` if you don't have an NVMe drive
@@ -131,10 +131,10 @@ You'll also want to set your region to ```#a``` as it allows for full 80mhz chan
 
 One last thing to remember is that waking the machine from sleep using bluetooth devices will not work. This is due to power being cut to the module. The module does start itself up very fast. By the time my screen wakes up my bluetooth devices are already reconnected. There is way to bypass this but it includes either modding your adapter card or [making your own](https://github.com/BbIKTOP/M.2-key-M-to-wifi). I've asked some sellers on AliExpress to produce this card but didn't have any luck. If you can make it or know a seller who's willing to make it please let me know.
 
-## ThunderBolt
-Should work as long as ThunderBolt security is set to legacy mode. Thanks to [crp724](https://github.com/zearp/Nucintosh/issues/3) for confirming. He also confirmed eGPU works in his Mantiz TB3 enclosure. I assume that if eGPU works then all other ThunderBolt stuff works as well.
+## Thunderbolt
+Should work as long as Thunderbolt security is set to legacy mode. Thanks to [crp724](https://github.com/zearp/Nucintosh/issues/3) for confirming. He also confirmed eGPU works in his Mantiz TB3 enclosure. I assume that if eGPU works then all other Thunderbolt stuff works as well.
 
-In order for ThunderBolt hotplugging to work you will need to modify the firmware. I will add instructions here once I've tesed this procedure a few times. Till then hotplugging may not work for all devices. One caveat of modifying the firmware is that hotplugging in Windows will be broken. This might be fixed by (force) installing Apple's own drivers. Those can be found inside Boot Camp driver packages. I'm not sure wich Apple machine has the same ThunderBolt interface though. Needs more investigation.
+In order for Thunderbolt hotplugging to work you will need to modify the firmware. I will add instructions here once I've tested this procedure a few times. Till then hotplugging may not work for all devices. One caveat of modifying the firmware is that hotplugging in Windows will be broken. This might be fixed by (force) installing Apple's own drivers. Those can be found inside Boot Camp driver packages. I'm not sure which Apple machine has the same Thunderbolt interface though. Needs more investigation.
 
 ## Intel bluetooth and wifi
 + Wifi works and can be managed using native tools, speeds are still slow but connections are stable
@@ -151,7 +151,7 @@ I often use these cheap dongles from [eBay](https://www.ebay.co.uk/itm/1PCS-Mini
 + You tell me!
 
 ## Undervolting
-Undervolting is a great way to to maximise performance, lower power consumption and reduce temperatures. The amount of undervolt you can apply depends on your luck in the [silicon lottery](https://en.wikipedia.org/wiki/Product_binning#Overclocking_and_core_unlocking). You'll have to lower the voltage step by step and test stability with [stress-ng](https://wiki.ubuntu.com/Kernel/Reference/stress-ng), [Prime95](https://www.mersenne.org/download/) or other tools like it.
+Undervolting is a great way to to maximise performance, lower power consumption and reduce temperatures. The amount of undervolting you can apply depends on your luck in the [silicon lottery](https://en.wikipedia.org/wiki/Product_binning#Overclocking_and_core_unlocking). You'll have to lower the voltage step by step and test stability with [stress-ng](https://wiki.ubuntu.com/Kernel/Reference/stress-ng), [Prime95](https://www.mersenne.org/download/) or other tools like it.
 
 Please read [this](https://github.com/sicreative/VoltageShift/blob/master/README.md) page for an explanation of all the options and what they do, I'm only focusing on the basics here. Also heed the warning displayed but realise this warning doesn't really apply when undervolting, but this tool can also do overvolting which could indeed be dangerous. The worst thing that can happen when undervolting is data loss due to system freeze. So only do this after [making a backup](https://github.com/zearp/OptiHack/blob/master/text/CLONE_IT.md).
 
@@ -240,5 +240,6 @@ My only complaint is the rough finish. I wish they would've skipped on those che
 + https://github.com/OpenIntelWireless
 + https://dortania.github.io/OpenCore-Install-Guide/config.plist/coffee-lake.html
 + https://github.com/Rashed97/Intel-NUC-DSDT-Patch/commit/47476815b52f8e4c97e8f85df158c9ab1b6ecedd
++ https://github.com/mbarbierato/Intel-NUC8i3BEH
 + https://github.com/honglov3/NUC8I7BEH
 + https://github.com/sarkrui/NUC8i7BEH-Hackintosh-Build
