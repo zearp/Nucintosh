@@ -154,14 +154,14 @@
 			<key>model</key>
 			<string>Macmini8,1</string>
 		</dict>
-		<key>Macmini8,1-TBTU</key>
+		<key>Macmini8,1-XHC2</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
 			<string>com.apple.driver.AppleUSBMergeNub</string>
 			<key>IOClass</key>
 			<string>AppleUSBMergeNub</string>
 			<key>IONameMatch</key>
-			<string>TBTU</string>
+			<string>XHC2</string>
 			<key>IOPCIPrimaryMatch</key>
 			<string>0x15db8086</string>
 			<key>IOProbeScore</key>
