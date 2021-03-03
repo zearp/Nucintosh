@@ -182,6 +182,7 @@ Writing 0x00004FF0
 Reading back page: 0x00004000
 Reading 0x00004000
 ...
+Reading 0x00004FF0
 Done!
 You must perform a hard power reset for the changes to take place. Note that it is recommended you use custom ACPI tables for maximum stability. For some Windows support, you must use a custom ACPI table. Full Windows support is not possible at this time (no TB hotplug).
 
