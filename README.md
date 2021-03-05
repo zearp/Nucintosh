@@ -113,7 +113,7 @@ Updating is easy, first copy the MLB/ROM/SystemSerialNumber/SystemUUID values fr
 ## Thunderbolt
 Should work as long as Thunderbolt security is set to legacy mode. Thanks to [crp724](https://github.com/zearp/Nucintosh/issues/3) for confirming. He also confirmed eGPU works in his Mantiz TB3 enclosure. I assume that if eGPU works then all other Thunderbolt stuff works as well.
 
-In order for Thunderbolt hotplugging to work you will need to modify the firmware. 
+In order for Thunderbolt hotplugging to work you will need to [modify the firmware](https://github.com/zearp/Nucintosh/blob/master/Stuff/Tb3Patch.md). 
 
 ## Apple/3rd party bluetooth and wifi
 For both 1st and 3rd party you will need a [supported](https://dortania.github.io/Wireless-Buyers-Guide/) wifi/bluetooth combo card and an adapter (see below) to convert it to M key. As far as I know compatible M key combo cards don't exist. 
