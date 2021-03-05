@@ -1,4 +1,4 @@
-PSA: Although I did a lot of testing I still consider patyching the firmware as experimental. It should be stable and work fine but YMMV.
+PSA: Although I did a lot of testing I still consider patching the firmware as experimental. It should be stable and work fine but YMMV.
 
 ## Thunderbolt 3 hotplug patching
 
@@ -87,6 +87,6 @@ Shut down your computer, and then unplug the device. After a few seconds, plug i
 Now mount your EFI partition and open up the config file. In the first section near the bottom of the ACPI list you will see ```SSDT-TbtOnPCH-POST.aml``` (7) and ```SSDT-TbtOnPCH-PREP.aml``` (8) entries. We need to set entry 7 to ```true``` and entry 8 to ```false```.
 Once this is done turn off the machine and disconnect the power cable and wait about 10-15 seconds before plugging it back in and booting back into macOS.
 
-Back in macOS open up ```System Information``` and click on the Thunderbolt section. If all went well you should now see 1 Apple controller with a 40gb/s port. If you do you're done and have patched the firmware properly. If you don't see the Apple entry but instead see 2 Thunderbolt controllers from ASUS you may have turned on the machien too soon. It took me a few tries to get this right cuz I'm impatient.
+Back in macOS open up ```System Information``` and click on the Thunderbolt section. If all went well you should now see 1 Apple controller with a 40gb/s port. If you do you're done and have patched the firmware properly. If you don't see the Apple entry but instead see 2 Thunderbolt controllers from ASUS you may have turned on the machine too soon. It took me a few tries to get this right cuz I'm impatient.
 
 > Note: A caveat of modifying the firmware is that hotplugging in Windows will be broken. This might be fixed by (force) installing Apple's own drivers. Those can be found inside Boot Camp driver packages. I'm not sure which Apple machine has the same Thunderbolt interface though. Needs more investigation.
