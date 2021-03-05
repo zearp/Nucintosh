@@ -89,7 +89,7 @@ Once this is done turn off the machine and disconnect the power cable and wait a
 
 Back in macOS open up ```System Information``` and click on the Thunderbolt section. If all went well you should now see 1 Apple controller with a 40gb/s port. If you do you're done and have patched the firmware properly. If you don't see the Apple entry but instead see 2 Thunderbolt controllers from ASUS you may have turned on the machine too soon. It took me a few tries to get this right cuz I'm impatient.
 
-> Note: A caveat of modifying the firmware is that hotplugging in Windows will be broken. This might be fixed by (force) installing Apple's own drivers. Those can be found inside Boot Camp driver packages. I'm not sure which Apple machine has the same Thunderbolt interface though. Needs more investigation.
+> Caveat: Modifying the firmware breaks hotplug in Windows. This might be fixed by (force) installing Apple's own drivers. Those can be found inside Boot Camp driver packages. I'm not sure which Apple machine has the same Thunderbolt interface though. Needs more investigation.
 
 ## Reversing the patch
 Reversing the patch is very easy, open a Terminal in the location you put the patcher and run ```sudo ./tbpatch restore -f nuc8_tb_patch.plist```, wait till its done and before you shutdown reverse the ACPI patches in the config file. Set 7 to ```false``` and 8 to ```true```. Shutdown like before and after rebooting you should now have the two ASUS controllers showing up in the Thunderbolt section. Thunderbolt will still work, but hotplugging won't.
