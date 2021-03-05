@@ -35,7 +35,9 @@ Reading 0x00000000
 Reading 0x000FFFF0
 ```
 
-These commands will download the patcher, unpack it, run it to check if the device is detected and then make a backup of the firmware. It will take 10-15 minutes for the backup to be made, make sure to babysit this and use the machine to do some web browsing while you wait. I left mine alone and when I got back the machine was sleeping and I had to start over. Afterwards copy the backup.bin somewhere like a usb stick. Not all fields (PID/UUID/etc) will match up with yours, this is expected.
+These commands will download the patcher, unpack it, run it to check if the device is detected and then make a backup of the firmware. It will take 10-15 minutes for the backup to be made.
+
+Make sure to babysit this and use the machine to do some web browsing while you wait. I left mine alone and when I got back the machine was sleeping and I had to start over, including a reboot as the tThunderbolt interface failed to init after waking up from sleep. Copy the backup.bin somewhere like a usb stick. Not all fields (PID/UUID/etc) will match up with yours, this is expected.
 
 Now that the backup has been made and stored somewhere secure we can modify the firmware, this is done at your own risk and if it goes wrong you may need a flash programmer to restore the backup directly to the chip. I've tested this quite a bit and didn't run into any issues myself.
 
