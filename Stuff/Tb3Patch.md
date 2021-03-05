@@ -1,4 +1,4 @@
-PSA: Although I did a lot of testing I still consider patching the firmware as experimental. It should be stable and work fine but YMMV.
+PSA: Although I did a lot of testing I still consider patching the firmware as experimental. It should be stable and work fine but YMMV. Waking up from sleep doesn't seme to work realiable on all of my NUCs. It works on one but not on another. Hopefully this is not too difficult to fix.
 
 ![tb3](https://user-images.githubusercontent.com/63272687/110136315-d62e6880-7dcf-11eb-82c5-c3fd09842874.png)
 
