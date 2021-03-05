@@ -7,7 +7,10 @@ Open up a terminal and run the following commands:
 zearp@nuc ~ % curl -OLs https://github.com/osy/ThunderboltPatcher/releases/download/v1.0/tbpatch-CLI-v1.0.zip
 zearp@nuc ~ % unzip tbpatch-CLI-v1.0.zip 
 Archive:  tbpatch-CLI-v1.0.zip
-  inflating: tbpatch                 
+  inflating: tbpatch
+```
+
+```
 zearp@nuc ~ % sudo ./tbpatch list
 Invalid address: 1
 Device /AppleACPIPlatformExpert/PCI0@0/AppleACPIPCI/RP05@1C,4/IOPP/UPSB@0/IOPP/DSB0@0/IOPP/NHI0@0/AppleThunderboltHAL/AppleThunderboltNHIType3/IOThunderboltController/IOThunderboltPort@5/IOThunderboltSwitchType3/IOThunderboltIECSNub/AppleHPMIECS/AppleHPMDevice@1 not added because failed to init.
@@ -19,13 +22,15 @@ Device /AppleACPIPlatformExpert/PCI0@0/AppleACPIPCI/RP05@1C,4/IOPP/UPSB@0/IOPP/D
   Version : 
   Build   : c21bda84555465022d578161e3aecb523fe75643_12082017
   Device  : TPS65982 HW0011 FW0001.12.07 ZTBT1
+```
+
+```
 zearp@nuc ~ % sudo ./tbpatch dump -s 0x100000 -f backup.bin
 Invalid address: 1
 Device /AppleACPIPlatformExpert/PCI0@0/AppleACPIPCI/RP05@1C,4/IOPP/UPSB@0/IOPP/DSB0@0/IOPP/NHI0@0/AppleThunderboltHAL/AppleThunderboltNHIType3/IOThunderboltController/IOThunderboltPort@5/IOThunderboltSwitchType3/IOThunderboltIECSNub/AppleHPMIECS/AppleHPMDevice@1 not added because failed to init.
 Reading 0x00000000
 ...
 Reading 0x000FFFF0
-zearp@nuc ~ % 
 ```
 
 These commands will download the patcher, unpack it, run it to check if the devices is detected and then make a backup of the firmware. It will take 10-15 minutes for the backup to be made. Afterwards copy the backup.bin somewhere like a usb stick. Not all fields (PID/UUID/etc) will match up with yours, this is expected.
@@ -37,7 +42,10 @@ To modify the firmware run the following commands:
 zearp@nuc ~ % curl -OLs https://github.com/zearp/Nucintosh/raw/master/Stuff/nuc8_tb_patch.plist.zip
 zearp@nuc ~ % unzip nuc8_tb_patch.plist.zip 
 Archive:  nuc8_tb_patch.plist.zip
-  inflating: nuc8_tb_patch.plist     
+  inflating: nuc8_tb_patch.plist
+```
+
+```
 zearp@nuc ~ % sudo ./tbpatch patch -f nuc8_tb_patch.plist
 Invalid address: 1
 Device /AppleACPIPlatformExpert/PCI0@0/AppleACPIPCI/RP05@1C,4/IOPP/UPSB@0/IOPP/DSB0@0/IOPP/NHI0@0/AppleThunderboltHAL/AppleThunderboltNHIType3/IOThunderboltController/IOThunderboltPort@5/IOThunderboltSwitchType3/IOThunderboltIECSNub/AppleHPMIECS/AppleHPMDevice@1 not added because failed to init.
@@ -74,7 +82,6 @@ Done!
 You must perform a hard power reset for the changes to take place. Note that it is recommended you use custom ACPI tables for maximum stability. For some Windows support, you must use a custom ACPI table. Full Windows support is not possible at this time (no TB hotplug).
 
 Shut down your computer, and then unplug the device. After a few seconds, plug it back in and power it up again.
-zearp@nuc ~ % 
 ```
 
 Now mount your EFI partition and open up the config file. In the first section near the bottom of the ACPI list you will see ```SSDT-TbtOnPCH-POST.aml``` (7) and ```SSDT-TbtOnPCH-PREP.aml``` (8) entries. We need to set entry 7 to ```true``` and entry 8 to ```false```.
