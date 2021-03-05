@@ -239,7 +239,5 @@ My only complaint is the rough finish. I wish they would've skipped on those che
 + https://github.com/acidanthera
 + https://github.com/OpenIntelWireless
 + https://dortania.github.io/OpenCore-Install-Guide/config.plist/coffee-lake.html
-+ https://github.com/Rashed97/Intel-NUC-DSDT-Patch/commit/47476815b52f8e4c97e8f85df158c9ab1b6ecedd
-+ https://github.com/mbarbierato/Intel-NUC8i3BEH
-+ https://github.com/honglov3/NUC8I7BEH
-+ https://github.com/sarkrui/NUC8i7BEH-Hackintosh-Build
++ https://github.com/osy
++ Many [random](https://github.com/Rashed97/Intel-NUC-DSDT-Patch/commit/47476815b52f8e4c97e8f85df158c9ab1b6ecedd) repos [with](https://github.com/honglov3/NUC8I7BEH) information [and](https://github.com/sarkrui/NUC8i7BEH-Hackintosh-Build) research [that](https://github.com/mbarbierato/Intel-NUC8i3BEH) I've [forgotten](https://github.com/honglov3/NUC8I7BEH) about.
