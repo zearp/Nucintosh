@@ -1,7 +1,5 @@
 PSA: Although I did a lot of testing I still consider patching the firmware as experimental. Thunderbolt should be stable and work fine but YMMV. Waking up from sleep causes a panic pretty much all of the time. Hopefully this is not too difficult to fix.
 
-![tb3](https://user-images.githubusercontent.com/63272687/110136315-d62e6880-7dcf-11eb-82c5-c3fd09842874.png)
-
 ## Thunderbolt 3 hotplug patching
 
 Open up a terminal and run the following commands:
