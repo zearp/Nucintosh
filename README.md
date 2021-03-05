@@ -1,5 +1,5 @@
 # NUC8IxBEx Hackintosh
-This is a quick and dirty repo for Intel NUC 8th gen computers. It should work on all the Coffee Lake ones. I've used various sources (see credits) to build my EFI and did quite some testing. It should leave you with a stable and reliable build but as always, these things are never really finished. While it should work on older macOS versions, I've done all building and testing on Catalina and Big Sur. If you want to use your machine as a stable and reliable daily driver, I suggest sticking with Catalina. Mojave and older will only boot when you set [SecureBootModel](https://github.com/zearp/Nucintosh/blob/master/EFI/OC/config.plist#L593-L594) to disabled, if left enabled you will end up in macOS recovery after an automatic reboot.
+This is a quick and dirty repo for Intel NUC 8th gen computers. It should work on all the Coffee Lake ones. I've used various sources (see credits) to build my EFI and did quite some testing. It should leave you with a stable and reliable build but as always, these things are never really finished. While it should work on older macOS versions, I've done all building and testing on Catalina and Big Sur. If you want to use your machine as a stable and reliable daily driver, I suggest sticking with Catalina. Mojave and older will only boot when you set [SecureBootModel](https://github.com/zearp/Nucintosh/blob/master/EFI/OC/config.plist#L687-L688) to disabled, if left enabled you will end up in macOS recovery after an automatic reboot.
 
 ## Details
 * Works with macOS *Catalina* and *Big Sur*[\*](#big-sur)
@@ -108,12 +108,12 @@ The current EFI will work on all versions of Big Sur including 11.3 beta builds.
 ![alt text](https://raw.githubusercontent.com/zearp/Nucintosh/master/Stuff/Big%20Sur%2011.3%20Beta.png?raw=true)
 
 ## Updating
-Updating is easy, first copy the MLB/ROM/SystemSerialNumber/SystemUUID values from your current config to a text file then delete the whole EFI folder and replace it with the latest release/clone from this repo. Copy your PlatformInfo fields from the text file into the new config. Unless you made other changes this is all thats needed.
+Updating is easy, first copy the MLB/ROM/SystemSerialNumber/SystemUUID values from your current config to a text file then delete the whole EFI folder and replace it with the latest release/clone from this repo. Copy your PlatformInfo fields from the text file into the new config. Unless you made other changes this is all thats needed. If you patched the Thunderbolt firmware you'll also need to set ```SSDT-TbtOnPCH-POST.aml``` (7) to ```true``` and ```SSDT-TbtOnPCH-PREP.aml``` (8) to ```false```.
 
 ## Thunderbolt
 Should work as long as Thunderbolt security is set to legacy mode. Thanks to [crp724](https://github.com/zearp/Nucintosh/issues/3) for confirming. He also confirmed eGPU works in his Mantiz TB3 enclosure. I assume that if eGPU works then all other Thunderbolt stuff works as well.
 
-In order for Thunderbolt hotplugging to work you will need to modify the firmware. 
+In order for Thunderbolt hotplugging to work you will need to [modify the firmware](https://github.com/zearp/Nucintosh/blob/master/Stuff/Tb3Patch.md). 
 
 ## Apple/3rd party bluetooth and wifi
 For both 1st and 3rd party you will need a [supported](https://dortania.github.io/Wireless-Buyers-Guide/) wifi/bluetooth combo card and an adapter (see below) to convert it to M key. As far as I know compatible M key combo cards don't exist. 
@@ -206,6 +206,8 @@ If you want your stock cooled NUC to be more silent with a little performance pe
 
 There are a lot more things you can do but as a start just undervolting CPU/CPU Cache is enough. In my testing undervolting GPU didn't make any difference but maybe on yours it does help. Experiment and see what works best for you.
 
+Please share your undervolting results [here](https://github.com/zearp/Nucintosh/issues/32).
+
 > Tip: Use Intel Power Gadet and/or HWMonitor to check current voltages and temperatures.
 
 ## Performance, power and noise
@@ -239,7 +241,5 @@ My only complaint is the rough finish. I wish they would've skipped on those che
 + https://github.com/acidanthera
 + https://github.com/OpenIntelWireless
 + https://dortania.github.io/OpenCore-Install-Guide/config.plist/coffee-lake.html
-+ https://github.com/Rashed97/Intel-NUC-DSDT-Patch/commit/47476815b52f8e4c97e8f85df158c9ab1b6ecedd
-+ https://github.com/mbarbierato/Intel-NUC8i3BEH
-+ https://github.com/honglov3/NUC8I7BEH
-+ https://github.com/sarkrui/NUC8i7BEH-Hackintosh-Build
++ https://github.com/osy
++ Many [random](https://github.com/Rashed97/Intel-NUC-DSDT-Patch/commit/47476815b52f8e4c97e8f85df158c9ab1b6ecedd) repos [with](https://github.com/honglov3/NUC8I7BEH) information [and](https://github.com/sarkrui/NUC8i7BEH-Hackintosh-Build) research [that](https://github.com/mbarbierato/Intel-NUC8i3BEH) I've [forgotten](https://github.com/honglov3/NUC8I7BEH) about.

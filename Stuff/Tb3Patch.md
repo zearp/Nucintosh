@@ -1,4 +1,4 @@
-PSA: Although I did a lot of testing I still consider patching the firmware as experimental. It should be stable and work fine but YMMV.
+PSA: Although I did a lot of testing I still consider patching the firmware as experimental. It should be stable and work fine but YMMV. Waking up from sleep doesn't seme to work realiable on all of my NUCs. It works on one but not on another. Hopefully this is not too difficult to fix.
 
 ![tb3](https://user-images.githubusercontent.com/63272687/110136315-d62e6880-7dcf-11eb-82c5-c3fd09842874.png)
 
@@ -35,7 +35,9 @@ Reading 0x00000000
 Reading 0x000FFFF0
 ```
 
-These commands will download the patcher, unpack it, run it to check if the device is detected and then make a backup of the firmware. It will take 10-15 minutes for the backup to be made, make sure to babysit this and use the machine to do some web browsing while you wait. I left mine alone and when I got back the machine was sleeping and I had to start over. Afterwards copy the backup.bin somewhere like a usb stick. Not all fields (PID/UUID/etc) will match up with yours, this is expected.
+These commands will download the patcher, unpack it, run it to check if the device is detected and then make a backup of the firmware. It will take 10-15 minutes for the backup to be made.
+
+Make sure to babysit this and use the machine to do some web browsing while you wait. I left mine alone and when I got back the machine was sleeping and I had to start over, including a reboot as the tThunderbolt interface failed to init after waking up from sleep. Copy the backup.bin somewhere like a usb stick. Not all fields (PID/UUID/etc) will match up with yours, this is expected.
 
 Now that the backup has been made and stored somewhere secure we can modify the firmware, this is done at your own risk and if it goes wrong you may need a flash programmer to restore the backup directly to the chip. I've tested this quite a bit and didn't run into any issues myself.
 
@@ -89,7 +91,7 @@ Shut down your computer, and then unplug the device. After a few seconds, plug i
 Now mount your EFI partition and open up the config file. In the first section near the bottom of the ACPI list you will see ```SSDT-TbtOnPCH-POST.aml``` (7) and ```SSDT-TbtOnPCH-PREP.aml``` (8) entries. We need to set entry 7 to ```true``` and entry 8 to ```false```.
 Once this is done turn off the machine and disconnect the power cable and wait about 10-15 seconds before plugging it back in and booting back into macOS.
 
-Back in macOS open up ```System Information``` and click on the Thunderbolt section. If all went well you should now see 1 Apple controller with a 40gb/s port. If you do you're done and have patched the firmware properly. If you don't see the Apple entry but instead see 2 Thunderbolt controllers from ASUS you may have turned on the machine too soon. It took me a few tries to get this right cuz I'm impatient.
+Back in macOS open up ```System Information``` and click on the Thunderbolt section. If all went well you should now see 1 Apple controller with a 40gb/s port. If you do you're done and have patched the firmware properly. If you don't see the Apple entry but instead see 2 Thunderbolt controllers from ASUS double check you've disabled and enabled the ACPI patches. If you see nothing you may have turned on the machine too soon. It took me a few tries to get this right cuz I'm impatient.
 
 > Caveat: Modifying the firmware breaks hotplug in Windows. This might be fixed by (force) installing Apple's own drivers. Those can be found inside Boot Camp driver packages. I'm not sure which Apple machine has the same Thunderbolt interface though. Needs more investigation.
 
