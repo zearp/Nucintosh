@@ -1,5 +1,7 @@
 PSA: Although I did a lot of testing I still consider patching the firmware as experimental. It should be stable and work fine but YMMV.
 
+![tb3](https://user-images.githubusercontent.com/63272687/110136257-c3b42f00-7dcf-11eb-996c-396086a87858.jpg)
+
 ## Thunderbolt 3 hotplug patching
 
 Open up a terminal and run the following commands:
