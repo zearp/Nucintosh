@@ -1,6 +1,6 @@
-PSA: Although I did a lot of testing I still consider patching the firmware as experimental. It should be stable and work fine but YMMV. Waking up from sleep doesn't seme to work realiable on all of my NUCs. It works on one but not on another. Hopefully this is not too difficult to fix.
+PSA: Although I did a lot of testing I still consider patching the firmware as experimental. Thunderbolt should be stable and work fine but YMMV. Waking up from sleep causes a panic pretty much all of the time. Hopefully this is not too difficult to fix.
 
-![tb3](https://user-images.githubusercontent.com/63272687/110136315-d62e6880-7dcf-11eb-82c5-c3fd09842874.png)
+Make sure you're running the latest relase or a very recent clone of the EFI.
 
 ## Thunderbolt 3 hotplug patching
 
@@ -99,6 +99,8 @@ Back in macOS open up ```System Information``` and click on the Thunderbolt sect
 Reversing the patch is very easy, open a Terminal in the location you put the patcher and run ```sudo ./tbpatch restore -f nuc8_tb_patch.plist```, wait till its done and before you shutdown reverse the ACPI patches in the config file. Set 7 to ```false``` and 8 to ```true```. Shutdown like before and after rebooting you should now have the two ASUS controllers showing up in the Thunderbolt section. Thunderbolt will still work, but hotplugging won't.
 
 ## Recovering from failed flash
-Very unlikely to happen but if it does you need a flash programmer and flash back your backup directly to the chip. This sounds more difficult than it is. The difficult part will be getting the board out of the NUC case and fitting the chip reader clip on the tiny chip. Please make sure you only do this in Linux with ```flashrom```. 
+Very unlikely to happen but if it does you need a flash programmer and flash back your backup directly to the chip. This sounds more difficult than it is. The difficult part will be getting the board out of the NUC case and fitting the chip reader clip on the tiny chip. Please make sure you only do this in Linux with ```flashrom```.
+
+I've had only one flash go bad where it froze halfway flashing and up on reboot the interface was gone, no matter which ACPI patch I used when booting. I had to flash back the backup to the tiny Winbond chip on the bottom (cpu side) of the board. After flashing the backup back the interface was detected again.
 
 There is a lot of info on the web about how to use ```flashrom``` to read/write to chips. A programmer costs about $10-15 depending on where oyu get it. If you can wait China is cheapest, if you can't wait Amazon has them in stock with Prime delivery. I personally use [this](http://keeyees.com/a/Products/ej/36.html) programmer and have good results with it. Whatever you end up buying do not use Windows to read/write flash chips. The drivers are unstable and the software very buggy. USe a Linux Live usb stick if you don't have Linux and do it properly. It will save you a lot of time and headaches.
