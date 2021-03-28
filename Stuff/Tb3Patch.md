@@ -1,6 +1,12 @@
-PSA: Although I did a lot of testing I still consider patching the firmware as experimental. Thunderbolt should be stable and work fine but YMMV. Waking up from sleep causes a panic pretty much all of the time. Hopefully this is not too difficult to fix.
+PSA: Although I did a lot of testing I still consider patching the firmware as experimental. Thunderbolt should be stable and work fine but YMMV. 
 
-Make sure you're running the latest relase or a very recent clone of the EFI.
+Note that flashing the firmware will currently break the following:
+- Wake from sleep results in panic, this is most likely be due the interface not turning on fast enough and will require some kext and/or ACPI patches
+- Any usb devices connected to the Thunderbolt port will only work if they were present when booting up the machine, needs usb and/or ACPI fixes
+
+I haven't been able to find fixes for them yet. Feel free to share fixes if you can, it may not be hard to fix for anyone knowledgable with ACPI.
+
+Make sure you're running the latest relase or a very recent clone of the repo.
 
 ## Thunderbolt 3 hotplug patching
 
