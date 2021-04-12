@@ -130,7 +130,7 @@ Those other cards (and 3rd party ones) do not come with this connector so you'd 
 
 - The two internal usb ports are already mapped in the USBPorts.kext, if you made your own map you'll need to make a new map if you use the internal usb headers
 - When using a 1st or 3rd party combo card you need to disable both bluetooth and wifi in the BIOS and also remove any Intel related bluetooth and wifi kexts
-- You will also need to remove the config block for HS10 from [Info.plist](https://github.com/zearp/Nucintosh/blob/master/EFI/OC/Kexts/USBPorts.kext/Contents/Info.plist#L107-L115) inside USBPorts.kext, without this step bluetooth won't work after sleep. On 1st party cards it gets "stuck" in HID-proxy mode; bluetooth mouse and keyboard may still work but not optimally and laggy.
+- You will also need to remove the config block for HS10 (used by the onboard Intel wifi/bt card) from [Info.plist](https://github.com/zearp/Nucintosh/blob/master/EFI/OC/Kexts/USBPorts.kext/Contents/Info.plist#L107-L115) inside USBPorts.kext, without this step bluetooth won't work after sleep. On 1st party cards it gets "stuck" in HID-proxy mode; bluetooth mouse and keyboard may still work but not optimally and laggy.
 
 You'll also want to set your region to ```#a``` as it allows for full 80mhz channel width on ac cards. It might not be 100% legal depending on where you live. I've used this method on a few DW1820A cards and the speed increase was pretty amazing. This method may also apply when using real Apple cards, you will need add [AirportBrcmFixup](https://github.com/acidanthera/AirportBrcmFixup) on 1st party cards. To change the region simply add the following boot flag ```brcmfx-country=#a```.
 
