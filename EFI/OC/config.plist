@@ -32,6 +32,14 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
+				<string>SSDT-OsxDetect.aml</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-OsxDetect.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string>SSDT-PLUG.aml</string>
 				<key>Enabled</key>
 				<true/>
@@ -56,11 +64,19 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>SSDT-TYPC-NUC8-BC.aml</string>
+				<string>SSDT-TbtOnPCH-POST.aml</string>
+				<key>Enabled</key>
+				<false/>
+				<key>Path</key>
+				<string>SSDT-TbtOnPCH-POST.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>SSDT-TbtOnPCH-PREP.aml</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
-				<string>SSDT-TYPC-NUC8-BC.aml</string>
+				<string>SSDT-TbtOnPCH-PREP.aml</string>
 			</dict>
 		</array>
 		<key>Delete</key>
@@ -99,13 +115,29 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>rename _RMV to XRMV</string>
-				<key>Disabled</key>
-				<false/>
+				<string>change _E40 to XE40 for TB hotplug</string>
+				<key>Count</key>
+				<integer>0</integer>
+				<key>Enabled</key>
+				<true/>
 				<key>Find</key>
-				<data>X1JNVg==</data>
+				<data>X0U0MA==</data>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data></data>
+				<key>OemTableId</key>
+				<data></data>
 				<key>Replace</key>
-				<data>WFJNVg==</data>
+				<data>WEU0MA==</data>
+				<key>ReplaceMask</key>
+				<data></data>
+				<key>Skip</key>
+				<integer>0</integer>
+				<key>TableLength</key>
+				<integer>0</integer>
+				<key>TableSignature</key>
+				<data></data>
 			</dict>
 		</array>
 		<key>Quirks</key>
@@ -187,6 +219,13 @@
 			<dict>
 				<key>layout-id</key>
 				<data>DgAAAA==</data>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x1c,0x4)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)</key>
+			<dict>
+				<key>ThunderboltDROM</key>
+				<data>mgAAAAAAAIaAuKpTjAFPAIaAV1ABAQiBgAKAAAAACIKQAYAAAAACwwLEAoULhiABAGQAAAAAAAOHgAKIBYlQAAAFilAAAAKLDQFBcHBsZSwgSW5jAAcCTlVDNwA=</data>
+				<key>linkDetails</key>
+				<data>CAAAAAMAAAA=</data>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x1f,0x0)</key>
 			<dict>
