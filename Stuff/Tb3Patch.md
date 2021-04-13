@@ -1,4 +1,4 @@
-> Note I've been unable to fix sleep and usb-c issues with Thunderbolt firmware patched or unpathed, so the master branch is reverting to my old patches that worked perfectly fine except for Thundebolt hotplug. Thunderbolt will work when the device is connected before starting up, and usb-c will work as expected. If you really need hotplug for Thunderbolt you can still patch the firmware but it will break sleep and usb-c might also not work properly anymore. These issues require someone with deep knowledge of ACPI and firmware patching. Knowledge I lack.
+> Note: I've been unable to fix sleep and usb-c issues with Thunderbolt firmware patched or unpathed, so the master branch is reverting to my old patches that worked perfectly fine except for Thundebolt hotplug. Thunderbolt will work when the device is connected before starting up, and usb-c will work as expected. If you really need hotplug for Thunderbolt you can still patch the firmware but it will break sleep and usb-c might also not work properly anymore. These issues require someone with deep knowledge of ACPI and firmware patching. Knowledge I lack.
 
 PSA: Although I did a lot of testing I still consider patching the firmware as experimental. Thunderbolt should be stable and work fine but YMMV. 
 
@@ -20,7 +20,7 @@ Steps:
 - Download new ACPI patches [here](https://github.com/zearp/Nucintosh/raw/master/Stuff/tb3_firmware_patch_acpi.zip)
 - Add new patches to the EFI folder and use ProperTree snapshot function to update the config
 - Enable SSDT-TbtOnPCH-PREP and disable SSDT-TbtOnPCH-POST
-- Add Thunderbolt DROM entry to DeviceProeprties in the config (see below)
+- Add Thunderbolt DROM entry to DeviceProperties in the config (see below)
 - Reboot
 - Patch the firmware, see below for instructions
 - Disable SSDT-TbtOnPCH-PREP and enable SSDT-TbtOnPCH-POST
