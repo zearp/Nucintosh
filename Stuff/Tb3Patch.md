@@ -12,14 +12,14 @@ Make sure you're running the latest relase or a very recent clone of the repo.
 
 ## Thunderbolt 3 hotplug patching
 
-(WIP: moving towards seperate EFI for TB3 patching, stay tuned -- thigns below wil lstill work and left here for refernece until I sort this out properly)
+(WIP: moving towards seperate EFI for TB3 patching, stay tuned -- things below will still work and left here for reference until I sort this out properly)
 
 Steps:
 - Remove SSDT-TYPC-NUC8-BC entry form the config
 - Replace ```_RMV to XRMV``` rename patch with ```_E40 to XE40``` rename patch (see below)
 - Download new ACPI patches [here](https://github.com/zearp/Nucintosh/raw/master/Stuff/tb3_firmware_patch_acpi.zip)
-- Add new patches to the EFI folder and use ProperTree snapshot function to update the config
-- Enable SSDT-TbtOnPCH-PREP and disable SSDT-TbtOnPCH-POST
+- Add the 3 new patches to the EFI/OC/ACPI folder and use ProperTree snapshot function to update the config
+- Verify SSDT-TbtOnPCH-PREP is enabled and SSDT-TbtOnPCH-POST is disabled, SSDT-OsxDetect should also be enabled
 - Add Thunderbolt DROM entry to DeviceProperties in the config (see below)
 - Reboot
 - Patch the firmware, see below for instructions
