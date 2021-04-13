@@ -17,8 +17,8 @@ This is a quick and dirty repo for Intel NUC 8th gen computers. It should work o
 ## Index
 * [Installation](#installation)
 * [Post install](#post-install)
-* [Big Sur](#big-sur)
 * [Updating](#updating)
+* [Big Sur](#big-sur)
 * [Thunderbolt](#Thunderbolt)
 * [Apple and 3rd party wifi/bt](#apple3rd-party-bluetooth-and-wifi)
 * [Intel wifi/bt](#intel-bluetooth-and-wifi)
@@ -92,6 +92,9 @@ That's all!
 
 > Tip: Once everything works and you installed and configured all your stuff, create a bootable clone of your system with a trial version of *Carbon Copy Cloner* or *Superduper!*. Don't forget to copy your EFI folder to the clone's EFI partition. First time? Follow my little guide [here](https://github.com/zearp/OptiHack/blob/master/text/CLONE_IT.md).
 
+## Updating
+Updating is easy, first copy the MLB/ROM/SystemSerialNumber/SystemUUID values from your current config to a text file then delete the whole EFI folder and replace it with the latest release/clone from this repo. Copy your PlatformInfo fields from the text file into the new config. Unless you made other changes this is all thats needed.
+
 ## Big Sur
 + Big Sur needs its own version of Airportitlwm, download the kext [here](https://github.com/zearp/Nucintosh/raw/master/Stuff/AirportItlwm.kext-BigSur.zip) and put it in the kext folder replacing the other one
 + When you see ```Forcing CS_RUNTIME for entitlement``` displayed macOS did not hang; its sealing the filesystem, do ***not*** reboot!
@@ -106,9 +109,6 @@ As of 11.1 the above no longer seems to work. Will update when I find a method t
 
 The current EFI will work on all versions of Big Sur including 11.3 beta builds.
 ![alt text](https://raw.githubusercontent.com/zearp/Nucintosh/master/Stuff/Big%20Sur%2011.3%20Beta.png?raw=true)
-
-## Updating
-Updating is easy, first copy the MLB/ROM/SystemSerialNumber/SystemUUID values from your current config to a text file then delete the whole EFI folder and replace it with the latest release/clone from this repo. Copy your PlatformInfo fields from the text file into the new config. Unless you made other changes this is all thats needed.
 
 ## Thunderbolt
 Should work as long as Thunderbolt security is set to legacy mode. Thanks to [crp724](https://github.com/zearp/Nucintosh/issues/3) for confirming. He also confirmed eGPU works in his Mantiz TB3 enclosure. I assume that if eGPU works then all other Thunderbolt stuff works as well. Thunderbolt devices need to be connected before starting up. Hotplug will not work. In order for Thunderbolt hotplugging to work you will need to [modify the firmware](https://github.com/zearp/Nucintosh/tree/tb3).
