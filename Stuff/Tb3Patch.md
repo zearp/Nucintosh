@@ -1,3 +1,5 @@
+> Note: I've been unable to fix sleep and usb-c issues with Thunderbolt firmware patched or unpathed, so the master branch is reverting to my old patches that worked perfectly fine except for Thundebolt hotplug. Thunderbolt will work when the device is connected before starting up, and usb-c will work as expected. If you really need hotplug for Thunderbolt you can still patch the firmware but it will break sleep and usb-c might also not work properly anymore. These issues require someone with deep knowledge of ACPI and firmware patching. Knowledge I lack.
+
 PSA: Although I did a lot of testing I still consider patching the firmware as experimental. Thunderbolt should be stable and work fine but YMMV. 
 
 Note that flashing the firmware will currently break the following:
@@ -9,6 +11,64 @@ I haven't been able to find fixes for them yet. Feel free to share fixes if you 
 Make sure you're running the latest relase or a very recent clone of the repo.
 
 ## Thunderbolt 3 hotplug patching
+
+(WIP: moving towards seperate EFI for TB3 patching, stay tuned -- thigns below wil lstill work and left here for refernece until I sort this out properly)
+
+Steps:
+- Remove SSDT-TYPC-NUC8-BC entry form the config
+- Replace ```_RMV to XRMV``` rename patch with ```_E40 to XE40``` rename patch (see below)
+- Download new ACPI patches [here](https://github.com/zearp/Nucintosh/raw/master/Stuff/tb3_firmware_patch_acpi.zip)
+- Add new patches to the EFI folder and use ProperTree snapshot function to update the config
+- Enable SSDT-TbtOnPCH-PREP and disable SSDT-TbtOnPCH-POST
+- Add Thunderbolt DROM entry to DeviceProperties in the config (see below)
+- Reboot
+- Patch the firmware, see below for instructions
+- Disable SSDT-TbtOnPCH-PREP and enable SSDT-TbtOnPCH-POST
+- Remove Thunderbolt DROM entry
+- Reboot once more
+- You're done
+
+Refer to below sections for more details and info.
+
+E40 to XE40:
+```
+			<dict>
+				<key>Comment</key>
+				<string>change _E40 to XE40 for TB hotplug</string>
+				<key>Count</key>
+				<integer>0</integer>
+				<key>Enabled</key>
+				<true/>
+				<key>Find</key>
+				<data>X0U0MA==</data>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data></data>
+				<key>OemTableId</key>
+				<data></data>
+				<key>Replace</key>
+				<data>WEU0MA==</data>
+				<key>ReplaceMask</key>
+				<data></data>
+				<key>Skip</key>
+				<integer>0</integer>
+				<key>TableLength</key>
+				<integer>0</integer>
+				<key>TableSignature</key>
+				<data></data>
+			</dict>
+```
+
+Thunderbolt DROM:
+```
+			<dict>
+				<key>ThunderboltDROM</key>
+				<data>mgAAAAAAAIaAuKpTjAFPAIaAV1ABAQiBgAKAAAAACIKQAYAAAAACwwLEAoULhiABAGQAAAAAAAOHgAKIBYlQAAAFilAAAAKLDQFBcHBsZSwgSW5jAAcCTlVDNwA=</data>
+				<key>linkDetails</key>
+				<data>CAAAAAMAAAA=</data>
+			</dict>
+```
 
 Open up a terminal and run the following commands:
 ```

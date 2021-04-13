@@ -32,14 +32,6 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>SSDT-OsxDetect.aml</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Path</key>
-				<string>SSDT-OsxDetect.aml</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
 				<string>SSDT-PLUG.aml</string>
 				<key>Enabled</key>
 				<true/>
@@ -64,19 +56,11 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>SSDT-TbtOnPCH-POST.aml</string>
-				<key>Enabled</key>
-				<false/>
-				<key>Path</key>
-				<string>SSDT-TbtOnPCH-POST.aml</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>SSDT-TbtOnPCH-PREP.aml</string>
+				<string>SSDT-TYPC-NUC8-BC.aml</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
-				<string>SSDT-TbtOnPCH-PREP.aml</string>
+				<string>SSDT-TYPC-NUC8-BC.aml</string>
 			</dict>
 		</array>
 		<key>Delete</key>
@@ -115,29 +99,13 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>change _E40 to XE40 for TB hotplug</string>
-				<key>Count</key>
-				<integer>0</integer>
-				<key>Enabled</key>
-				<true/>
+				<string>rename _RMV to XRMV</string>
+				<key>Disabled</key>
+				<false/>
 				<key>Find</key>
-				<data>X0U0MA==</data>
-				<key>Limit</key>
-				<integer>0</integer>
-				<key>Mask</key>
-				<data></data>
-				<key>OemTableId</key>
-				<data></data>
+				<data>X1JNVg==</data>
 				<key>Replace</key>
-				<data>WEU0MA==</data>
-				<key>ReplaceMask</key>
-				<data></data>
-				<key>Skip</key>
-				<integer>0</integer>
-				<key>TableLength</key>
-				<integer>0</integer>
-				<key>TableSignature</key>
-				<data></data>
+				<data>WFJNVg==</data>
 			</dict>
 		</array>
 		<key>Quirks</key>
@@ -219,13 +187,6 @@
 			<dict>
 				<key>layout-id</key>
 				<data>DgAAAA==</data>
-			</dict>
-			<key>PciRoot(0x0)/Pci(0x1c,0x4)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)</key>
-			<dict>
-				<key>ThunderboltDROM</key>
-				<data>mgAAAAAAAIaAuKpTjAFPAIaAV1ABAQiBgAKAAAAACIKQAYAAAAACwwLEAoULhiABAGQAAAAAAAOHgAKIBYlQAAAFilAAAAKLDQFBcHBsZSwgSW5jAAcCTlVDNwA=</data>
-				<key>linkDetails</key>
-				<data>CAAAAAMAAAA=</data>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x1f,0x0)</key>
 			<dict>
@@ -860,7 +821,7 @@
 			<key>AppleEvent</key>
 			<string>Builtin</string>
 			<key>CustomDelays</key>
-			<string>Auto</string>
+			<false/>
 			<key>KeyInitialDelay</key>
 			<integer>0</integer>
 			<key>KeySubsequentDelay</key>
@@ -991,9 +952,13 @@
 			<false/>
 			<key>ExitBootServicesDelay</key>
 			<integer>0</integer>
+			<key>ForgeUefiSupport</key>
+			<false/>
 			<key>IgnoreInvalidFlexRatio</key>
 			<false/>
 			<key>ReleaseUsbOwnership</key>
+			<false/>
+			<key>ReloadOptionRoms</key>
 			<false/>
 			<key>RequestBootVarRouting</key>
 			<true/>
