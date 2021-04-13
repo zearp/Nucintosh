@@ -10,6 +10,18 @@ Make sure you're running the latest relase or a very recent clone of the repo.
 
 ## Thunderbolt 3 hotplug patching
 
+(testing branch/WIP)
+
+- Disable SSDT-TYPC-NUC8-BC
+- Download new ACPI patches [here](#)
+- Add new patches to config
+- Enable SSDT-TbtOnPCH-PREP and disable SSDT-TbtOnPCH-POST
+- Add Thunderbolt DROM entry
+- Reboot and apply firmware patch
+- Disable SSDT-TbtOnPCH-PREP and enable SSDT-TbtOnPCH-POST
+- Remove Thunderbolt DROM entry
+- Reboot once more
+
 Open up a terminal and run the following commands:
 ```
 zearp@nuc ~ % curl -OLs https://github.com/osy/ThunderboltPatcher/releases/download/v1.0/tbpatch-CLI-v1.0.zip
