@@ -1,4 +1,4 @@
-> Note I've been unable to fix sleep and usb-c issues with Thunderbolt patched or unpathed, so the master branch is reverting to my old patches that worked perfectly fine except for Thundebolt hotplug. If you really need hotplu for Thunderbolt you can still patch the firmware but it will break sleep and usb-c might also not work properly anymore. These issues require someone with deep knowledge of ACPI and firmware patching. Knowledge I lack.
+> Note I've been unable to fix sleep and usb-c issues with Thunderbolt firmware patched or unpathed, so the master branch is reverting to my old patches that worked perfectly fine except for Thundebolt hotplug. Thunderbolt will work when the device is connected before starting up, and usb-c will work as expected. If you really need hotplug for Thunderbolt you can still patch the firmware but it will break sleep and usb-c might also not work properly anymore. These issues require someone with deep knowledge of ACPI and firmware patching. Knowledge I lack.
 
 PSA: Although I did a lot of testing I still consider patching the firmware as experimental. Thunderbolt should be stable and work fine but YMMV. 
 
