@@ -111,7 +111,7 @@ The current EFI will work on all versions of Big Sur including 11.3 beta builds.
 Updating is easy, first copy the MLB/ROM/SystemSerialNumber/SystemUUID values from your current config to a text file then delete the whole EFI folder and replace it with the latest release/clone from this repo. Copy your PlatformInfo fields from the text file into the new config. Unless you made other changes this is all thats needed.
 
 ## Thunderbolt
-Should work as long as Thunderbolt security is set to legacy mode. Thanks to [crp724](https://github.com/zearp/Nucintosh/issues/3) for confirming. He also confirmed eGPU works in his Mantiz TB3 enclosure. I assume that if eGPU works then all other Thunderbolt stuff works as well. Thunderbolt devices need to be connected before starting up. Hotplug will not work. In order for Thunderbolt hotplugging to work you will need to [modify the firmware](https://github.com/zearp/Nucintosh/blob/master/Stuff/Tb3Patch.md).
+Should work as long as Thunderbolt security is set to legacy mode. Thanks to [crp724](https://github.com/zearp/Nucintosh/issues/3) for confirming. He also confirmed eGPU works in his Mantiz TB3 enclosure. I assume that if eGPU works then all other Thunderbolt stuff works as well. Thunderbolt devices need to be connected before starting up. Hotplug will not work. In order for Thunderbolt hotplugging to work you will need to [modify the firmware](https://github.com/zearp/Nucintosh/tree/tb3).
 
 ## Apple/3rd party bluetooth and wifi
 For both 1st and 3rd party you will need a [supported](https://dortania.github.io/Wireless-Buyers-Guide/) wifi/bluetooth combo card and an adapter (see below) to convert it to M key. As far as I know compatible M key combo cards don't exist. 
