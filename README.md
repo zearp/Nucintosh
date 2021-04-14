@@ -98,17 +98,9 @@ Updating is easy, first copy the MLB/ROM/SystemSerialNumber/SystemUUID values fr
 ## Big Sur
 + Big Sur needs its own version of Airportitlwm, download the kext [here](https://github.com/zearp/Nucintosh/raw/master/Stuff/AirportItlwm.kext-BigSur.zip) and put it in the kext folder replacing the other one
 + When you see ```Forcing CS_RUNTIME for entitlement``` displayed macOS did not hang; its sealing the filesystem, do ***not*** reboot!
-+ To fully disable SIP you need to change ```csr-active-config``` to ```FF0F0000``` in the config, in order to remove the express card icon SIP needs to be disabled!
-+ Error 66 when trying to mount / in read/write mode and/or errors about diskXs5s1 when booting, this is due to apfs snapshots;
++ To fully disable SIP you need to change ```csr-active-config``` to ```FF0F0000``` in the config.
 
-~~Boot into recovery and open a terminal then list the snapshots with ```diskutil apfs listSnapshots diskXs5``` and delete them with ```diskutil apfs deleteSnapshot diskXs5 -uuid UUIDHERE```.~~
-
-~~Replace diskX with the correct disk, if you only have one disk it will be disk1s5. The UUID is the string above each snapshot.~~
-
-As of 11.1 the above no longer seems to work. Will update when I find a method that works and isn't overtly complicated.
-
-The current EFI will work on all versions of Big Sur including 11.3 beta builds.
-![alt text](https://raw.githubusercontent.com/zearp/Nucintosh/master/Stuff/Big%20Sur%2011.3%20Beta.png?raw=true)
+In order to remove the express card icon (or get full access to your filesystem) in Big Sur you will need to jump trought a [few hoops](https://twitter.com/EBADTWEET/status/1275454103900971012). Please note that breaking the seal on the filesystem macOS updates may not install, or install properly. It is also not possible to reseal it afaik. You can also use the scripts from [this](https://github.com/Ausdauersportler/big-sur-micropatcher#modifying-the-system-volume-yourself) repo. Use a tool to hdie icon instead and leave your system as secure a possible with the filesystem sealed and SIP enabled.
 
 ## Thunderbolt
 Should work as long as Thunderbolt security is set to legacy mode. Thanks to [crp724](https://github.com/zearp/Nucintosh/issues/3) for confirming. He also confirmed eGPU works in his Mantiz TB3 enclosure. I assume that if eGPU works then all other Thunderbolt stuff works as well. Thunderbolt devices need to be connected before starting up. Hotplug will not work. In order for Thunderbolt hotplugging to work you will need to [modify the firmware](https://github.com/zearp/Nucintosh/tree/tb3).
@@ -234,6 +226,7 @@ My only complaint is the rough finish. I wish they would've skipped on those che
 
 ## Todo
 + Get rid of FakePCIID.kext and do what it does with a config entry or ACPI patch, feel free to contribute [here](https://github.com/zearp/Nucintosh/issues/18)
++ FileVault
 
 ## Credits
 + https://github.com/acidanthera
