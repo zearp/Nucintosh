@@ -78,7 +78,7 @@ The first two need to be ```0``` the rest can be left on if you want.
 
 - Proximity wake can wake your machine when an iDevice is near
 - Power Nap will wake up the system from time to time to check mail, make Time Machine backups, etc, etc
-- TCP keep alive has resolved periodic wake events after setting up iCloud
+- Disabling TCP keep alive has resolved periodic wake events after setting up iCloud, just disabling Find My wasn't enough.
 - Womp is wake on lan, which is disabled in the BIOS as it (going by other people's experience) might cause issues. I never use WOL, if you do use WOL please try enabling it in the BIOS and leave this setting on, the issues might have been due to bugs that haven been solved by now. Let me know if it works or not.
 - Hibernate is sometimes set to 3 in my testing. It could be possible to get hibernation to work by using [HibernationFixup](https://github.com/acidanthera/HibernationFixup) but I haven't tested it. I'm fine with normal sleep.
 
