@@ -88,7 +88,7 @@ sudo rm /var/vm/sleepimage
 sudo mkdir /var/vm/sleepimage
 ```
 
-At this point you can also enable FileVault if you want to encrypt your disk. The config is setup to supprot this and it works flawlessly.
+At this point you can also enable FileVault if you want to encrypt your disk. The config is setup to support this and it works flawlessly.
 
 That's all!
 
