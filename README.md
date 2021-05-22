@@ -88,6 +88,8 @@ sudo rm /var/vm/sleepimage
 sudo mkdir /var/vm/sleepimage
 ```
 
+At this point you can also enable FileVault if you want to encrypt your disk. The config is setup to support this and it works flawlessly.
+
 That's all!
 
 > Tip: Once everything works and you installed and configured all your stuff, create a bootable clone of your system with a trial version of *Carbon Copy Cloner* or *Superduper!*. Don't forget to copy your EFI folder to the clone's EFI partition. First time? Follow my little guide [here](https://github.com/zearp/OptiHack/blob/master/text/CLONE_IT.md).
@@ -227,7 +229,6 @@ My only complaint is the rough finish. I wish they would've skipped on those che
 
 ## Todo
 + Get rid of FakePCIID.kext and do what it does with a config entry or ACPI patch, feel free to contribute [here](https://github.com/zearp/Nucintosh/issues/18)
-+ FileVault
 
 ## Credits
 + https://github.com/acidanthera
