@@ -32,7 +32,7 @@ This is a quick and dirty repo for Intel NUC 8th gen computers. It should work o
 * [Credits](#credits)
   
 ## Installation
-+ Update to the latest (0087) BIOS -> load BIOS defaults -> click advanced and change;
++ Update to the latest (0088) BIOS -> load BIOS defaults -> click advanced and change;
 ```
 Devices -> USB -> Port Device Charging Mode: off
 Devices -> USB -> USB Legacy -> Disabled
@@ -88,7 +88,7 @@ sudo rm /var/vm/sleepimage
 sudo mkdir /var/vm/sleepimage
 ```
 
-At this point you can also enable FileVault if you want to encrypt your disk. The config is setup to support this and it works flawlessly.
+At this point you can also enable FileVault if you want to encrypt your disk. The config is setup to support this and it works flawlessly, to get a nicer boot experience you can remove the verbose boot flag ```-v```in the config and also set ```ShowPicker``` to false. To get the OpenCore picker/menu again hold down the *alt* key when booting.
 
 That's all!
 
