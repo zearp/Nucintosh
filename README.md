@@ -32,7 +32,7 @@ This is a quick and dirty repo for Intel NUC 8th gen computers. It should work o
 * [Credits](#credits)
   
 ## Installation
-+ Update to the latest (0087) BIOS -> load BIOS defaults -> click advanced and change;
++ Update to the latest (0088) BIOS -> load BIOS defaults -> click advanced and change;
 ```
 Devices -> USB -> Port Device Charging Mode: off
 Devices -> USB -> USB Legacy -> Disabled
@@ -88,7 +88,7 @@ sudo rm /var/vm/sleepimage
 sudo mkdir /var/vm/sleepimage
 ```
 
-At this point you can also enable FileVault if you want to encrypt your disk. The config is setup to support this and it works flawlessly.
+At this point you can also enable FileVault if you want to encrypt your disk. The config is setup to support this and it works flawlessly, to get a nicer boot experience you can remove the verbose boot flag ```-v```in the config and also set ```ShowPicker``` to false. To get the OpenCore picker/menu again hold down the *alt* key when booting.
 
 That's all!
 
@@ -98,7 +98,7 @@ That's all!
 Updating is easy, first copy the MLB/ROM/SystemSerialNumber/SystemUUID values from your current config to a text file then delete the whole EFI folder and replace it with the latest release/clone from this repo. Copy your PlatformInfo fields from the text file into the new config. Unless you made other changes this is all thats needed.
 
 ## Big Sur
-+ Working fine with latest Big Sur 11.3 release as well as 11.4 beta builds.
++ Working fine with latest Big Sur 11.4 release as well as 11.5 beta builds.
 + Big Sur needs its own version of Airportitlwm, download the kext [here](https://github.com/zearp/Nucintosh/raw/master/Stuff/AirportItlwm.kext-BigSur.zip) and put it in the kext folder replacing the other one
 + When you see ```Forcing CS_RUNTIME for entitlement``` displayed macOS did not hang; its sealing the filesystem, do ***not*** reboot!
 + To fully disable SIP you need to change ```csr-active-config``` to ```FF0F0000``` in the config.
