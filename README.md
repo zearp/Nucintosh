@@ -105,11 +105,11 @@ Updating is easy, first copy the MLB/ROM/SystemSerialNumber/SystemUUID values fr
 ## Monterey
 Below is for beta 1.
 
++ Monterey needs its own version of Airportitlwm, download the kext [here](https://github.com/zearp/Nucintosh/raw/master/Stuff/AirportItlwm.kext-Monterey.zip) and put it in the kext folder replacing the other one
 + Both IntelBluetooth kexts need to be disabled
-+ AirportItlwm kext doesn't work, so it can be disabled too
-+ FakePCIDI no longer works and even re-plugging the hdmi cable results in no audio over hdmi -- so this kext can also be disabled
++ FakePCIDI no longer works and even re-plugging the hdmi cable results in no audio over hdmi -- it also seems to cause random panics relating to PCI stuff
 
-Please note that none of the kext we use as well as OpenCore itself hasnt been updated yet to accomodate any changes that may be required. This is the first release of a new OS so there will be lots of issues. I'm surprised installation went smooth and things seem to work ok after some quick testing.
+Please note that not all of the kexts we use as well as OpenCore itself hasnt been (fully) updated yet to accomodate any changes that may be required. This is the first release of a new OS so there will be lots of issues. I'm surprised installation went smooth and things seem to work ok after some quick testing.
 
 In short if you want to play around with the beta's you can, just disable the kexts above and you should be ok. I'm sure these issues can and will be sorted in due time. I personally don't really liek to invest too much in getting beta's to work as Apple can change things arround and then I'd just be wasting my time. Once OpenCore and kexts receive updates to work with Monterey I will do some more testing and then every now and then try the latest beta and see how things stand. 
 
