@@ -1,8 +1,8 @@
 # NUC8IxBEx Hackintosh
-This is a quick and dirty repo for Intel NUC 8th gen computers. It should work on all the Coffee Lake ones. I've used various sources (see credits) to build my EFI and did quite some testing. It should leave you with a stable and reliable build but as always, these things are never really finished. While it should work on older macOS versions, I've done all building and testing on Catalina and Big Sur. If you want to use your machine as a stable and reliable daily driver, I suggest sticking with Catalina. Mojave and older will only boot when you set [SecureBootModel](https://github.com/zearp/Nucintosh/blob/master/EFI/OC/config.plist#L675-L676) to disabled, if left enabled you will end up in macOS recovery after an automatic reboot.
+This is a quick and dirty repo for Intel NUC 8th gen computers. It should work on all the Coffee Lake ones. I've used various sources (see credits) to build my EFI and did quite some testing. It should leave you with a stable and reliable build but as always, these things are never really finished. While it should work on older macOS versions, I've done all building and testing on Catalina, Big Sur and Monterey. If you want to use your machine as a stable and reliable daily driver, I suggest sticking with Catalina. Mojave and older will only boot when you set [SecureBootModel](https://github.com/zearp/Nucintosh/blob/master/EFI/OC/config.plist#L675-L676) to disabled, if left enabled you will end up in macOS recovery after an automatic reboot.
 
 ## Details
-* Works with macOS *Catalina* and *Big Sur*[\*](#big-sur)
+* Works with macOS *Catalina*, *Big Sur*[\*](#big-sur) and *Monterey*[\*](#monterey)
 * OpenCore bootloader with the following kexts:
   - Lilu
   - VirtualSMC
@@ -58,8 +58,7 @@ Generate new serials with [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS). Th
 \* Installers made with GibMacOS on Windows and Linux require a working internet connection as it uses the recovery image only, it then downloads the full installer from Apple. The *createistallmedia* script makes an offline installer.
 
 ## Post install
-- Remove express card icon: Run ```sudo mount -uw / && killall Finder && sudo mv /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu.bak && sudo touch /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu``` -- This no longer works on Big Sur, but you can use a cool and free app called [Hidden Bar](https://github.com/dwarvesf/hidden) to hide it with instead.
-- Please re-enable SIP if you don't need it disabled; change ```csr-active-config``` to ```00000000``` reboot and reset nvram
+- Remove express card icon: Disable SIP in the OpenCore picker then reset NVRAM and once booted open a terminal and run ```sudo mount -uw / && killall Finder && sudo mv /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu.bak && sudo touch /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu``` -- This no longer works on Big Sur (without lots of effort), but you can use a cool and free app called [Hidden Bar](https://github.com/dwarvesf/hidden) to hide it with instead.
 - Check if TRIM is enabled, If not run ```sudo trimforce enable``` to enable it
 - Disable ```NVMeFix.kext``` if you don't have an NVMe drive
 - Don't forget to copy the EFI folder from the installer's EFI partition to the internal disk's EFI partition. This is needed to boot from the internal disk. You can use [EFI Agent](https://github.com/headkaze/EFI-Agent) to easily mount EFI partition.
@@ -101,7 +100,20 @@ Updating is easy, first copy the MLB/ROM/SystemSerialNumber/SystemUUID values fr
 + Working fine with latest Big Sur 11.4 release as well as 11.5 beta builds.
 + Big Sur needs its own version of Airportitlwm, download the kext [here](https://github.com/zearp/Nucintosh/raw/master/Stuff/AirportItlwm.kext-BigSur.zip) and put it in the kext folder replacing the other one
 + When you see ```Forcing CS_RUNTIME for entitlement``` displayed macOS did not hang; its sealing the filesystem, do ***not*** reboot!
-+ To fully disable SIP you need to change ```csr-active-config``` to ```FF0F0000``` in the config.
++ To fully disable SIP you need to change ```csr-active-config``` to ```FF0F0000``` in the config in addition to enabling it in the openCore picker
+
+## Monterey
+Below is for beta 1.
+
++ Monterey needs its own version of Airportitlwm, download the kext [here](https://github.com/zearp/Nucintosh/raw/master/Stuff/AirportItlwm.kext-Monterey.zip) and put it in the kext folder replacing the other one
++ Both IntelBluetooth kexts need to be disabled
++ FakePCIDI no longer works and even re-plugging the hdmi cable results in no audio over hdmi -- it also seems to cause random panics relating to PCI stuff
+
+Please note that not all of the kexts we use as well as OpenCore itself hasnt been (fully) updated yet to accomodate any changes that may be required. This is the first release of a new OS so there will be lots of issues. I'm surprised installation went smooth and things seem to work ok after some quick testing.
+
+In short if you want to play around with the beta's you can, just disable the kexts above and you should be ok. I'm sure these issues can and will be sorted in due time. I personally don't really liek to invest too much in getting beta's to work as Apple can change things arround and then I'd just be wasting my time. Once OpenCore and kexts receive updates to work with Monterey I will do some more testing and then every now and then try the latest beta and see how things stand. 
+
+If you want to contribute to testing please open an issue or submit a PR. I may create a new branch for this as it seems some things like audio over hdmi need an overhaul as FakePCIID no longer seems to work. And thats the sinlge kext that won't be updated by its creator anymore. Things like the Intel bluetooth firmware loader and Intel wireless drivers will get new version I'm sure of that. The team behind that has made great progress, its just a matter of time.
 
 In order to remove the express card icon (or get full access to your filesystem) in Big Sur you will need to jump trought a [few hoops](https://github.com/fxgst/writeable_root). Please note that breaking the seal on the filesystem macOS updates may not install, or install properly. It is also not possible to reseal it afaik. You can also use the scripts from [this](https://github.com/Ausdauersportler/big-sur-micropatcher#modifying-the-system-volume-yourself) repo. Use a tool to hdie icon instead and leave your system as secure a possible with the filesystem sealed and SIP enabled.
 
