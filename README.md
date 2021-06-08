@@ -107,7 +107,7 @@ In order to remove the express card icon (or get full access to your filesystem)
 ## Monterey
 Below is for beta 1.
 
-+ Monterey needs its own version of Airportitlwm, download the kext [here](https://github.com/zearp/Nucintosh/raw/master/Stuff/AirportItlwm.kext-Monterey.zip) and put it in the kext folder replacing the other one -- please note the current version thinks my WPA network is WEP so also not working a 100% yet
++ Monterey needs its own version of Airportitlwm, download the kext [here](https://github.com/zearp/Nucintosh/raw/master/Stuff/AirportItlwm.kext-Monterey.zip) and put it in the kext folder replacing the other one -- please note the current version thinks my [WPA network is WEP](https://github.com/OpenIntelWireless/itlwm/issues/617) so also not working a 100% yet
 + Both IntelBluetooth kexts need to be disabled -- if not the boot will never finish and keeps displaying messages related to the bluetooh deamon
 + FakePCIID does not work anymore -- it also seems to cause seemingly random panics relating to PCI stuff so must be disabled too
 + Audio over hdmi is not possible at the moment, even re-plugging the cable doesn't do the trick anymore
