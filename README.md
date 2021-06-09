@@ -107,16 +107,16 @@ In order to remove the express card icon (or get full access to your filesystem)
 ## Monterey
 Below is for beta 1.
 
-+ Monterey needs its own version of Airportitlwm, download the kext [here](https://github.com/zearp/Nucintosh/raw/master/Stuff/AirportItlwm.kext-Monterey.zip) and put it in the kext folder replacing the other one
++ Monterey needs its own version of Airportitlwm, download the kext [here](https://github.com/zearp/Nucintosh/raw/master/Stuff/AirportItlwm.kext-Monterey.zip) and put it in the kext folder replacing the other one -- please note the current version thinks my [WPA network is WEP](https://github.com/OpenIntelWireless/itlwm/issues/617) so also not working a 100% yet
 + Both IntelBluetooth kexts need to be disabled -- if not the boot will never finish and keeps displaying messages related to the bluetooh deamon
 + FakePCIID does not work anymore -- it also seems to cause seemingly random panics relating to PCI stuff so must be disabled too
 + Audio over hdmi is not possible at the moment, even re-plugging the cable doesn't do the trick anymore
 
-Please note that not all of the kexts we use as well as OpenCore itself hasnt been (fully) updated yet to accomodate any changes that may be required. This is the first release of a new OS so there will be lots of issues. I'm surprised installation went smooth and things seem to work ok after some quick testing.
+Please note that not all of the kexts we use as well as OpenCore itself hasnt been (fully) updated yet to accomodate any changes that may be required. This is the first release of a new OS so there will be lots of issues. I'm surprised the installation went smooth and things seem to work ok after some quick testing.
 
 In short if you want to play around with the beta's you can, just disable the kexts above and you should be ok. I'm sure these issues can and will be sorted in due time. I personally don't really like to invest too much time in getting beta's to work as Apple can change things arround and then I'd just be wasting my time. Once OpenCore and kexts receive updates to work with Monterey I will update to them and do some more testing. Then every now and then try the latest beta and see where things stand. 
 
-If you want to contribute to testing please open an issue or submit a PR. I may create a new branch for this as it seems some things like audio over hdmi need an overhaul as FakePCIID no longer seems to work. And thats the sinlge kext that won't be updated by its creator anymore. Things like the Intel bluetooth firmware loader will get newer version to support the new OS, I'm sure of that. The team behind that has made great progress, its just a matter of time.
+If you want to contribute to testing please use [this open issue](https://github.com/zearp/Nucintosh/issues/47) or submit a PR if you have a working fix already. I may create a new branch for this as it seems some things like audio over hdmi need an overhaul as FakePCIID no longer seems to work. And thats the sinlge kext that won't be updated by its creator anymore. Things like the Intel wireless and the Intel bluetooth firmware loader will get newer versions to support the new OS, I'm sure of that. The team behind that has made great progress, its just a matter of time.
 
 ## Thunderbolt
 Should work as long as Thunderbolt security is set to legacy mode. Thanks to [crp724](https://github.com/zearp/Nucintosh/issues/3) for confirming. He also confirmed eGPU works in his Mantiz TB3 enclosure. I assume that if eGPU works then all other Thunderbolt stuff works as well. Thunderbolt devices need to be connected before starting up. Hotplug will not work. In order for Thunderbolt hotplugging to work you will need to [modify the firmware](https://github.com/zearp/Nucintosh/tree/tb3).
