@@ -11,7 +11,7 @@ This is a quick and dirty repo for Intel NUC 8th gen computers. It should work o
   - IntelMausi
   - NVMeFix
   - CPUFriend
-  - OpenIntelWireless kexts for Intel bluetooth and wifi
+  - OpenIntelWireless for Intel bluetooth and wifi
   
 ## Index
 * [Installation](#installation)
