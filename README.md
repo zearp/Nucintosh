@@ -108,7 +108,6 @@ Below is for beta 1.
 
 + Monterey needs its own version of Airportitlwm, download the kext [here](https://github.com/zearp/Nucintosh/raw/master/Stuff/AirportItlwm.kext-Monterey.zip) and put it in the kext folder replacing the other one -- please note the current version thinks my [WPA network is WEP](https://github.com/OpenIntelWireless/itlwm/issues/617) so also not working a 100% yet
 + Both IntelBluetooth kexts need to be disabled -- if not the boot will never finish and keeps displaying messages related to the bluetooh deamon
-+ Audio over hdmi is not possible at the moment, even re-plugging the cable doesn't do the trick anymore
 
 Please note that not all of the kexts we use as well as OpenCore itself hasnt been (fully) updated yet to accomodate any changes that may be required. This is the first release of a new OS so there will be lots of issues. I'm surprised the installation went smooth and things seem to work ok after some quick testing.
 
