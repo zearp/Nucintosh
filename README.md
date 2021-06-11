@@ -106,7 +106,7 @@ In order to remove the express card icon (or get full access to your filesystem)
 ## Monterey
 Below is for beta 1.
 
-+ Monterey needs its own version of Airportitlwm, download the kext [here](https://github.com/zearp/Nucintosh/raw/master/Stuff/AirportItlwm.kext-Monterey.zip) and put it in the kext folder replacing the other one -- please note the current version thinks [WPA networks use WEP](https://github.com/OpenIntelWireless/itlwm/issues/617)
++ Monterey needs its own version of Airportitlwm, download the kext [here](https://github.com/zearp/Nucintosh/raw/master/Stuff/AirportItlwm.kext-Monterey.zip) and put it in the kext folder replacing the other one
 + Both IntelBluetooth kexts need to be disabled -- if not the boot will seemingly never finish and keeps displaying messages related to the bluetooh deamon
 
 Please note that not all of the kexts we use as well as OpenCore itself have been (fully) updated to accomodate any changes that may be required. This is the first release of a new OS so there will be lots of issues. I'm surprised the installation went smooth and things seem to work ok after some quick testing.
