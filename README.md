@@ -108,7 +108,7 @@ In order to remove the express card icon (or get full access to your filesystem)
 ## Monterey
 Below is for beta 1.
 
-+ There no longer an express card icon!
++ There's no longer an express card icon!
 + Monterey needs its own version of Airportitlwm, download the kext [here](https://github.com/zearp/Nucintosh/raw/master/Stuff/AirportItlwm.kext-Monterey.zip) and put it in the kext folder replacing the other one
 + Both IntelBluetooth kexts need to be disabled -- if not the boot will seemingly never finish and keeps displaying messages related to the bluetooh deamon
 
