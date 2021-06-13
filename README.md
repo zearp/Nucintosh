@@ -102,7 +102,6 @@ Updating is easy, first copy the MLB/ROM/SystemSerialNumber/SystemUUID values fr
 + Working fine with latest Big Sur 11.4 release as well as 11.5 beta builds.
 + Big Sur needs its own version of Airportitlwm, download the kext [here](https://github.com/zearp/Nucintosh/raw/master/Stuff/AirportItlwm.kext-BigSur.zip) and put it in the kext folder replacing the other one
 + When you see ```Forcing CS_RUNTIME for entitlement``` displayed macOS did not hang; its sealing the filesystem, do ***not*** reboot!
-+ To fully disable SIP you need to change ```csr-active-config``` to ```FF0F0000``` in the config in addition to enabling it in the openCore picker
 
 In order to remove the express card icon (or get full access to your filesystem) in Big Sur you will need to jump trought a [few hoops](https://github.com/fxgst/writeable_root). Please note that breaking the seal on the filesystem macOS updates may not install, or install properly. It is also not possible to reseal it afaik. You can also use the scripts from [this](https://github.com/Ausdauersportler/big-sur-micropatcher#modifying-the-system-volume-yourself) repo. Use a tool to hdie icon instead and leave your system as secure a possible with the filesystem sealed and SIP enabled.
 
