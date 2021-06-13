@@ -20,6 +20,7 @@ This is a quick and dirty repo for Intel NUC 8th gen computers. It should work o
 * [Post install](#post-install)
 * [Updating](#updating)
 * [Big Sur](#big-sur)
+* [Monterey](#monterey)
 * [Thunderbolt](#Thunderbolt)
 * [Apple and 3rd party wifi/bt](#apple3rd-party-bluetooth-and-wifi)
 * [Intel wifi/bt](#intel-bluetooth-and-wifi)
@@ -56,7 +57,7 @@ Generate new serials with [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS). Th
 + Clear NVRAM from the OpenCore picker
 + Install macOS
 
-\* Installers made with GibMacOS on Windows and Linux require a working internet connection as it uses the recovery image only, it then downloads the full installer from Apple. The *createistallmedia* script makes an offline installer.
+\* Installers made with GibMacOS on Windows and Linux require a working internet connection as it uses the recovery image only, it then downloads the full installer from Apple. The *createinstallmedia* script makes an offline installer.
 
 ## Post install
 - Remove express card icon: Disable SIP in the OpenCore picker then reset NVRAM and once booted open a terminal and run ```sudo mount -uw / && killall Finder && sudo mv /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu.bak && sudo touch /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu``` -- This no longer works on Big Sur (without lots of effort), but you can use a cool and free app called [Hidden Bar](https://github.com/dwarvesf/hidden) to hide it with instead.
