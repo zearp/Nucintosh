@@ -13,3 +13,6 @@ This branch might receive lots of updates followed by a period of nothing. I per
 
 New instructions on how to patch will be added below, I need to migrate and tidy up the old instructions:
 https://github.com/zearp/Nucintosh/blob/tb3/Stuff/Tb3Patch.md
+
+If the patch has been applies properly you should see something similar to this:
+![110136257-c3b42f00-7dcf-11eb-996c-396086a87858](https://user-images.githubusercontent.com/63272687/122326370-7dbd4a00-cf2c-11eb-90f0-13731cf7321f.jpg)
