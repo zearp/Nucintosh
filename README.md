@@ -131,19 +131,19 @@ One big plus of going native is that you gain HID-proxy. This means that when th
 
 Speaking of the $10 BCM943224PCIEBT2, I've personally tested that card and it still works fine in Catalina by setting ```Kernel -> Patch -> 0``` to true. Big Sur and Monterey will need the patch disabled and [AirportBrcmFixup](https://github.com/acidanthera/AirportBrcmFixup) added with boot flags ```brcmfx-driver=2 brcmfx-country=#a``` instead. You can also add your card as a device in the configs DeviceProperties section and set the options there, for example;
 ```
-			<key>PciRoot(0x0)/Pci(0x1C,0x4)/Pci(0x0,0x0)</key>
- 			<dict>
- 				<key>AAPL,slot-name</key>
- 				<string>Internal@0,28,4/0,0</string>
- 				<key>device_type</key>
- 				<string>Network controller</string>
- 				<key>model</key>
- 				<string>Apple Airport BCM43224 802.11a/b/g/n</string>
- 				<key>brcmfx-country</key>
- 				<string>#a</string>
- 				<key>brcmfx-driver</key>
- 				<string>2</string>
- 			</dict>
+<key>PciRoot(0x0)/Pci(0x1C,0x4)/Pci(0x0,0x0)</key>
+ 	<dict>
+ 		<key>AAPL,slot-name</key>
+ 		<string>Internal@0,28,4/0,0</string>
+		<key>device_type</key>
+ 		<string>Network controller</string>
+ 		<key>model</key>
+ 		<string>Apple Airport BCM43224 802.11a/b/g/n</string>
+ 		<key>brcmfx-country</key>
+ 		<string>#a</string>
+ 		<key>brcmfx-driver</key>
+ 		<string>2</string>
+ 	</dict>
 ```
 
 Make sure you check if the PciRoot/slot-name paths are correct, you can find them in IOreg or Hackintool.
