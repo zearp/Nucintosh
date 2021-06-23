@@ -60,7 +60,7 @@ Generate new serials with [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS). Th
 \* Installers made with GibMacOS on Windows and Linux require a working internet connection as it uses the recovery image only, it then downloads the full installer from Apple. The *createinstallmedia* script makes an offline installer.
 
 ## Post install
-- Remove express card icon: Disable SIP in the OpenCore picker then reset NVRAM and once booted open a terminal and run ```sudo mount -uw / && killall Finder && sudo mv /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu.bak && sudo touch /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu``` -- This no longer works on Big Sur (without lots of effort), but you can use a cool and free app called [Hidden Bar](https://github.com/dwarvesf/hidden) to hide it with instead.
+- Remove express card icon: Disable SIP in the OpenCore picker then reset NVRAM and once booted open a terminal and run ```sudo mount -uw / && killall Finder && sudo mv /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu.bak && sudo touch /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu``` -- This no longer works on Big Sur and Monterey (without lots of effort), but you can use a cool and free app called [Hidden Bar](https://github.com/dwarvesf/hidden) to hide it with instead.
 - Check if TRIM is enabled, If not run ```sudo trimforce enable``` to enable it
 - Disable ```NVMeFix.kext``` if you don't have an NVMe drive
 - Don't forget to copy the EFI folder from the installer's EFI partition to the internal disk's EFI partition. This is needed to boot from the internal disk. You can use [EFI Agent](https://github.com/headkaze/EFI-Agent) to easily mount EFI partition.
@@ -103,12 +103,9 @@ Updating is easy, first copy the MLB/ROM/SystemSerialNumber/SystemUUID values fr
 + Big Sur needs its own version of Airportitlwm, download the kext [here](https://github.com/zearp/Nucintosh/raw/master/Stuff/AirportItlwm.kext-BigSur.zip) and put it in the kext folder replacing the other one
 + When you see ```Forcing CS_RUNTIME for entitlement``` displayed macOS did not hang; its sealing the filesystem, do ***not*** reboot!
 
-In order to remove the express card icon (or get full access to your filesystem) in Big Sur you will need to jump trought a [few hoops](https://github.com/fxgst/writeable_root). Please note that breaking the seal on the filesystem macOS updates may not install, or install properly. It is also not possible to reseal it afaik. You can also use the scripts from [this](https://github.com/Ausdauersportler/big-sur-micropatcher#modifying-the-system-volume-yourself) repo. Use a tool to hdie icon instead and leave your system as secure a possible with the filesystem sealed and SIP enabled.
-
 ## Monterey
 Below is for beta 1.
 
-+ There's no longer an express card icon!
 + Monterey needs its own version of Airportitlwm, download the kext [here](https://github.com/zearp/Nucintosh/raw/master/Stuff/AirportItlwm.kext-Monterey.zip) and put it in the kext folder replacing the other one
 + Both IntelBluetooth kexts need to be disabled -- if not the boot will seemingly never finish and keeps displaying messages related to the bluetooh deamon
 
