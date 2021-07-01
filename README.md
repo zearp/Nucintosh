@@ -107,11 +107,9 @@ Updating is easy, first copy the MLB/ROM/SystemSerialNumber/SystemUUID values fr
 Below is for beta 1. Beta 2 is broken, this is either a bug or we need to wait for updated kexts. Some SMC stuff isn't workign correctly. If you got beta 2 installed let me know how you did it.
 
 + Monterey needs its own version of Airportitlwm, download the kext [here](https://github.com/zearp/Nucintosh/raw/master/Stuff/AirportItlwm.kext-Monterey.zip) and put it in the kext folder replacing the other one
-+ Both IntelBluetooth kexts need to be disabled -- if not the boot will seemingly never finish and keeps displaying messages related to the bluetooh deamon
++ For Intel bluetooth you need to replace ```IntelBluetoothInjector.kext``` with ```BlueToolFixup.kext``` from [this](https://github.com/dortania/build-repo/releases/download/BrcmPatchRAM-173c243/BrcmPatchRAM-2.6.0-RELEASE.zip) release.
 
-Please note that not all of the kexts we use as well as OpenCore itself have been (fully) updated to accomodate any changes that may be required. This is the first release of a new OS so there will be lots of issues. I'm surprised the installation went smooth and things seem to work ok after some quick testing.
-
-In short if you want to play around with the beta's you can, just disable the kexts above and you should be ok. I'm sure these issues can and will be sorted in due time. I personally don't really like to invest too much time in getting beta's to work as Apple can change things arround and then I'd just be wasting my time. Once OpenCore and kexts receive updates to work with Monterey I will update to them and do some more testing. Then every now and then try the latest beta and see where things stand. 
+Please note that not all of the kexts we use as well as OpenCore itself have been (fully) updated to accomodate any changes that may be required. We're still in the developer beta stage, after this there will be a public beta stage. Only play around with beta's if you have backups and are ready to format and start over when things eventually break.
 
 ## Thunderbolt
 Should work as long as Thunderbolt security is set to legacy mode. Thanks to [crp724](https://github.com/zearp/Nucintosh/issues/3) for confirming. He also confirmed eGPU works in his Mantiz TB3 enclosure. I assume that if eGPU works then all other Thunderbolt stuff works as well. Thunderbolt devices need to be connected before starting up. Hotplug will not work. In order for Thunderbolt hotplugging to work you will need to [modify the firmware](https://github.com/zearp/Nucintosh/tree/tb3).
