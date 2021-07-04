@@ -104,10 +104,13 @@ Updating is easy, first copy the MLB/ROM/SystemSerialNumber/SystemUUID values fr
 + When you see ```Forcing CS_RUNTIME for entitlement``` displayed macOS did not hang; its sealing the filesystem, do ***not*** reboot!
 
 ## Monterey
-Below is for beta 1. Beta 2 is broken, this is either a bug or we need to wait for updated kexts. Some SMC stuff isn't workign correctly. If you got beta 2 installed let me know how you did it.
+Both beta 1 and 2 are working. Only tested upgrading from Big Sur to Monterey with beta 1. From here on out I will pretty much only do clean installs
 
 + Monterey needs its own version of Airportitlwm, download the kext [here](https://github.com/zearp/Nucintosh/raw/master/Stuff/AirportItlwm.kext-Monterey.zip) and put it in the kext folder replacing the other one
 + For Intel bluetooth you need to replace ```IntelBluetoothInjector.kext``` with ```BlueToolFixup.kext``` from [this](https://github.com/dortania/build-repo/releases/download/BrcmPatchRAM-173c243/BrcmPatchRAM-2.6.0-RELEASE.zip) release.
++ In the config file you must set ```SecureBootModel``` to ```Disabled``` and perform a clean install after resetting nvram and formatting your disk.
+
+I haven't tested any upgrades with beta 2, just clean installs. The migration tool to import files/settings/apps from a backup works perfectly fine so it's not much of an issue for me and a nicer test process to start fresh each time.
 
 Please note that not all of the kexts we use as well as OpenCore itself have been (fully) updated to accomodate any changes that may be required. We're still in the developer beta stage, after this there will be a public beta stage. Only play around with beta's if you have backups and are ready to format and start over when things eventually break.
 
