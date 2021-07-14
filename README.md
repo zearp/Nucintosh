@@ -75,7 +75,7 @@ sudo pmset tcpkeepalive 0
 sudo pmset womp 0
 sudo pmset hibernatemode 0
 ```
-The first two need to be ```0``` the rest can be left on if you want.
+The first two and last need to be ```0``` the rest can be left on if you want.
 
 - Proximity wake can wake your machine when an iDevice is near
 - Power Nap will wake up the system from time to time to check mail, make Time Machine backups, etc, etc
