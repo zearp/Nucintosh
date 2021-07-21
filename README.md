@@ -147,7 +147,7 @@ Speaking of the $10 BCM943224PCIEBT2, I've personally tested that card and it st
  	</dict>
 ```
 
-Make sure you check if the PciRoot/slot-name paths are correct, you can find them in IOreg or Hackintool. Also make sure the AirPortBrcm4360_Injector.kext plug-in that will be added if you use the ProperTree snapshot command is disabled. It is part of AirportBrcmFixup but causes Monterey boot-up to stall.
+Make sure you check if the PciRoot/slot-name paths are correct, you can find them in IOreg or Hackintool. Also make sure the AirPortBrcm4360_Injector.kext plug-in that will be added if you use the ProperTree snapshot command is disabled. It is part of AirportBrcmFixup but can cause Monterey boot-up to stall and wifi not working properly (shows as disabled).
 
 Some sellers on AliExpress have converter cards that already have [the small 1.25mm pitch jst](https://github.com/zearp/Nucintosh/blob/master/Stuff/NUC8-m2adapter.jpg?raw=true) connector on it. It connects to one of the two internal usb ports. I use one without issues in my NUC. They usually list them as NUC8 compatible and cost a bit more than other converter cards.
 
