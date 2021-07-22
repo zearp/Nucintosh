@@ -60,7 +60,6 @@ Generate new serials with [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS). Th
 \* Installers made with GibMacOS on Windows and Linux require a working internet connection as it uses the recovery image only, it then downloads the full installer from Apple. The *createinstallmedia* script makes an offline installer.
 
 ## Post install
-- Remove express card icon: Disable SIP in the OpenCore picker then reset NVRAM and once booted open a terminal and run ```sudo mount -uw / && killall Finder && sudo mv /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu.bak && sudo touch /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu``` -- This no longer works on Big Sur and Monterey (without lots of effort), but you can use a cool and free app called [Hidden Bar](https://github.com/dwarvesf/hidden) to hide it with instead.
 - Check if TRIM is enabled, If not run ```sudo trimforce enable``` to enable it
 - Disable ```NVMeFix.kext``` if you don't have an NVMe drive
 - Don't forget to copy the EFI folder from the installer's EFI partition to the internal disk's EFI partition. This is needed to boot from the internal disk. You can use [EFI Agent](https://github.com/headkaze/EFI-Agent) to easily mount EFI partition.
@@ -89,6 +88,10 @@ sudo rm /var/vm/sleepimage
 sudo mkdir /var/vm/sleepimage
 ```
 
+To remove the express card icon on Catalina you can run: ```sudo mount -uw / && killall Finder && sudo mv /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu.bak && sudo touch /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu``` -- disabling SIP is required for this to work, you can disable/enable SIP from the picker menu. 
+
+To remove the express card icon on Big Sur and newer you can either use a 3rd party tool like [Hidden Bar](https://github.com/dwarvesf/hidden) or for the more adventurous you can use a tool like [writable_Root](https://github.com/fxgst/writeable_root) to gain back full access to the filesystem and use the Catalina method, for this both SIP and authenticated root must be disabled. The latter can only be disabled by booting into recovery and using csrutil. Please note that this may break the seal of the filesystem which may result in macOS updates no logner installing properly. YMMV.
+ 
 At this point you can also enable FileVault if you want to encrypt your disk. The config is setup to support this and it works flawlessly, to get a nicer boot experience you can remove the verbose boot flag ```-v```in the config and also set ```ShowPicker``` to false. To get the OpenCore picker/menu again hold down the *alt* key when booting.
 
 That's all!
@@ -144,7 +147,7 @@ Speaking of the $10 BCM943224PCIEBT2, I've personally tested that card and it st
  	</dict>
 ```
 
-Make sure you check if the PciRoot/slot-name paths are correct, you can find them in IOreg or Hackintool. Also make sure the AirPortBrcm4360_Injector.kext plug-in that will be added if you use the ProperTree snapshot command is disabled. It is part of AirportBrcmFixup but causes Monterey boot-up to stall.
+Make sure you check if the PciRoot/slot-name paths are correct, you can find them in IOreg or Hackintool. Also make sure the AirPortBrcm4360_Injector.kext plug-in that will be added if you use the ProperTree snapshot command is disabled. It is part of AirportBrcmFixup but can cause Monterey boot-up to stall and wifi not working properly (shows as disabled).
 
 Some sellers on AliExpress have converter cards that already have [the small 1.25mm pitch jst](https://github.com/zearp/Nucintosh/blob/master/Stuff/NUC8-m2adapter.jpg?raw=true) connector on it. It connects to one of the two internal usb ports. I use one without issues in my NUC. They usually list them as NUC8 compatible and cost a bit more than other converter cards.
 
