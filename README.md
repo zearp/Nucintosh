@@ -59,6 +59,8 @@ Generate new serials with [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS). Th
 
 \* Installers made with GibMacOS on Windows and Linux require a working internet connection as it uses the recovery image only, it then downloads the full installer from Apple. The *createinstallmedia* script makes an offline installer.
 
+> Note: OpenCore doesn't always select the correct partition in the menu when installing. You will only boot into the installer once, do your formatting and have the installer copy all it needs to the internet disk. From that point onwards always select the internal disk from the menu. The name might change during the installation, but easy to spot as it won't have an external label.
+
 ## Post install
 - Check if TRIM is enabled, If not run ```sudo trimforce enable``` to enable it
 - Disable ```NVMeFix.kext``` if you don't have an NVMe drive
