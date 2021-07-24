@@ -112,7 +112,7 @@ Updating is easy, first copy the MLB/ROM/SystemSerialNumber/SystemUUID values fr
 Both beta 1 and 2 are working. Only tested upgrading from Big Sur to Monterey with beta 1. From here on out I will pretty much only do clean installs
 
 + Monterey needs its own version of Airportitlwm, download the kext [here](https://github.com/zearp/Nucintosh/raw/master/Stuff/AirportItlwm.kext-Monterey.zip) and put it in the kext folder replacing the other one
-+ For Intel bluetooth you need to replace ```IntelBluetoothInjector.kext``` with ```BlueToolFixup.kext``` from [this](https://github.com/dortania/build-repo/releases/download/BrcmPatchRAM-173c243/BrcmPatchRAM-2.6.0-RELEASE.zip) release
++ For Intel bluetooth you need to replace ```IntelBluetoothInjector.kext``` with ```BlueToolFixup.kext``` from [here](https://github.com/zearp/Nucintosh/raw/master/Stuff/BlueToolFixup.kext.zip)
 + In the config file you must set ```SecureBootModel``` to ```Disabled``` and resetting nvram, in some cases a clean install is needed
 
 I haven't tested any upgrades with beta 2, just clean installs. The migration tool to import files/settings/apps from a backup works perfectly fine so it's not much of an issue for me and a nicer test process to start fresh each time.
