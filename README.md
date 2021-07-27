@@ -59,7 +59,7 @@ Generate new serials with [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS). Th
 
 \* Installers made with GibMacOS on Windows and Linux require a working internet connection as it uses the recovery image only, it then downloads the full installer from Apple. The *createinstallmedia* script makes an offline installer.
 
-> Note: OpenCore doesn't always select the correct partition in the menu when installing. You will only boot into the installer once, do your formatting and have the installer copy all it needs to the internet disk. From that point onwards always select the internal disk from the menu. The name might change during the installation, but easy to spot as it won't have an external label.
+> Note: OpenCore doesn't always select the correct partition in the menu when installing. You will only boot into the installer once, do your formatting and have the installer copy all it needs to the internal disk. From that point onwards always select the internal disk from the menu. The name might change during the installation, but it shouyld be easy to spot as it won't have an "external" label.
 
 ## Post install
 - Check if TRIM is enabled, If not run ```sudo trimforce enable``` to enable it
@@ -109,15 +109,11 @@ Updating is easy, first copy the MLB/ROM/SystemSerialNumber/SystemUUID values fr
 + When you see ```Forcing CS_RUNTIME for entitlement``` displayed macOS did not hang; its sealing the filesystem, do ***not*** reboot!
 
 ## Monterey
-Both beta 1 and 2 are working. Only tested upgrading from Big Sur to Monterey with beta 1. From here on out I will pretty much only do clean installs
+Currently all beta builds including 3 are working. Only tested upgrading from Big Sur to Monterey with beta 1. From here on out I will pretty much only do clean installs or upgrades from within Monterey.
 
 + Monterey needs its own version of Airportitlwm, download the kext [here](https://github.com/zearp/Nucintosh/raw/master/Stuff/AirportItlwm.kext-Monterey.zip) and put it in the kext folder replacing the other one
-+ For Intel bluetooth you need to replace ```IntelBluetoothInjector.kext``` with ```BlueToolFixup.kext``` from [here](https://github.com/zearp/Nucintosh/raw/master/Stuff/BlueToolFixup.kext.zip)
++ For bluetooth you need to replace ```IntelBluetoothInjector.kext``` with ```BlueToolFixup.kext``` from [here](https://github.com/zearp/Nucintosh/raw/master/Stuff/BlueToolFixup.kext.zip)
 + In the config file you must set ```SecureBootModel``` to ```Disabled``` and resetting nvram, in some cases a clean install is needed
-
-I haven't tested any upgrades with beta 2, just clean installs. The migration tool to import files/settings/apps from a backup works perfectly fine so it's not much of an issue for me and a nicer test process to start fresh each time.
-
-Please note that not all of the kexts we use as well as OpenCore itself have been (fully) updated to accomodate any changes that may be required. We're still in the developer beta stage, after this there will be a public beta stage. Only play around with beta's if you have backups and are ready to format and start over when things eventually break.
 
 ## Thunderbolt
 Should work as long as Thunderbolt security is set to legacy mode. Thanks to [crp724](https://github.com/zearp/Nucintosh/issues/3) for confirming. He also confirmed eGPU works in his Mantiz TB3 enclosure. I assume that if eGPU works then all other Thunderbolt stuff works as well. Thunderbolt devices need to be connected before starting up. Hotplug will not work. In order for Thunderbolt hotplugging to work you will need to [modify the firmware](https://github.com/zearp/Nucintosh/tree/tb3).
