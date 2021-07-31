@@ -1,5 +1,5 @@
 # NUC8IxBEx Hackintosh
-This is a quick and dirty repo for Intel NUC 8th gen computers. It should work on all the Coffee Lake ones. I've used various sources (see credits) to build my EFI and did quite some testing. It should leave you with a stable and reliable build but as always, these things are never really finished. Compatible with macOS Mojave, Catalina, Big Sur and Monterey.
+This is a quick and dirty repo for Intel NUC 8th gen computers. It should work on all the Coffee Lake/Bean Canyon ones. I've used various sources (see credits) to build my EFI and did quite some testing. It should leave you with a stable and reliable build but as always, these things are never really finished. Compatible with macOS Mojave, Catalina, Big Sur and Monterey.
 
 ![macOS Monterey](https://github.com/zearp/Nucintosh/blob/master/Stuff/Monterey.png?raw=true)
 
@@ -108,7 +108,7 @@ Updating is easy, first copy the MLB/ROM/SystemSerialNumber/SystemUUID values fr
 + When you see ```Forcing CS_RUNTIME for entitlement``` displayed macOS did not hang; its sealing the filesystem, do ***not*** reboot!
 
 ## Monterey
-Currently all beta builds including 3 are working. Only tested upgrading from Big Sur to Monterey with beta 1. From here on out I will pretty much only do clean installs or upgrades from within Monterey.
+Currently all beta builds including beta 4 are working. Only tested upgrading from Big Sur to Monterey with beta 1. From here on out I will pretty much only do clean installs or upgrades from within Monterey.
 
 + Monterey needs its own version of Airportitlwm, download the kext [here](https://github.com/zearp/Nucintosh/raw/master/Stuff/AirportItlwm.kext-Monterey.zip) and put it in the kext folder replacing the other one
 + For bluetooth you need to replace ```IntelBluetoothInjector.kext``` with ```BlueToolFixup.kext``` from [here](https://github.com/zearp/Nucintosh/raw/master/Stuff/BlueToolFixup.kext.zip)
