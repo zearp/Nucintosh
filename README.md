@@ -228,8 +228,6 @@ If you want your stock cooled NUC to be more silent with a little performance pe
 
 There are a lot more things you can do but as a start just undervolting CPU/CPU Cache is enough. In my testing undervolting GPU didn't make any difference but maybe on yours it does help. Experiment and see what works best for you.
 
-Please share your undervolting results [here](https://github.com/zearp/Nucintosh/issues/32).
-
 > Tip: Use Intel Power Gadet and/or HWMonitor to check current voltages and temperatures.
 
 ## Performance, power and noise
