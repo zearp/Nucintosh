@@ -34,7 +34,7 @@ This is a quick and dirty repo for Intel NUC 8th gen computers. It should work o
 * [Credits](#credits)
   
 ## Installation
-+ Update to the latest (0088) BIOS -> load BIOS defaults -> click advanced and change;
++ Update to the latest (0089) BIOS -> load BIOS defaults -> click advanced and change;
 ```
 Devices -> USB -> Port Device Charging Mode: off
 Devices -> USB -> USB Legacy -> Disabled
