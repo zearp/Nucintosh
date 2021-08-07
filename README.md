@@ -170,6 +170,7 @@ I often use these cheap dongles from [eBay](https://www.ebay.co.uk/itm/1PCS-Mini
 + IR receiver (it shows up in ioreg but no idea how to make macOS use it like on some MBP)
 + ~~Handoff/AirDrop are not supported (yet) on Intel chips~~ Should work now, untested by me
 + ~~4K [might need](https://github.com/acidanthera/WhateverGreen/blob/master/Manual/FAQ.IntelHD.en.md#lspcon-driver-support-to-enable-displayport-to-hdmi-20-output-on-igpu) some additional parameters and a new portmap~~ 4K confirmed working. Thanks again to [crp724](https://github.com/zearp/Nucintosh/issues/3)
++ If you can't see your NVMe drive or have issues with it, disabling NVMeFix.kext in the config may help ([1](https://dortania.github.io/Anti-Hackintosh-Buyers-Guide/Storage.html),[2](https://github.com/acidanthera/nvmefix))
 + You tell me!
 
 ## Undervolting
