@@ -59,10 +59,10 @@
 			<key>IOUserClientClass</key>
 			<string>ALCUserClient</string>
 		</dict>
-		<key>HDA Hardware Config Resource</key>
+		<key>as.vit9696.AppleALC</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
-			<string>com.apple.driver.AppleHDAHardwareConfigDriver</string>
+			<string>as.vit9696.AppleALC</string>
 			<key>HDAConfigDefault</key>
 			<array>
 				<dict>
@@ -12850,7 +12850,7 @@
 					AwAAAA==
 					</data>
 					<key>Codec</key>
-					<string>Goldfish64 - STAC9200 for Dell Precision 390</string>
+					<string>Goldfish64 - STAC9200 for Dell Precision 390, Latitude D520</string>
 					<key>CodecID</key>
 					<integer>2206496400</integer>
 					<key>ConfigData</key>
@@ -12860,6 +12860,31 @@
 					HQEA5x4QAOcfkAD3HDAA9x0BAPceoAD3H5AB
 					BxxAAQcdEAEHHoEBBx8CARcc8AEXHQABFx4A
 					ARcfQAEnHPABJx0AASceAAEnH0A=
+					</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>11</integer>
+				</dict>
+				<dict>
+					<key>AFGLowPowerState</key>
+					<data>
+					AwAAAA==
+					</data>
+					<key>Codec</key>
+					<string>Goldfish64 - STAC9205 for Dell Inspiron 1520, Latitude D630</string>
+					<key>CodecID</key>
+					<integer>2206496416</integer>
+					<key>ConfigData</key>
+					<data>
+					AKccIACnHRAApx4hAKcfAwC3HEAAtx0QALce
+					gQC3HwMAxxzwAMcdAADHHgAAxx9AANccEADX
+					HQEA1x4QANcfkADnHPAA5x0AAOceAADnH0AA
+					9xzwAPcdAAD3HgAA9x9AAUcc8AFHHQABRx4A
+					AUcfQAFnHPABZx0AAWceAAFnH0ABdxwwAXcd
+					AQF3HqABdx+QAYcc8AGHHQABhx4AAYcfQAIX
+					HPACFx0AAhceAAIXH0ACJxzwAicdAAInHgAC
+					Jx9A
 					</data>
 					<key>FuncGroup</key>
 					<integer>1</integer>
@@ -13341,17 +13366,6 @@
 				</dict>
 			</array>
 			<key>IOClass</key>
-			<string>AppleHDAHardwareConfigDriver</string>
-			<key>IOMatchCategory</key>
-			<string>AppleHDAHardwareConfigDriver</string>
-			<key>IOProviderClass</key>
-			<string>AppleHDAHardwareConfigDriverLoader</string>
-		</dict>
-		<key>as.vit9696.AppleALC</key>
-		<dict>
-			<key>CFBundleIdentifier</key>
-			<string>as.vit9696.AppleALC</string>
-			<key>IOClass</key>
 			<string>AppleALC</string>
 			<key>IOMatchCategory</key>
 			<string>AppleALC</string>
@@ -13374,17 +13388,15 @@
 		<key>com.apple.iokit.IOPCIFamily</key>
 		<string>1.0.0b1</string>
 		<key>com.apple.kpi.bsd</key>
-		<string>10.0.0</string>
-		<key>com.apple.kpi.dsep</key>
-		<string>10.0.0</string>
+		<string>8.0.0</string>
 		<key>com.apple.kpi.iokit</key>
-		<string>10.0.0</string>
+		<string>8.0.0</string>
 		<key>com.apple.kpi.libkern</key>
-		<string>10.0.0</string>
+		<string>8.0.0</string>
 		<key>com.apple.kpi.mach</key>
-		<string>10.0.0</string>
+		<string>8.0.0</string>
 		<key>com.apple.kpi.unsupported</key>
-		<string>10.0.0</string>
+		<string>8.0.0</string>
 	</dict>
 	<key>OSBundleRequired</key>
 	<string>Root</string>
