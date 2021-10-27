@@ -3,12 +3,10 @@ This is a quick and dirty repo for Intel NUC 8th gen computers. It should work o
 
 Please note that from the 27th of October the assumed installion macOS will be Monterey. 
 
-I will update the sections below and make a new release once I've finished my testing.
-
 ![macOS Monterey](https://github.com/zearp/Nucintosh/blob/master/Stuff/Monterey.png?raw=true)
 
 ## Details
-* Works with macOS *Catalina*, *Big Sur*[\*](#big-sur) and *Monterey*[\*](#monterey)
+* Works with macOS *Catalina*, *Big Sur* and *Monterey*
 * OpenCore bootloader with the following kexts:
   - Lilu
   - VirtualSMC
@@ -106,17 +104,6 @@ That's all!
 
 ## Updating
 Updating is easy, first copy the MLB/ROM/SystemSerialNumber/SystemUUID values from your current config to a text file then delete the whole EFI folder and replace it with the latest release/clone from this repo. Copy your PlatformInfo fields from the text file into the new config. Unless you made other changes this is all thats needed.
-
-## Big Sur
-+ Big Sur needs its own version of Airportitlwm, download the kext [here](https://github.com/zearp/Nucintosh/raw/master/Stuff/AirportItlwm.kext-BigSur.zip) and put it in the kext folder replacing the other one
-+ When you see ```Forcing CS_RUNTIME for entitlement``` displayed macOS did not hang; its sealing the filesystem, do ***not*** reboot!
-
-## Monterey
-Currently all beta builds including beta 4 are working. Only tested upgrading from Big Sur to Monterey with beta 1. From here on out I will pretty much only do clean installs or upgrades from within Monterey.
-
-+ Monterey needs its own version of Airportitlwm, download the kext [here](https://github.com/zearp/Nucintosh/raw/master/Stuff/AirportItlwm.kext-Monterey.zip) and put it in the kext folder replacing the other one
-+ For bluetooth you need to replace ```IntelBluetoothInjector.kext``` with ```BlueToolFixup.kext``` from [here](https://github.com/zearp/Nucintosh/raw/master/Stuff/BlueToolFixup.kext.zip)
-+ In the config file you must set ```SecureBootModel``` to ```Disabled``` and resetting nvram, in some cases a clean install is needed
 
 ## Thunderbolt
 Should work as long as Thunderbolt security is set to legacy mode. Thanks to [crp724](https://github.com/zearp/Nucintosh/issues/3) for confirming. He also confirmed eGPU works in his Mantiz TB3 enclosure. I assume that if eGPU works then all other Thunderbolt stuff works as well. Thunderbolt devices need to be connected before starting up. Hotplug will not work. In order for Thunderbolt hotplugging to work you will need to [modify the firmware](https://github.com/zearp/Nucintosh/tree/tb3).
