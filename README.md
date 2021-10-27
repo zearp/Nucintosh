@@ -1,6 +1,10 @@
 # NUC8IxBEx Hackintosh
 This is a quick and dirty repo for Intel NUC 8th gen computers. It should work on all the Coffee Lake/Bean Canyon ones. I've used various sources (see credits) to build my EFI and did quite some testing. It should leave you with a stable and reliable build but as always, these things are never really finished. Compatible with macOS Mojave, Catalina, Big Sur and Monterey.
 
+Please note that as of the 17th of October the assumed installion macOS will be Monterey. 
+
+I will update the sections below and make a new release once I've finished my testing.
+
 ![macOS Monterey](https://github.com/zearp/Nucintosh/blob/master/Stuff/Monterey.png?raw=true)
 
 ## Details
