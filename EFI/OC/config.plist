@@ -71,23 +71,35 @@
 				<key>Enabled</key>
 				<true/>
 				<key>Find</key>
-				<data>X1JNVg==</data>
+				<data>
+				X1JNVg==
+				</data>
 				<key>Limit</key>
 				<integer>0</integer>
 				<key>Mask</key>
-				<data></data>
+				<data>
+				
+				</data>
 				<key>OemTableId</key>
-				<data>AAAAAA==</data>
+				<data>
+				AAAAAA==
+				</data>
 				<key>Replace</key>
-				<data>WFJNVg==</data>
+				<data>
+				WFJNVg==
+				</data>
 				<key>ReplaceMask</key>
-				<data></data>
+				<data>
+				
+				</data>
 				<key>Skip</key>
 				<integer>0</integer>
 				<key>TableLength</key>
 				<integer>0</integer>
 				<key>TableSignature</key>
-				<data>AAAAAA==</data>
+				<data>
+				AAAAAA==
+				</data>
 			</dict>
 		</array>
 		<key>Quirks</key>
@@ -180,42 +192,72 @@
 				<key>hda-gfx</key>
 				<string>onboard-1</string>
 				<key>layout-id</key>
-				<data>DgAAAA==</data>
+				<data>
+				DgAAAA==
+				</data>
 				<key>model</key>
 				<string>Cannon Point-LP High Definition Audio Controller</string>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
 			<dict>
 				<key>AAPL,ig-platform-id</key>
-				<data>BAClPg==</data>
+				<data>
+				BAClPg==
+				</data>
 				<key>enable-hdmi-dividers-fix</key>
-				<data>AQAAAA==</data>
+				<data>
+				AQAAAA==
+				</data>
 				<key>enable-lspcon-support</key>
-				<data>AQAAAA==</data>
+				<data>
+				AQAAAA==
+				</data>
 				<key>enable-max-pixel-clock-override</key>
-				<data>AQAAAA==</data>
+				<data>
+				AQAAAA==
+				</data>
 				<key>force-online</key>
-				<data>AQAAAA==</data>
+				<data>
+				AQAAAA==
+				</data>
 				<key>framebuffer-con0-alldata</key>
-				<data>AQUKAAAEAADHAwAA</data>
+				<data>
+				AQUKAAAEAADHAwAA
+				</data>
 				<key>framebuffer-con0-enable</key>
-				<data>AQAAAA==</data>
+				<data>
+				AQAAAA==
+				</data>
 				<key>framebuffer-con1-alldata</key>
-				<data>AgQJAAAIAADHAwAA</data>
+				<data>
+				AgQJAAAIAADHAwAA
+				</data>
 				<key>framebuffer-con1-enable</key>
-				<data>AQAAAA==</data>
+				<data>
+				AQAAAA==
+				</data>
 				<key>framebuffer-con1-has-lspcon</key>
-				<data>AQAAAA==</data>
+				<data>
+				AQAAAA==
+				</data>
 				<key>framebuffer-con1-preferred-lspcon-mode</key>
-				<data>AQAAAA==</data>
+				<data>
+				AQAAAA==
+				</data>
 				<key>framebuffer-patch-enable</key>
-				<data>AQAAAA==</data>
+				<data>
+				AQAAAA==
+				</data>
 				<key>framebuffer-portcount</key>
-				<data>AgAAAA==</data>
+				<data>
+				AgAAAA==
+				</data>
 				<key>hda-gfx</key>
 				<string>onboard-1</string>
 				<key>igfxfw</key>
-				<data>AgAAAA==</data>
+				<data>
+				AgAAAA==
+				</data>
 			</dict>
 		</dict>
 		<key>Delete</key>
@@ -483,9 +525,13 @@
 		<key>Emulate</key>
 		<dict>
 			<key>Cpuid1Data</key>
-			<data></data>
+			<data>
+			
+			</data>
 			<key>Cpuid1Mask</key>
-			<data></data>
+			<data>
+			
+			</data>
 			<key>DummyPowerManagement</key>
 			<false/>
 			<key>MaxKernel</key>
@@ -509,21 +555,29 @@
 				<key>Enabled</key>
 				<false/>
 				<key>Find</key>
-				<data>TWFjLTJFNkZBQjk2NTY2RkU1OEM=</data>
+				<data>
+				TWFjLTJFNkZBQjk2NTY2RkU1OEM=
+				</data>
 				<key>Identifier</key>
 				<string>com.apple.driver.AirPort.Brcm4360</string>
 				<key>Limit</key>
 				<integer>0</integer>
 				<key>Mask</key>
-				<data></data>
+				<data>
+				
+				</data>
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>
 				<string></string>
 				<key>Replace</key>
-				<data>TWFjLTdCQTVCMkRGRTIyREREOEM=</data>
+				<data>
+				TWFjLTdCQTVCMkRGRTIyREREOEM=
+				</data>
 				<key>ReplaceMask</key>
-				<data></data>
+				<data>
+				
+				</data>
 				<key>Skip</key>
 				<integer>0</integer>
 			</dict>
@@ -660,9 +714,13 @@
 			<key>HaltLevel</key>
 			<integer>2147483648</integer>
 			<key>PasswordHash</key>
-			<data></data>
+			<data>
+			
+			</data>
 			<key>PasswordSalt</key>
-			<data></data>
+			<data>
+			
+			</data>
 			<key>ScanPolicy</key>
 			<integer>0</integer>
 			<key>SecureBootModel</key>
@@ -680,20 +738,30 @@
 			<key>4D1EDE05-38C7-4A6A-9CC6-4BCCA8B38C14</key>
 			<dict>
 				<key>DefaultBackgroundColor</key>
-				<data>AAAAAA==</data>
+				<data>
+				AAAAAA==
+				</data>
 				<key>UIScale</key>
-				<data>AQ==</data>
+				<data>
+				AQ==
+				</data>
 			</dict>
 			<key>7C436110-AB2A-4BBB-A880-FE41995C9F82</key>
 			<dict>
 				<key>SystemAudioVolume</key>
-				<data>Rg==</data>
+				<data>
+				Rg==
+				</data>
 				<key>boot-args</key>
 				<string>-v debug=0x100 keepsyms=1</string>
 				<key>csr-active-config</key>
-				<data>AAAAAA==</data>
+				<data>
+				AAAAAA==
+				</data>
 				<key>prev-lang:kbd</key>
-				<data></data>
+				<data>
+				
+				</data>
 				<key>run-efi-updater</key>
 				<string>No</string>
 			</dict>
@@ -760,7 +828,9 @@
 			<key>ProcessorType</key>
 			<integer>0</integer>
 			<key>ROM</key>
-			<data>ABEiM0RV</data>
+			<data>
+			ABEiM0RV
+			</data>
 			<key>SpoofVendor</key>
 			<false/>
 			<key>SystemMemoryStatus</key>
@@ -908,6 +978,8 @@
 			<false/>
 			<key>TextRenderer</key>
 			<string>BuiltinGraphics</string>
+			<key>UIScale</key>
+			<integer>0</integer>
 			<key>UgaPassThrough</key>
 			<false/>
 		</dict>
