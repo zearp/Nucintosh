@@ -18,6 +18,7 @@ The EFI should work fine for earlier version too but will require different kext
   - CPUFriend
   - BlueToolFixup -- fixes bluetooth in Monterey 
   - OpenIntelWireless for Intel bluetooth and wifi
+  - Thunderbolt Hot Swap -- If you don't want, Remove IOElectrify.kext from config.plist
   
 ## Index
 * [Installation](#installation)
