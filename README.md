@@ -2,7 +2,7 @@
 This is a quick and dirty repo for Intel NUC 8th gen Coffee Lake models. I've used various sources (see credits) to build my EFI and did quite some testing. It should leave you with a stable and reliable build but as always, these things are never really finished. Compatible with macOS Mojave, Catalina, Big Sur and Monterey.
 
 ## Please note that from the 27th of October the assumed installion target will be Monterey.
-The EFI should work fine for earlier version too but will require different kexts for the Intel wireless card. Use the snapshot function in ProperTree to easily update the config once you made the kext swaps. If you encounter bluetooth issues on versions prior to Monterey you may also have to replace BlueToolFixup.kext with IntelBluetoothInjector.kext -- the kexts can be found in the "stuff" folder on the repo. Good luck!
+The EFI should work fine for earlier versions too but will require different kexts for the Intel wireless card. Use the snapshot function in ProperTree to easily update the config once you made the kext swaps. If you encounter bluetooth issues on versions prior to Monterey you may also have to replace BlueToolFixup.kext with IntelBluetoothInjector.kext -- the kexts can be found in the "stuff" folder on the repo. Good luck!
 
 ![macOS Monterey](https://github.com/zearp/Nucintosh/blob/master/Stuff/Monterey.png?raw=true)
 
@@ -23,8 +23,6 @@ The EFI should work fine for earlier version too but will require different kext
 * [Installation](#installation)
 * [Post install](#post-install)
 * [Updating](#updating)
-* [Big Sur](#big-sur)
-* [Monterey](#monterey)
 * [Thunderbolt](#Thunderbolt)
 * [Apple and 3rd party wifi/bt](#apple3rd-party-bluetooth-and-wifi)
 * [Intel wifi/bt](#intel-bluetooth-and-wifi)
