@@ -120,7 +120,7 @@ For both 1st and 3rd party you will need a [supported](https://dortania.github.i
 One big plus of going native is that you gain HID-proxy. This means that when there is no OS running the Airport card will proxy any paired HID bluetooth devices to the machine as usb devices. This means you can enter the BIOS or boot menu using the bluetooth keyboard and mouse. This is not a feature you will find on many other cards, including the the one Intel put in here. Even expensive bluetooth cards often can not do this. But Apple has added it even in the cheap BCM943224PCIEBT2 Airport card.
 
 
-Speaking of the $10 BCM943224PCIEBT2, I've personally tested that card and it still works fine in Catalina by setting ```Kernel -> Patch -> 0``` to true. Big Sur and Monterey will need the patch disabled and [AirportBrcmFixup](https://github.com/acidanthera/AirportBrcmFixup) added with boot flags ```brcmfx-driver=2 brcmfx-country=#a``` instead. You can also add your card as a device in the configs DeviceProperties section and set the options there, for example;
+Speaking of the $10 BCM943224PCIEBT2, I've personally tested that card and it still works fine in Catalina by setting ```Kernel -> Patch -> 0``` to true. Big Sur will need the patch disabled and [AirportBrcmFixup](https://github.com/acidanthera/AirportBrcmFixup) added with boot flags ```brcmfx-driver=2 brcmfx-country=#a``` instead. For Monterey you will beed to patch the installer which will disable SIP and isn't recommended. You can also add your card as a device in the configs DeviceProperties section and set the options there, for example;
 ```
 <key>PciRoot(0x0)/Pci(0x1C,0x4)/Pci(0x0,0x0)</key>
  	<dict>
