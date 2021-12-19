@@ -724,7 +724,7 @@
 			<key>ScanPolicy</key>
 			<integer>0</integer>
 			<key>SecureBootModel</key>
-			<string>x86legacy</string>
+			<string>j174</string>
 			<key>Vault</key>
 			<string>Optional</string>
 		</dict>
@@ -889,9 +889,11 @@
 			<integer>14</integer>
 			<key>AudioDevice</key>
 			<string>PciRoot(0x0)/Pci(0x1F,0x3)</string>
-			<key>AudioOut</key>
-			<integer>20</integer>
+			<key>AudioOutMask</key>
+			<integer>0</integer>
 			<key>AudioSupport</key>
+			<false/>
+			<key>DisconnectHda</key>
 			<false/>
 			<key>MinimumVolume</key>
 			<integer>25</integer>
