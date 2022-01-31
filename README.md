@@ -2,7 +2,7 @@
 This is a quick and dirty repo for Intel NUC 8th gen Coffee Lake models. I've used various sources (see credits) to build my EFI and did quite some testing. It should leave you with a stable and reliable build but as always, these things are never really finished. Compatible with macOS Mojave, Catalina, Big Sur and Monterey.
 
 ## Please note that from the 27th of October the assumed installion target will be Monterey.
-The EFI should work fine for earlier version too but will require different kexts for the Intel wireless card. You can find these kexts in the "stuff" folder on the repo.
+The EFI should work fine for earlier versions too but will require different kexts for the Intel wireless card. Use the snapshot function in ProperTree to easily update the config once you made the kext swaps. If you encounter bluetooth issues on versions prior to Monterey you may also have to replace BlueToolFixup.kext with IntelBluetoothInjector.kext -- the kexts can be found in the "stuff" folder on the repo. Good luck!
 
 ![macOS Monterey](https://github.com/zearp/Nucintosh/blob/master/Stuff/Monterey.png?raw=true)
 
@@ -23,8 +23,6 @@ The EFI should work fine for earlier version too but will require different kext
 * [Installation](#installation)
 * [Post install](#post-install)
 * [Updating](#updating)
-* [Big Sur](#big-sur)
-* [Monterey](#monterey)
 * [Thunderbolt](#Thunderbolt)
 * [Apple and 3rd party wifi/bt](#apple3rd-party-bluetooth-and-wifi)
 * [Intel wifi/bt](#intel-bluetooth-and-wifi)
@@ -120,7 +118,7 @@ For both 1st and 3rd party you will need a [supported](https://dortania.github.i
 One big plus of going native is that you gain HID-proxy. This means that when there is no OS running the Airport card will proxy any paired HID bluetooth devices to the machine as usb devices. This means you can enter the BIOS or boot menu using the bluetooth keyboard and mouse. This is not a feature you will find on many other cards, including the the one Intel put in here. Even expensive bluetooth cards often can not do this. But Apple has added it even in the cheap BCM943224PCIEBT2 Airport card.
 
 
-Speaking of the $10 BCM943224PCIEBT2, I've personally tested that card and it still works fine in Catalina by setting ```Kernel -> Patch -> 0``` to true. Big Sur and Monterey will need the patch disabled and [AirportBrcmFixup](https://github.com/acidanthera/AirportBrcmFixup) added with boot flags ```brcmfx-driver=2 brcmfx-country=#a``` instead. You can also add your card as a device in the configs DeviceProperties section and set the options there, for example;
+Speaking of the $10 BCM943224PCIEBT2, I've personally tested that card and it still works fine in Catalina by setting ```Kernel -> Patch -> 0``` to true. Big Sur will need the patch disabled and [AirportBrcmFixup](https://github.com/acidanthera/AirportBrcmFixup) added with boot flags ```brcmfx-driver=2 brcmfx-country=#a``` instead. For Monterey you will need to patch the installer which will disable SIP and isn't recommended. You can also add your card as a device in the configs DeviceProperties section and set the options there, for example;
 ```
 <key>PciRoot(0x0)/Pci(0x1C,0x4)/Pci(0x0,0x0)</key>
  	<dict>
