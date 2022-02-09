@@ -96,7 +96,9 @@ To remove the express card icon on Catalina you can run: ```sudo mount -uw / && 
 
 To remove the express card icon on Big Sur and newer you can either use a 3rd party tool like [Hidden Bar](https://github.com/dwarvesf/hidden) or for the more adventurous you can use a tool like [writable_Root](https://github.com/fxgst/writeable_root) to gain back full access to the filesystem and use the Catalina method, for this both SIP and authenticated root must be disabled. The latter can only be disabled by booting into recovery and using csrutil. Please note that this may break the seal of the filesystem which may result in macOS updates no logner installing properly. YMMV.
  
-At this point you should enable FileVault to encrypt your disk. The config is setup to support this and it works flawlessly, to get a nicer boot experience you can remove the verbose boot flag ```-v```in the config and also set ```ShowPicker``` to false. This will show th Apple logo and not show any OpenCore menu or verbose booting. To get the OpenCore picker/menu again hold down the *alt* key when booting.
+At this point you should enable FileVault to encrypt your disk. The config is setup to support this and it works flawlessly.
+
+To get a nicer boot experience you can remove the verbose boot flag ```-v```in the config and also set ```ShowPicker``` to false. This will show the Apple logo and not show any OpenCore menu or verbose booting. To get the OpenCore picker/menu to show hold down the *alt* key when booting.
 
 That's all!
 
