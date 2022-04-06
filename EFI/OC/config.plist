@@ -690,12 +690,10 @@
 			<integer>2147483714</integer>
 			<key>LogModules</key>
 			<string>*</string>
-			<key>SerialInit</key>
-			<false/>
-			<key>SysReport</key>
-			<false/>
 			<key>Target</key>
 			<integer>0</integer>
+			<key>SysReport</key>
+			<false/>
 		</dict>
 		<key>Entries</key>
 		<array/>
@@ -735,6 +733,37 @@
 			<string>j174</string>
 			<key>Vault</key>
 			<string>Optional</string>
+		</dict>
+		<key>Serial</key>
+		<dict>
+			<key>BaudRate</key>
+			<integer>115200</integer>
+			<key>ClockRate</key>
+			<integer>1843200</integer>
+			<key>DetectCable</key>
+			<false/>
+			<key>ExtendedTxFifoSize</key>
+			<integer>64</integer>
+			<key>FifoControl</key>
+			<integer>7</integer>
+			<key>Init</key>
+			<false/>
+			<key>LineControl</key>
+			<integer>3</integer>
+			<key>PciDeviceInfo</key>
+			<data>
+			/w==
+			</data>
+			<key>RegisterAccessWidth</key>
+			<integer>8</integer>
+			<key>RegisterBase</key>
+			<integer>1016</integer>
+			<key>RegisterStride</key>
+			<integer>1</integer>
+			<key>UseHardwareFlowControl</key>
+			<false/>
+			<key>UseMmio</key>
+			<false/>
 		</dict>
 		<key>Tools</key>
 		<array/>
