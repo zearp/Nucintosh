@@ -91,10 +91,6 @@ With hibernation disabled you can delete the sleepimage file and create an empty
 sudo rm /var/vm/sleepimage
 sudo mkdir /var/vm/sleepimage
 ```
-
-To remove the express card icon on Catalina you can run: ```sudo mount -uw / && killall Finder && sudo mv /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu.bak && sudo touch /System/Library/CoreServices/Menu\ Extras/ExpressCard.menu``` -- disabling SIP is required for this to work, you can disable/enable SIP from the picker menu. 
-
-To remove the express card icon on Big Sur and newer you can either use a 3rd party tool like [Hidden Bar](https://github.com/dwarvesf/hidden) or for the more adventurous you can use a tool like [writable_Root](https://github.com/fxgst/writeable_root) to gain back full access to the filesystem and use the Catalina method, for this both SIP and authenticated root must be disabled. The latter can only be disabled by booting into recovery and using csrutil. Please note that this may break the seal of the filesystem which may result in macOS updates no logner installing properly. YMMV.
  
 At this point you should enable FileVault to encrypt your disk. The config is setup to support this and it works flawlessly.
 
