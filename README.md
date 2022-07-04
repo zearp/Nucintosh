@@ -1,7 +1,7 @@
 # NUC8IxBEx Hackintosh
 This is a quick and dirty repo for Intel NUC 8th gen Coffee Lake models. I've used various sources (see credits) to build my EFI and did quite some testing. It should leave you with a stable and reliable build but as always, these things are never really finished. Compatible with macOS Mojave, Catalina, Big Sur and Monterey.
 
-## July 2022 PSA: While Venture is in beta I will not be doing any testing this time. The last time a lot of things kept changing and it took a few weeks before all the needed kexts and OpenCore were working properly with Monterey. I will begin my Ventura testing when the GM is announced or released.
+## July 2022 PSA: While Venture is in beta I will not be doing much testing this time. But you can help you [here](https://github.com/zearp/Nucintosh/issues/84).
 
 ## Please note that from the 27th of October 2021 the assumed installion target will be Monterey.
 The EFI should work fine for earlier versions too but will require different kexts for the Intel wireless card. Use the snapshot function in ProperTree to easily update the config once you made the kext swaps. If you encounter bluetooth issues on versions prior to Monterey you may also have to replace BlueToolFixup.kext with IntelBluetoothInjector.kext -- the kexts can be found in the "stuff" folder on the repo. Good luck!
