@@ -3,77 +3,73 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>20G624</string>
+	<string>19H114</string>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>en</string>
+	<string>English</string>
 	<key>CFBundleExecutable</key>
-	<string>BlueToolFixup</string>
+	<string>VoltageShift</string>
+	<key>CFBundleGetInfoString</key>
+	<string>VoltageShift 1.23, copyright © 2019 SC Lee. All rights reserved.</string>
 	<key>CFBundleIdentifier</key>
-	<string>as.acidanthera.BlueToolFixup</string>
+	<string>com.sicreative.VoltageShift</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>BlueToolFixup</string>
+	<string>VoltageShift</string>
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.6.3</string>
+	<string>1.24</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
 	<key>CFBundleSupportedPlatforms</key>
 	<array>
 		<string>MacOSX</string>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>2.6.3</string>
+	<string>1.24</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
-	<string>13C100</string>
+	<string>12A8169g</string>
 	<key>DTPlatformName</key>
 	<string>macosx</string>
 	<key>DTPlatformVersion</key>
-	<string>12.1</string>
+	<string>11.0</string>
 	<key>DTSDKBuild</key>
-	<string>21C46</string>
+	<string>20A5323l</string>
 	<key>DTSDKName</key>
-	<string>macosx12.1</string>
+	<string>macosx11.0</string>
 	<key>DTXcode</key>
-	<string>1321</string>
+	<string>1200</string>
 	<key>DTXcodeBuild</key>
-	<string>13C100</string>
+	<string>12A8169g</string>
 	<key>IOKitPersonalities</key>
 	<dict>
-		<key>BlueToolFixup</key>
+		<key>VoltageShiftAnVMSR</key>
 		<dict>
-			<key>CFBundleIdentifier</key>
-			<string>as.acidanthera.BlueToolFixup</string>
 			<key>IOClass</key>
-			<string>BlueToolFixup</string>
+			<string>VoltageShiftAnVMSR</string>
 			<key>IOMatchCategory</key>
-			<string>BlueToolFixup</string>
+			<string>VoltageShiftAnVMSR</string>
 			<key>IOProviderClass</key>
 			<string>IOResources</string>
 			<key>IOResourceMatch</key>
 			<string>IOKit</string>
+			<key>IOUserClientClass</key>
+			<string>AnVMSRClient</string>
 		</dict>
 	</dict>
 	<key>LSMinimumSystemVersion</key>
-	<string>10.8</string>
+	<string>10.12</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>Copyright © 2019 SC Lee. All rights reserved.</string>
 	<key>OSBundleLibraries</key>
 	<dict>
-		<key>as.vit9696.Lilu</key>
-		<string>1.4.7</string>
-		<key>com.apple.kpi.bsd</key>
-		<string>12.0.0</string>
-		<key>com.apple.kpi.dsep</key>
-		<string>12.0.0</string>
 		<key>com.apple.kpi.iokit</key>
-		<string>12.0.0</string>
+		<string>8.0.0b1</string>
 		<key>com.apple.kpi.libkern</key>
-		<string>12.0.0</string>
-		<key>com.apple.kpi.mach</key>
-		<string>12.0.0</string>
-		<key>com.apple.kpi.unsupported</key>
-		<string>12.0.0</string>
+		<string>8.0.0b1</string>
 	</dict>
 	<key>OSBundleRequired</key>
 	<string>Root</string>
