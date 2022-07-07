@@ -20,6 +20,7 @@ The EFI should work fine for earlier versions too but will require different kex
   - CPUFriend
   - BlueToolFixup -- fixes bluetooth in Monterey 
   - OpenIntelWireless for Intel bluetooth and wifi
+  - RealtekCardReader
   
 ## Index
 * [Installation](#installation)
