@@ -1,7 +1,7 @@
 # NUC8IxBEx Hackintosh
 This is a quick and dirty repo for Intel NUC 8th gen Coffee Lake models. I've used various sources (see credits) to build my EFI and did quite some testing. It should leave you with a stable and reliable build but as always, these things are never really finished. Compatible with macOS Mojave, Catalina, Big Sur and Monterey.
 
-## July 2022 PSA: While Venture is in beta I will not be doing much testing this time. But you can help out [here](https://github.com/zearp/Nucintosh/issues/84).
+## July 2022 PSA: While Ventura is in beta I will not be doing much testing this time. But you can help out [here](https://github.com/zearp/Nucintosh/issues/84).
 
 ## Please note that from the 27th of October 2021 the assumed installion target will be Monterey.
 The EFI should work fine for earlier versions too but will require different kexts for the Intel wireless card. Use the snapshot function in ProperTree to easily update the config once you made the kext swaps. If you encounter bluetooth issues on versions prior to Monterey you may also have to replace BlueToolFixup.kext with IntelBluetoothInjector.kext -- the kexts can be found in the "stuff" folder on the repo. Good luck!
@@ -50,6 +50,7 @@ Boot -> Secure Boot -> Disable
 ```
 + Download macOS from the App Store and create a USB installer with *[createinstallmedia](https://support.apple.com/en-us/HT201372)* on macOS (real mac/hack or vm) or use [gibMacOS](https://github.com/corpnewt/gibMacOS)\*
 + Download the EFI folder [here](https://github.com/zearp/Nucintosh/releases) or download/clone the complete repo for latest builds
++ When not installing Monterey download the AirportItlwm.kext file matching your macOS install from the ```Stuff``` folder and replace the one in the kext folder with it. Not doing this may cause a bootloop.
 + Edit config.plist with [ProperTree](https://github.com/corpnewt/ProperTree) and change the following fields;
 ```
 PlatformInfo -> Generic -> MLB
