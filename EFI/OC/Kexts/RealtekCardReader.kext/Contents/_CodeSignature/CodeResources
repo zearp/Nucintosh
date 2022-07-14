@@ -4,30 +4,23 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>Resources/en.lproj/InfoPlist.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			MiLKDDnrUKr4EmuvhS5VQwxHGK8=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
+		<key>Resources/LICENSE</key>
+		<data>
+		L/o0BjJO4TEOpw7OuYqT0EwaUMo=
+		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>Resources/en.lproj/InfoPlist.strings</key>
+		<key>Resources/LICENSE</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			MiLKDDnrUKr4EmuvhS5VQwxHGK8=
+			L/o0BjJO4TEOpw7OuYqT0EwaUMo=
 			</data>
 			<key>hash2</key>
 			<data>
-			Oc8u4Ht7Mz58F50L9NeYpbcq9qTlhPUeZCcDu/pPyCg=
+			oP9ouHRNIOLYdPtJlYkuwGziGgHX9ofuMeB+hYmlY3E=
 			</data>
-			<key>optional</key>
-			<true/>
 		</dict>
 	</dict>
 	<key>rules</key>
