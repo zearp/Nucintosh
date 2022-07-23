@@ -926,11 +926,11 @@
 				<key>Arguments</key>
 				<string></string>
 				<key>Comment</key>
-				<string>HfsPlus.efi</string>
+				<string>OpenHfsPlus.efi</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
-				<string>HfsPlus.efi</string>
+				<string>OpenHfsPlus.efi</string>
 			</dict>
 			<dict>
 				<key>Arguments</key>
