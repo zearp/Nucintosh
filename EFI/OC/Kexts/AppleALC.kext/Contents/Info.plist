@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>20G630</string>
+	<string>21F79</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -7436,7 +7436,7 @@
 					<key>ConfigData</key>
 					<data>
 					AgUAGwIETksCBQBFAgRSiQGXHEABlx0QAZce
-					gQGXHwE=
+					pwGXHwA=
 					</data>
 					<key>FuncGroup</key>
 					<integer>1</integer>
@@ -7444,7 +7444,7 @@
 					<integer>15</integer>
 					<key>WakeConfigData</key>
 					<data>
-					AXcMAg==
+					AXcMAgGXByQ=
 					</data>
 					<key>WakeVerbReinit</key>
 					<true/>
@@ -14672,6 +14672,36 @@
 					<key>WakeConfigData</key>
 					<data>
 					AUcMAgFXDAI=
+					</data>
+					<key>WakeVerbReinit</key>
+					<true/>
+				</dict>
+				<dict>
+					<key>AFGLowPowerState</key>
+					<data>
+					AwAAAA==
+					</data>
+					<key>Codec</key>
+					<string>Realtek ALC1220 for MSI GE73 Raider RGB 8RF by Ardhi96</string>
+					<key>CodecID</key>
+					<integer>283906592</integer>
+					<key>ConfigData</key>
+					<data>
+					ASccEAEnHQABJx6gAScfkAFHHCABRx0AAUce
+					FwFHH5ABRwwCAVcc8AFXHQABVx4AAVcfQAFn
+					HPABZx0AAWceAAFnH0ABdxzwAXcdAAF3HgAB
+					dx9AAYcc8AGHHQABhx4AAYcfQAGXHDABlx0Q
+					AZcegQGXHwEBpxzwAacdAAGnHgABpx9AAbcc
+					QAG3HRABtx4hAbcfAQG3DAIB1xzwAdcdAAHX
+					HgAB1x9AAecc8AHnHQAB5x4AAecfQA==
+					</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>25</integer>
+					<key>WakeConfigData</key>
+					<data>
+					AUcMAgG3DAI=
 					</data>
 					<key>WakeVerbReinit</key>
 					<true/>
