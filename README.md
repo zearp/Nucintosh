@@ -39,7 +39,7 @@ The EFI should work fine for earlier versions too but will require different kex
 * [Credits](#credits)
   
 ## Installation
-+ Update to the latest (0089) BIOS -> load BIOS defaults -> click advanced and change;
++ Update to the latest ([0090](https://www.intel.com/content/www/us/en/download/743906/bios-update-becfl357.html)) BIOS -> load BIOS defaults -> click advanced and change;
 ```
 Devices -> USB -> Port Device Charging Mode: off
 Devices -> USB -> USB Legacy -> Disabled
