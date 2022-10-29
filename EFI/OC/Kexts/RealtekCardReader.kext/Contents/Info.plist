@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>21F79</string>
+	<string>22A380</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -27,19 +27,19 @@
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
-	<string>13C5081f</string>
+	<string>14A5294e</string>
 	<key>DTPlatformName</key>
 	<string>macosx</string>
 	<key>DTPlatformVersion</key>
-	<string>12.1</string>
+	<string>13.0</string>
 	<key>DTSDKBuild</key>
-	<string>21C5039a</string>
+	<string>22A5321d</string>
 	<key>DTSDKName</key>
-	<string>macosx12.1</string>
+	<string>macosx13.0</string>
 	<key>DTXcode</key>
-	<string>1320</string>
+	<string>1400</string>
 	<key>DTXcodeBuild</key>
-	<string>13C5081f</string>
+	<string>14A5294e</string>
 	<key>IOKitPersonalities</key>
 	<dict>
 		<key>IOSDBlockStorageDevice</key>
