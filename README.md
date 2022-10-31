@@ -4,7 +4,7 @@ This is a quick and dirty repo for Intel NUC 8th gen Coffee Lake models. I've us
 ## Please note that from the 29th of October 2022 the assumed installation target will be Ventura.
 The EFI should work fine for earlier versions too but will require different kexts for the Intel wireless card. Replace AirportItlwm.kext with one matching your macOS version from the [stuff](https://github.com/zearp/Nucintosh/tree/master/Stuff) folder. Use the snapshot function in ProperTree to easily update the config once you made the kext swaps. If you encounter bluetooth issues on versions prior to Monterey you may also have to replace BlueToolFixup.kext with IntelBluetoothInjector.kext -- the kexts can be found in the "stuff" folder on the repo. Good luck!
 
-![macOS Monterey](https://github.com/zearp/Nucintosh/blob/master/Stuff/Monterey.png?raw=true)
+![macOS Monterey](https://github.com/zearp/Nucintosh/blob/master/Stuff/Ventura.png?raw=true)
 
 ## Details
 * Works with macOS *Catalina*, *Big Sur* and *Monterey*
