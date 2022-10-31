@@ -1,10 +1,8 @@
 # NUC8IxBEx Hackintosh
 This is a quick and dirty repo for Intel NUC 8th gen Coffee Lake models. I've used various sources (see credits) to build my EFI and did quite some testing. It should leave you with a stable and reliable build but as always, these things are never really finished. Compatible with macOS Mojave, Catalina, Big Sur and Monterey.
 
-## July 2022 PSA: The current release will boot Ventura beta's but AirportItlwm.kext will need to be replaced with [this](https://github.com/zearp/Nucintosh/raw/master/Stuff/AirportItlwm.kext-Ventura.zip). There is an all things Ventura related issue [here](https://github.com/zearp/Nucintosh/issues/84).
-
-## Please note that from the 27th of October 2021 the assumed installion target will be Monterey.
-The EFI should work fine for earlier versions too but will require different kexts for the Intel wireless card. Use the snapshot function in ProperTree to easily update the config once you made the kext swaps. If you encounter bluetooth issues on versions prior to Monterey you may also have to replace BlueToolFixup.kext with IntelBluetoothInjector.kext -- the kexts can be found in the "stuff" folder on the repo. Good luck!
+## Please note that from the 29th of October 2022 the assumed installation target will be Ventura.
+The EFI should work fine for earlier versions too but will require different kexts for the Intel wireless card. Replace AirportItlwm.kext with one matching your macOS version from the [stuff](https://github.com/zearp/Nucintosh/tree/master/Stuff) folder. Use the snapshot function in ProperTree to easily update the config once you made the kext swaps. If you encounter bluetooth issues on versions prior to Monterey you may also have to replace BlueToolFixup.kext with IntelBluetoothInjector.kext -- the kexts can be found in the "stuff" folder on the repo. Good luck!
 
 ![macOS Monterey](https://github.com/zearp/Nucintosh/blob/master/Stuff/Monterey.png?raw=true)
 
@@ -18,8 +16,8 @@ The EFI should work fine for earlier versions too but will require different kex
   - IntelMausi
   - NVMeFix
   - CPUFriend
-  - BlueToolFixup -- fixes bluetooth in Monterey 
-  - OpenIntelWireless for Intel bluetooth and wifi
+  - BlueToolFixup -- fixes bluetooth in Big Sur and beyond 
+  - OpenIntelWireless kexts for Intel bluetooth and wifi
   - RealtekCardReader
   
 ## Index
