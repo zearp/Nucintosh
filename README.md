@@ -7,7 +7,7 @@ The EFI should work fine for earlier versions too but will require different kex
 ![macOS Monterey](https://github.com/zearp/Nucintosh/blob/master/Stuff/Ventura.png?raw=true)
 
 ## Details
-* Works with macOS *Catalina*, *Big Sur* and *Monterey*
+* Works with macOS *Catalina*, *Big Sur*, *Monterey* and *Ventura*
 * OpenCore bootloader with the following kexts:
   - Lilu
   - VirtualSMC
@@ -37,7 +37,7 @@ The EFI should work fine for earlier versions too but will require different kex
 * [Credits](#credits)
   
 ## Installation
-+ Update to the latest ([0090](https://www.intel.com/content/www/us/en/download/743906/bios-update-becfl357.html)) BIOS -> load BIOS defaults -> click advanced and change;
++ ~~Update to the latest ([0090](https://www.intel.com/content/www/us/en/download/743906/bios-update-becfl357.html)) BIOS~~ -> load BIOS defaults -> click advanced and change;
 ```
 Devices -> USB -> Port Device Charging Mode: off
 Devices -> USB -> USB Legacy -> Disabled
