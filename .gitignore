@@ -32,3 +32,5 @@ Temporary Items
 # End of https://www.gitignore.io/api/osx
 EFI/BOOT/.contentVisibility
 EFI/BOOT/.contentFlavour
+EFI/OC/.contentFlavour
+EFI/OC/.contentVisibility
