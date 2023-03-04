@@ -197,21 +197,17 @@
 				<key>force-online</key>
 				<data>AQAAAA==</data>
 				<key>framebuffer-con0-alldata</key>
-				<data>AQUKAAAEAADHAwAA</data>
+				<data>AQUKAAAIAADHAwAAAgQJAAAEAADHAwAA/wQKAAAEAADHAwAA</data>
 				<key>framebuffer-con0-enable</key>
 				<data>AQAAAA==</data>
-				<key>framebuffer-con1-alldata</key>
-				<data>AgQJAAAIAADHAwAA</data>
-				<key>framebuffer-con1-enable</key>
+				<key>framebuffer-con0-has-lspcon</key>
 				<data>AQAAAA==</data>
-				<key>framebuffer-con1-has-lspcon</key>
-				<data>AQAAAA==</data>
-				<key>framebuffer-con1-preferred-lspcon-mode</key>
-				<data>AQAAAA==</data>
-				<key>framebuffer-patch-enable</key>
+				<key>framebuffer-con0-preferred-lspcon-mode</key>
 				<data>AQAAAA==</data>
 				<key>framebuffer-portcount</key>
 				<data>AgAAAA==</data>
+				<key>framebuffer-patch-enable</key>
+				<data>AQAAAA==</data>
 				<key>hda-gfx</key>
 				<string>onboard-1</string>
 				<key>igfxfw</key>
