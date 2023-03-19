@@ -49,14 +49,14 @@ Boot -> Secure Boot -> Disable
 + Download macOS from the App Store and create a USB installer with *[createinstallmedia](https://support.apple.com/en-us/HT201372)* on macOS (real mac/hack or vm) or use [gibMacOS](https://github.com/corpnewt/gibMacOS)\*
 + Download the EFI folder [here](https://github.com/zearp/Nucintosh/releases) or download/clone the complete repo for latest builds
 + When not installing Monterey download the AirportItlwm.kext file matching your macOS install from the ```Stuff``` folder and replace the one in the kext folder with it. Not doing this may cause a bootloop.
-+ Edit config.plist with [ProperTree](https://github.com/corpnewt/ProperTree) and change the following fields;
++ Edit config.plist with [ProperTree](https://github.com/corpnewt/ProperTree) and change ONLY the following fields:
 ```
 PlatformInfo -> Generic -> MLB
 PlatformInfo -> Generic -> ROM
 PlatformInfo -> Generic -> SystemSerialNumber
 PlatformInfo -> Generic -> SystemUUID
 ```
-Generate new serials with [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS). The ROM value is your ethernet (en0) mac address ([more info](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#fixing-en0)).
+Generate new serials with [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS) for **Macmini8,1** or any other SMBIOS that doesn't need ACPI rename ([more info](https://dortania.github.io/OpenCore-Post-Install/usb/system-preparation.html)). The ROM value is your ethernet (en0) mac address ([more info](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#fixing-en0)).
 + Copy the EFI folder to the EFI partition on the USB installer
 + Clear NVRAM from the OpenCore picker
 + Install macOS
