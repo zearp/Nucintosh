@@ -41,6 +41,8 @@ The EFI should work fine for earlier versions too but will require different kex
 
 (April 2023 tmp update: It seems Intel has nerfed undervolting in a recent bios update to patch the plundervolt exploit. I'm not sure which verison exactly but I tried reverting all the way back to one of the first verisons and it didn't give me back my undervolting on my test machine. A complex exploit that to my knowledge required access to the machine itself. I wish we could disable that and have undervolting back. I am looking into ways to re-enable it. For now don't update if you want to undervolt. You can always update later if undervolting was already disabed in your bios and there is not really a need to update the bios unless you experience issues that can only be solved by updating the bios I would stay on older versions that allow undervolting.)
 
+Also be sure to run the [latest hdmi firmware](https://www.intel.com/content/www/us/en/download/19750/hdmi-firmware-update-tool-for-nuc8i3be-nuc8i5be-nuc8i7be.html) which can only be installed in Windows. It fixes many issues and bugs in relation to using the hdmi port. Specially if you connect it to a monitor with a hdmi 2.0 connection.
+
 ```
 Devices -> USB -> Port Device Charging Mode: off
 Devices -> USB -> USB Legacy -> Disabled
