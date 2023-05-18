@@ -13,5 +13,6 @@ jobs:
       - uses: brokeyourbike/ocvalidate-action@v0.3
         with:
           opencore-version: '0.9.3'
+          release: false
 
       - run: ocvalidate EFI/OC/config.plist
