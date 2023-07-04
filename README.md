@@ -107,6 +107,13 @@ That's all!
 
 > Tip: Once everything works and you installed and configured all your stuff, create a bootable clone of your system with a trial version of *Carbon Copy Cloner* or *Superduper!*. Don't forget to copy your EFI folder to the clone's EFI partition. First time? Follow my little guide [here](https://github.com/zearp/OptiHack/blob/master/text/CLONE_IT.md).
 
+Recently I noticed the hostname staying the same after changing it in the sharing perferences. These commands will sort that out;
+```
+sudo scutil --set ComputerName "nuc"
+sudo scutil --set LocalHostName "nuc"
+sudo scutil --set HostName "nuc"
+```
+
 ## Updating
 Updating the EFI is easy, first copy the MLB/ROM/SystemSerialNumber/SystemUUID values from your current config to a text file then delete the whole EFI folder and replace it with the latest release/clone from this repo. Copy your PlatformInfo fields from the text file into the new config. Unless you made other changes this is all thats needed.
 
