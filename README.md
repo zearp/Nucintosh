@@ -1,10 +1,10 @@
 # NUC8IxBEx Hackintosh
 This is a quick and dirty repo for Intel NUC 8th gen Coffee Lake models. I've used various sources (see credits) to build my EFI and did quite some testing. It should leave you with a stable and reliable build but as always, these things are never really finished. Compatible with macOS Mojave, Catalina, Big Sur, Monterey, Ventura and Sonoma.
 
-## Please note that from the 29th of October 2022 the assumed installation target will be Ventura.
-# Sonoma PSA:
-I will be changing the default target to Sonoma once the Intel wireless kext source has been released. Currently only a prebuild (rather large) kext is available. Broadcom users need to use OCLP and will no longer run vanilla macOS as security features have to be disabled and the root filesystem will be patched and no longer sealed. Please refer to [this issue](https://github.com/zearp/Nucintosh/issues/139) to get Broadcom workign again. My goal is to run vanilla macOS not modify it in any way. Ventura will keep receiving security updates for at least a few more years. So if you want to leave security features enabled stay on Ventura for now. Stock NUCs are not affected and only need to replace AirportItlwm.kext for the Sonoma one until the source for that driver has been released and I can compile it myself.
-
+# Please note that from the 20th of October 2023 the assumed installation target will be Sonoma.
+## Sonoma PSA:
+Broadcom users need to use OCLP and will no longer run vanilla macOS as security features have to be disabled and the root filesystem will be patched and no longer sealed. Please refer to [this issue](https://github.com/zearp/Nucintosh/issues/139) to get Broadcom working again. My goal is to run vanilla macOS not modify it in any way. Ventura will keep receiving security updates for at least a few more years. So if you want to leave security features enabled stay on Ventura for now. Stock NUCs are not affected.
+## Older macOS notes:
 The EFI should work fine for earlier versions too but will require different kexts for the Intel wireless card. Replace AirportItlwm.kext with one matching your macOS version from the [stuff](https://github.com/zearp/Nucintosh/tree/master/Stuff) folder. Use the snapshot function in ProperTree to easily update the config once you made the kext swaps. If you encounter bluetooth issues on versions prior to Monterey you may also have to replace BlueToolFixup.kext with IntelBluetoothInjector.kext -- the kexts can be found in the "stuff" folder on the repo. Good luck!
 
 ![macOS Monterey](https://github.com/zearp/Nucintosh/blob/master/Stuff/Ventura.png?raw=true)
