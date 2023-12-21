@@ -10,7 +10,6 @@ The EFI should work fine for earlier versions too but will require different kex
 ![macOS Monterey](https://github.com/zearp/Nucintosh/blob/master/Stuff/Ventura.png?raw=true)
 
 ## Details
-* Works with macOS *Catalina*, *Big Sur*, *Monterey* and *Ventura*
 * OpenCore bootloader with the following kexts:
   - Lilu
   - VirtualSMC
