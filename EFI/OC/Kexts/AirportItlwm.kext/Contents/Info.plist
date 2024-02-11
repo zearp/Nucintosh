@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>23D60</string>
+	<string>23B73</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -31,15 +31,15 @@
 	<key>DTPlatformName</key>
 	<string>macosx</string>
 	<key>DTPlatformVersion</key>
-	<string>14.2</string>
+	<string>14.0</string>
 	<key>DTSDKBuild</key>
-	<string>23C53</string>
+	<string>23A334</string>
 	<key>DTSDKName</key>
-	<string>macosx14.2</string>
+	<string>macosx14.0</string>
 	<key>DTXcode</key>
-	<string>1520</string>
+	<string>1500</string>
 	<key>DTXcodeBuild</key>
-	<string>15C500b</string>
+	<string>15A240d</string>
 	<key>IOKitPersonalities</key>
 	<dict>
 		<key>NetworkController</key>
