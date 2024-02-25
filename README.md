@@ -39,7 +39,7 @@ The EFI should work fine for earlier versions too but will require different kex
 * [Credits](#credits)
   
 ## Installation
-+ ~~Update to the latest ([0092](https://www.intel.com/content/www/us/en/download/743906/bios-update-becfl357.html)) BIOS~~ -> load BIOS defaults -> click advanced and change;
++ ~~Update to the latest ([0095]((https://www.asus.com/supportonly/nuc8i5beh/helpdesk_bios/))) BIOS~~ -> load BIOS defaults -> click advanced and change;
 
 (April 2023 tmp update: It seems Intel has nerfed undervolting in a recent bios update to patch the plundervolt exploit. I'm not sure which verison exactly but I tried reverting all the way back to one of the first verisons and it didn't give me back my undervolting on my test machine. A complex exploit that to my knowledge required access to the machine itself. I wish we could disable that and have undervolting back. I am looking into ways to re-enable it. For now don't update if you want to undervolt. You can always update later if undervolting was already disabed in your bios and there is not really a need to update the bios unless you experience issues that can only be solved by updating the bios I would stay on older versions that allow undervolting.)
 
