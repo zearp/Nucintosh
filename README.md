@@ -1,7 +1,7 @@
 # NUC8IxBEx Hackintosh
 This is a quick and dirty repo for Intel NUC 8th gen Coffee Lake models. I've used various sources (see credits) to build my EFI and did quite some testing. It should leave you with a stable and reliable build but as always, these things are never really finished. Compatible with macOS Mojave, Catalina, Big Sur, Monterey, Ventura and Sonoma.
 
-# Please note that from the 9th of March 2024 the assumed installation target will be Sonoma 14.4.
+# Please note that from the 9th of March 2024 the assumed installation target will be Sonoma 14.4+
 ## Sonoma PSA:
 Broadcom users need to use OCLP and will no longer run vanilla macOS as security features have to be disabled and the root filesystem will be patched and no longer sealed. Please refer to [this issue](https://github.com/zearp/Nucintosh/issues/139) to get Broadcom working again. My goal is to run vanilla macOS not modify it in any way. Ventura will keep receiving security updates for at least a few more years. So if you want to leave security features enabled stay on Ventura for now. Stock NUCs are not affected.
 ## Older macOS notes:
