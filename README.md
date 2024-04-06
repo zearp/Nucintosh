@@ -55,7 +55,7 @@ Boot -> Secure Boot -> Disable
 ```
 + Download macOS from the App Store and create a USB installer with *[createinstallmedia](https://support.apple.com/en-us/HT201372)* on macOS (real mac/hack or vm) or use [gibMacOS](https://github.com/corpnewt/gibMacOS)\*
 + Download the EFI folder [here](https://github.com/zearp/Nucintosh/releases) or download/clone the complete repo for latest builds
-+ When not installing Monterey download the AirportItlwm.kext file matching your macOS install from the ```Stuff``` folder and replace the one in the kext folder with it. Not doing this may cause a bootloop.
++ When not installing Sonoma download the AirportItlwm.kext file matching your macOS install from the ```Stuff``` folder and replace the one in the kext folder with it. Not doing this may cause a bootloop.
 + Edit config.plist with [ProperTree](https://github.com/corpnewt/ProperTree) and change the following fields;
 ```
 PlatformInfo -> Generic -> MLB
