@@ -63,7 +63,7 @@ PlatformInfo -> Generic -> ROM
 PlatformInfo -> Generic -> SystemSerialNumber
 PlatformInfo -> Generic -> SystemUUID
 ```
-Generate new serials with [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS). The ROM value is your ethernet (en0) mac address ([more info](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#fixing-en0)).
+Generate new serials/rom with [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS).
 + Copy the EFI folder to the EFI partition on the USB installer
 + Clear NVRAM from the OpenCore picker
 + Install macOS
