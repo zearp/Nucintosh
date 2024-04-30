@@ -250,19 +250,6 @@
 				<key>model</key>
 				<string>Cannon Point-LP SATA Controller [AHCI Mode]</string>
 			</dict>
-			<key>PciRoot(0x0)/Pci(0x1C,0x4)/Pci(0x0,0x0)/Pci(0x2,0x0)/Pci(0x0,0x0)</key>
-			<dict>
-				<key>AAPL,slot-name</key>
-				<string>Internal@0,28,4/0,0/2,0/0,0</string>
-				<key>acpi-wake-type</key>
-				<data>AQ==</data>
-				<key>built-in</key>
-				<data>AQ==</data>
-				<key>device_type</key>
-				<string>USB controller</string>
-				<key>model</key>
-				<string>JHL6340 Thunderbolt 3</string>
-			</dict>
 			<key>PciRoot(0x0)/Pci(0x1D,0x0)/Pci(0x0,0x0)</key>
 			<dict>
 				<key>AAPL,slot-name</key>
