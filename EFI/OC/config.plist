@@ -342,7 +342,7 @@
 				<key>igfxfw</key>
 				<data>AgAAAA==</data>
 				<key>igfxpavp</key>
-				<data>AAAAAA==</data>
+				<data>AQAAAA==</data>
 				<key>model</key>
 				<string>Iris Plus Graphics 655</string>
 				<key>rps-control</key>
@@ -869,8 +869,6 @@
 			</dict>
 			<key>4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102</key>
 			<dict>
-				<key>#revblock</key>
-				<string>media</string>
 				<key>revpatch</key>
 				<string>sbvmm</string>
 				<key>rtc-blacklist</key>
@@ -900,7 +898,6 @@
 			<key>4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102</key>
 			<array>
 				<string>rtc-blacklist</string>
-				<string>revblock</string>
 				<string>revpatch</string>
 			</array>
 			<key>7C436110-AB2A-4BBB-A880-FE41995C9F82</key>
