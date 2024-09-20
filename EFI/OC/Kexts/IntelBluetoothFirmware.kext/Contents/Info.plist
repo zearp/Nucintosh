@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>24A5264n</string>
+	<string>22H123</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -27,19 +27,19 @@
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
-	<string>24A5264i</string>
+	<string></string>
 	<key>DTPlatformName</key>
 	<string>macosx</string>
 	<key>DTPlatformVersion</key>
-	<string>15.0</string>
+	<string>14.2</string>
 	<key>DTSDKBuild</key>
-	<string>24A5264i</string>
+	<string>23C53</string>
 	<key>DTSDKName</key>
-	<string>macosx15.0</string>
+	<string>macosx14.2</string>
 	<key>DTXcode</key>
-	<string>1600</string>
+	<string>1520</string>
 	<key>DTXcodeBuild</key>
-	<string>16A5171c</string>
+	<string>15C500b</string>
 	<key>IOKitPersonalities</key>
 	<dict>
 		<key>IntelBluetoothFirmware_0026</key>
