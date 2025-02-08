@@ -264,6 +264,14 @@ It works really well. So good I have set the power setting in the BIOS to max pe
 
 My only complaint is the rough finish. I wish they would've skipped on those cheeks and spend the money saved on a smooth finish, but thats besides the point of this thing. The silence is worth the occasional scratch.
 
+### Pin computer/hostname
+```
+sudo scutil --set HostName nucintosh
+sudo scutil --set LocalHostName nucintosh
+sudo scutil --set ComputerName nucintosh
+dscacheutil -flushcache
+```
+
 ## Todo
 + Where possible further optimisations and ThunderBolt hot-plug support
 
