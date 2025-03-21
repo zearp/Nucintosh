@@ -75,7 +75,7 @@ Generate new serials/rom with [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS)
 
 > Note 1: OpenCore doesn't always select the correct partition in the menu when installing. You will only boot into the installer once, do your formatting and have the installer copy all it needs to the internal disk. From that point onwards always select the internal disk from the menu. The name might change during the installation, but it shouyld be easy to spot as it won't have an "external" label.
 
-> Note 2: I noticed on newer macOS creating the usb fails unless ```SecureBootModel``` is set to ```j174``` but this will cause the installer to bootloop. So only change this when needed or after install. In order to make incremental OTA updates work this may also need to be set with a risk of bootlooping. Else downloading the full installer is needed (and done automatically by macOS after the smaller OTA fails).
+> Note 2: I noticed on newer macOS creating the usb on the NUC itself fails unless ```SecureBootModel``` is set to ```j174``` but this will cause the installer to bootloop. So only change this when needed or after install. In order to make incremental OTA updates work this may also need to be set with a risk of bootlooping. Else downloading the full installer is needed (and done automatically by macOS after the smaller OTA fails). Creating installers inside a VM may also need the model used in the SMBIOS to match the one ```SecureBootModel``` uses. But I haven't tested that.
 
 ## Post install
 - Check if TRIM is enabled, If not run ```sudo trimforce enable``` to enable it
