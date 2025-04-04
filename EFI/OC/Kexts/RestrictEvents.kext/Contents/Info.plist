@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>21G320</string>
+	<string>24E247</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -27,19 +27,19 @@
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
-	<string>14C18</string>
+	<string>24C5057l</string>
 	<key>DTPlatformName</key>
 	<string>macosx</string>
 	<key>DTPlatformVersion</key>
-	<string>13.1</string>
+	<string>15.2</string>
 	<key>DTSDKBuild</key>
-	<string>22C55</string>
+	<string>24C5057l</string>
 	<key>DTSDKName</key>
-	<string>macosx13.1</string>
+	<string>macosx15.2</string>
 	<key>DTXcode</key>
-	<string>1420</string>
+	<string>1620</string>
 	<key>DTXcodeBuild</key>
-	<string>14C18</string>
+	<string>16B5100e</string>
 	<key>IOKitPersonalities</key>
 	<dict>
 		<key>as.vit9696.RestrictEfiCheck</key>
