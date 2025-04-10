@@ -873,8 +873,6 @@
 				<string>sbvmm</string>
 				<key>rtc-blacklist</key>
 				<data></data>
-				<key>revblock</key>
-				<string>perfps</string>
 			</dict>
 			<key>7C436110-AB2A-4BBB-A880-FE41995C9F82</key>
 			<dict>
@@ -901,7 +899,6 @@
 			<array>
 				<string>rtc-blacklist</string>
 				<string>revpatch</string>
-				<string>revblock</string>
 			</array>
 			<key>7C436110-AB2A-4BBB-A880-FE41995C9F82</key>
 			<array>
