@@ -77,6 +77,8 @@ Generate new serials/rom with [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS)
 
 > Note 2: I noticed on newer macOS creating the usb on the NUC itself fails unless ```SecureBootModel``` is set to ```j174``` but this will cause the installer to bootloop. So only change this when needed or after install. In order to make incremental OTA updates work this may also need to be set with a risk of bootlooping. Else downloading the full installer is needed (and done automatically by macOS after the smaller OTA fails). Creating installers inside a VM may also need the model used in the SMBIOS to match the one ```SecureBootModel``` uses. But I haven't tested that.
 
+> Note 3: When updating on Sonoma or newer the smaller delta updates will fail, this is expected and when you try again Software Update will downlaod the full installer which will install without issues. If anyone has a working solution please open an issue so we can test and fix it in the EFI too.
+
 ## Post install
 - Check if TRIM is enabled, If not run ```sudo trimforce enable``` to enable it
 - Disable ```NVMeFix.kext``` if you don't have an NVMe drive
