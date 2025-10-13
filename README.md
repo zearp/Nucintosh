@@ -1,31 +1,29 @@
 # NUC8IxBEx Hackintosh
 This is a quick and dirty repo for Intel NUC 8th gen Coffee Lake models. I've used various sources (see credits) to build my EFI and did quite some testing. It should leave you with a stable and reliable build but as always, these things are never really finished. Compatible with macOS Mojave, Catalina, Big Sur, Monterey, Ventura and Sonoma.
 
-### Incremental updates will not work and a full installer will be downloaded instead unless```BlueToolFixup.kext``` is disabled.
+## SMBIOS changes
+The SMBIOS on the current and future releases will be ```iMac19,1``` this fixes the Tahoe update from showing and also prevents the App Store from installing Tahoe versions of apps that might not work on Sequoia. Xcode is a good example. This was caused by the usage of the "sbvmm" patch thats part of the now removed ```RestrictEvents``` kext and was used to get updates to show at all. The downside was that it also showed incompatiable updates and if you left auto update enabled this could lead to a broken install. I would prefer to keep using the Mac mini but since its a T2 machine it will require the "sbvmm" patch to show updates. The only way to currently solve it in a nice way is to change model.
 
-# Please note that from the 9th of March 2024 the assumed installation target will be Sonoma 14.4+
-You can still install on older versions, just swap out ```AirportItlwm.kext``` with the one matching your target version from the ```Stuff``` folder on the repo.
+Migrating your current install is easy:
+- If logged in, logout of your AppleID in system preferences, iMessage and Facetime (the latter should happen automatically but isn't aleways the case in my experience).
+- Use GenSMBIOS to generate new serials etc, use ```iMac19,1``` as model.
+- Update ```config.plist``` and also edit the plist found inside ```USBMap.kext```. You can right click on it and select show contents to find the file.
+- Reboot and clear NVRAM once before booting back into macOS.
+- You can now login to AppleID again and continue using it as before.
+- Check if the old machine has bneen removed from your account in system, preferences on online.
 
-## Sonoma PSA:
+## Assumed install target is Sequoia:
+Please note that from the 13th of October 2025 the assumed installation target will be macOS Sequoia.
+
+You can still install on older versions, on Sonoma and older just swap out ```itlwm.kext``` with ```AirportItlwm.kext``` matching your target version from the ```Stuff``` folder on the repo. Use the snapshot function in ProperTree to easily update the config once you made the kext swaps. If you encounter bluetooth issues on versions prior to Monterey you may also have to replace BlueToolFixup.kext with IntelBluetoothInjector.kext -- the kexts can be found in the "stuff" folder on the repo. Good luck!
+
+## Broadcom:
 Broadcom users need to use OCLP starting with Sonoma and newer and will no longer run vanilla macOS as security features have to be disabled and the root filesystem will be patched and no longer sealed. Please refer to [this issue](https://github.com/zearp/Nucintosh/issues/139) to get Broadcom working again. My goal is to run vanilla macOS not modify it in any way. Ventura will keep receiving security updates for at least a few more years. So if you want to leave security features enabled stay on Ventura for now. Stock NUCs are not affected.
 
-## Older macOS notes:
-The EFI should work fine for earlier versions too but will require different kexts for the Intel wireless card. Replace AirportItlwm.kext with one matching your macOS version from the [stuff](https://github.com/zearp/Nucintosh/tree/master/Stuff) folder. Use the snapshot function in ProperTree to easily update the config once you made the kext swaps. If you encounter bluetooth issues on versions prior to Monterey you may also have to replace BlueToolFixup.kext with IntelBluetoothInjector.kext -- the kexts can be found in the "stuff" folder on the repo. Good luck!
+## Incremental updates:
+Incremental updates will not work and a full installer will be downloaded instead unless```BlueToolFixup.kext``` is disabled.
 
 ![macOS Monterey](https://github.com/zearp/Nucintosh/blob/master/Stuff/Ventura.png?raw=true)
-
-## Details
-* OpenCore bootloader with the following kexts:
-  - Lilu
-  - VirtualSMC
-  - WhateverGreen
-  - AppleALC
-  - IntelMausi
-  - NVMeFix
-  - CPUFriend
-  - BlueToolFixup -- fixes bluetooth in Big Sur and beyond 
-  - OpenIntelWireless kexts for Intel bluetooth and wifi
-  - RealtekCardReader
   
 ## Index
 * [Installation](#installation)
