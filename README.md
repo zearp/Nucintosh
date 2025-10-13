@@ -2,15 +2,15 @@
 This is a quick and dirty repo for Intel NUC 8th gen Coffee Lake models. I've used various sources (see credits) to build my EFI and did quite some testing. It should leave you with a stable and reliable build but as always, these things are never really finished. Compatible with macOS Mojave, Catalina, Big Sur, Monterey, Ventura and Sonoma.
 
 ## SMBIOS changes
-The SMBIOS on the current and future releases will be ```iMac19,1``` this fixes the Tahoe update from showing and also prevents the App Store from installing Tahoe versions of apps that might not work on Sequoia. Xcode is a good example. This was caused by the usage of the "sbvmm" patch thats part of the now removed ```RestrictEvents``` kext and was used to get updates to show at all. The downside was that it also showed incompatiable updates and if you left auto update enabled this could lead to a broken install. I would prefer to keep using the Mac mini but since its a T2 machine it will require the "sbvmm" patch to show updates. The only way to currently solve it in a nice way is to change model.
+The SMBIOS on the current and future releases will be ```iMac19,1``` this fixes the Tahoe update from showing and also prevents the App Store from installing Tahoe versions of apps that might not work on Sequoia. Xcode is a good example. This was caused by the usage of the "sbvmm" patch thats part of the now removed ```RestrictEvents``` kext and was used to get updates to show at all. The downside was that it also showed incompatible updates and if you left auto update enabled this could lead to a broken install. I would prefer to keep using the Mac mini but since its a T2 machine it will require the "sbvmm" patch to show updates. The only way to currently solve it in a nice way is to change model.
 
 Migrating your current install is easy:
-- If logged in, logout of your AppleID in system preferences, iMessage and Facetime (the latter should happen automatically but isn't aleways the case in my experience).
+- If logged in, logout of your AppleID in system preferences, iMessage and Facetime (the latter should happen automatically but isn't always the case in my experience).
 - Use GenSMBIOS to generate new serials etc, use ```iMac19,1``` as model.
 - Update ```config.plist``` and also edit the plist found inside ```USBMap.kext```. You can right click on it and select show contents to find the file.
 - Reboot and clear NVRAM once before booting back into macOS.
 - You can now login to AppleID again and continue using it as before.
-- Check if the old machine has bneen removed from your account in system, preferences on online.
+- Check if the old machine has been removed from your account in system preferences or online.
 
 ## Assumed install target is Sequoia:
 Please note that from the 13th of October 2025 the assumed installation target will be macOS Sequoia.
@@ -44,7 +44,7 @@ Incremental updates will not work and a full installer will be downloaded instea
 ## Installation
 + ~~Update to the latest ([0095](https://www.asus.com/supportonly/nuc8i5beh/helpdesk_bios/) BIOS~~ -> load BIOS defaults -> click advanced and change;
 
-(April 2023 tmp update: It seems Intel has nerfed undervolting in a recent bios update to patch the plundervolt exploit. I'm not sure which verison exactly but I tried reverting all the way back to one of the first verisons and it didn't give me back my undervolting on my test machine. A complex exploit that to my knowledge required access to the machine itself. I wish we could disable that and have undervolting back. I am looking into ways to re-enable it. For now don't update if you want to undervolt. You can always update later if undervolting was already disabed in your bios and there is not really a need to update the bios unless you experience issues that can only be solved by updating the bios I would stay on older versions that allow undervolting.)
+(April 2023 tmp update: It seems Intel has nerfed undervolting in a recent bios update to patch the plundervolt exploit. I'm not sure which verison exactly but I tried reverting all the way back to one of the first versions and it didn't give me back my undervolting on my test machine. A complex exploit that to my knowledge required access to the machine itself. I wish we could disable that and have undervolting back. I am looking into ways to re-enable it. For now don't update if you want to undervolt. You can always update later if undervolting was already disabled in your bios and there is not really a need to update the bios unless you experience issues that can only be solved by updating the bios I would stay on older versions that allow undervolting.)
 
 Also be sure to run the [latest hdmi firmware](https://www.intel.com/content/www/us/en/download/19750/hdmi-firmware-update-tool-for-nuc8i3be-nuc8i5be-nuc8i7be.html) which can only be installed in Windows. It fixes many issues and bugs in relation to using the hdmi port. Specially if you connect it to a monitor with a hdmi 2.0 connection.
 
@@ -58,7 +58,7 @@ Boot -> Secure Boot -> Disable
 ```
 + Download macOS from the App Store and create a USB installer with *[createinstallmedia](https://support.apple.com/en-us/HT201372)* on macOS (real mac/hack or vm) or use [gibMacOS](https://github.com/corpnewt/gibMacOS)\*
 + Download the EFI folder [here](https://github.com/zearp/Nucintosh/releases) or download/clone the complete repo for latest builds
-+ When not installing Sonoma download the AirportItlwm.kext file matching your macOS install from the ```Stuff``` folder and replace the one in the kext folder with it. Not doing this may cause a bootloop.
++ When not installing Sonoma download the AirportItlwm.kext file matching your macOS install from the ```Stuff``` folder and replace the one in the kext folder with it. Not doing this may cause a boot loop.
 + Edit config.plist with [ProperTree](https://github.com/corpnewt/ProperTree) and change the following fields;
 ```
 PlatformInfo -> Generic -> MLB
@@ -73,11 +73,11 @@ Generate new serials/rom with [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS)
 
 \* Installers made with GibMacOS on Windows and Linux require a working internet connection as it uses the recovery image only, it then downloads the full installer from Apple. The *createinstallmedia* script makes an offline installer.
 
-> Note 1: OpenCore doesn't always select the correct partition in the menu when installing. You will only boot into the installer once, do your formatting and have the installer copy all it needs to the internal disk. From that point onwards always select the internal disk from the menu. The name might change during the installation, but it shouyld be easy to spot as it won't have an "external" label.
+> Note 1: OpenCore doesn't always select the correct partition in the menu when installing. You will only boot into the installer once, do your formatting and have the installer copy all it needs to the internal disk. From that point onwards always select the internal disk from the menu. The name might change during the installation, but it should be easy to spot as it won't have an "external" label.
 
-> Note 2: I noticed on newer macOS creating the usb on the NUC itself fails unless ```SecureBootModel``` is set to ```j174``` but this will cause the installer to bootloop. So only change this when needed or after install. In order to make incremental OTA updates work this may also need to be set with a risk of bootlooping. Else downloading the full installer is needed (and done automatically by macOS after the smaller OTA fails). Creating installers inside a VM may also need the model used in the SMBIOS to match the one ```SecureBootModel``` uses. But I haven't tested that.
+> Note 2: I noticed on newer macOS creating the usb on the NUC itself fails unless ```SecureBootModel``` is set to ```j174``` but this will cause the installer to boot loop. So only change this when needed or after install. In order to make incremental OTA updates work this may also need to be set with a risk of bootlooping. Else downloading the full installer is needed (and done automatically by macOS after the smaller OTA fails). Creating installers inside a VM may also need the model used in the SMBIOS to match the one ```SecureBootModel``` uses. But I haven't tested that.
 
-> Note 3: When updating on Sonoma or newer the smaller delta updates will fail, this is expected and when you try again Software Update will downlaod the full installer which will install without issues. If anyone has a working solution please open an issue so we can test and fix it in the EFI too.
+> Note 3: When updating on Sonoma or newer the smaller delta updates will fail, this is expected and when you try again Software Update will download the full installer which will install without issues. If anyone has a working solution please open an issue so we can test and fix it in the EFI too.
 
 ## Post install
 - Check if TRIM is enabled, If not run ```sudo trimforce enable``` to enable it
@@ -116,7 +116,7 @@ That's all!
 
 > Tip: Once everything works and you installed and configured all your stuff, create a bootable clone of your system with a trial version of *Carbon Copy Cloner* or *Superduper!*. Don't forget to copy your EFI folder to the clone's EFI partition. First time? Follow my little guide [here](https://github.com/zearp/OptiHack/blob/master/text/CLONE_IT.md).
 
-Recently I noticed the hostname staying the same after changing it in the sharing perferences. These commands will sort that out;
+Recently I noticed the hostname staying the same after changing it in the sharing preferences. These commands will sort that out;
 ```
 sudo scutil --set ComputerName "nuc"
 sudo scutil --set LocalHostName "nuc"
@@ -266,7 +266,7 @@ Received my [Akasa](http://www.akasa.com.tw/search.php?seed=A-NUC45-M1B) case. T
 
 It works really well. So good I have set the power setting in the BIOS to max performance. It idles around 35-40c (with undervolt) which is just fine considering my ambient temperature is around 25c. When put under load it doesn't get anywhere near 80c. I've ran the matrix test from ```stress-ng``` for a while and it stayed [stable around 70c](https://github.com/zearp/Nucintosh/blob/master/Stuff/passive_cooling.png) the whole test.
 
-My only complaint is the rough finish. I wish they would've skipped on those cheeks and spend the money saved on a smooth finish, but thats besides the point of this thing. The silence is worth the occasional scratch.
+My only complaint is the rough finish. I wish they would've skipped on those cheeks and spend the money saved on a smooth finish, but thats beside the point of this thing. The silence is worth the occasional scratch.
 
 ### Pin computer/hostname
 ```
