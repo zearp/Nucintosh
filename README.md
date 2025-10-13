@@ -10,7 +10,7 @@ Migrating your current install is easy:
 - Update ```config.plist``` and also edit the plist found inside ```USBMap.kext```. You can right click on it and select show contents to find the file.
 - Reboot and clear NVRAM once before booting back into macOS.
 - You can now login to AppleID again and continue using it as before.
-- Check if the old machine has bneen removed from your account in system, preferences on online.
+- Check if the old machine has been removed from your account in system preferences or online.
 
 ## Assumed install target is Sequoia:
 Please note that from the 13th of October 2025 the assumed installation target will be macOS Sequoia.
