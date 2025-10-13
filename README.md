@@ -1,7 +1,7 @@
 # NUC8IxBEx Hackintosh
 This is a quick and dirty repo for Intel NUC 8th gen Coffee Lake models. I've used various sources (see credits) to build my EFI and did quite some testing. It should leave you with a stable and reliable build but as always, these things are never really finished. Compatible with macOS Mojave, Catalina, Big Sur, Monterey, Ventura and Sonoma.
 
-# Incremental updates will not work and a full installer will be downloaded instead unless ```BlueToolFixup.kext``` is disabled.
+### Incremental updates will not work and a full installer will be downloaded instead unless```BlueToolFixup.kext``` is disabled.
 
 # Please note that from the 9th of March 2024 the assumed installation target will be Sonoma 14.4+
 You can still install on older versions, just swap out ```AirportItlwm.kext``` with the one matching your target version from the ```Stuff``` folder on the repo.
