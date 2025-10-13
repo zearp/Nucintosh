@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.9.5</string>
+	<string>1.9.6</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleSupportedPlatforms</key>
@@ -25,7 +25,7 @@
 		<string>MacOSX</string>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1.9.5</string>
+	<string>1.9.6</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
@@ -3838,7 +3838,7 @@
 					<integer>86</integer>
 					<key>WakeConfigData</key>
 					<data>
-					AUcMAg==
+					AUcMAgIXDAIBlwcl
 					</data>
 					<key>WakeVerbReinit</key>
 					<true/>
@@ -16576,6 +16576,36 @@
 					<true/>
 				</dict>
 				<dict>
+					<key>AFGLowPowerState</key>
+					<data>
+					AwAAAA==
+					</data>
+					<key>Codec</key>
+					<string>nikich768 - Realtek ALC256 Dell Latitude 5490 var1</string>
+					<key>CodecID</key>
+					<integer>283902550</integer>
+					<key>ConfigData</key>
+					<data>
+					AUccEAFHHWEBRx4QAUcfkAIXHCACFx1wAhce
+					IQIXHwEBJxwwAScdAQEnHqABJx+QAbcMAgGX
+					HEABlx0wAZcegQGXHwEBtxzwAbcdAAG3HgAB
+					tx9AATcc8AE3HQABNx4AATcfQAGHHPABhx0A
+					AYceAAGHH0ABpxzwAacdAAGnHgABpx9AAdcc
+					8AHXHQAB1x4AAdcfQAHnHPAB5x0AAeceAAHn
+					H0ACBQAQAgQAIAIFAEUCBFCJ
+					</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>100</integer>
+					<key>WakeConfigData</key>
+					<data>
+					AbcMAgGXByQ=
+					</data>
+					<key>WakeVerbReinit</key>
+					<true/>
+				</dict>
+				<dict>
 					<key>Codec</key>
 					<string>nikich768 - Realtek ALC256 ASUS-X515JF-EJ012 var2</string>
 					<key>CodecID</key>
@@ -16726,6 +16756,27 @@
 					</data>
 					<key>WakeVerbReinit</key>
 					<true/>
+				</dict>
+				<dict>
+					<key>AFGLowPowerState</key>
+					<data>
+					AwAAAA==
+					</data>
+					<key>Codec</key>
+					<string>nickleby92 - VIA VT1802 for Vit P2402</string>
+					<key>CodecID</key>
+					<integer>285639750</integer>
+					<key>ConfigData</key>
+					<data>
+					AkccEAJHHQECRx4XAkcfkAJHDAMCVxwgAlcd
+					EAJXHiECVx8CAlcMAgKXHDAClx0BApceoAKX
+					H5ACtxxAArcdkAK3HoECtx8BAtccUALXHRAC
+					1x5FAtcfBw==
+					</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>35</integer>
 				</dict>
 			</array>
 			<key>IOClass</key>
