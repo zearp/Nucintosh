@@ -23,7 +23,7 @@ Broadcom users need to use OCLP starting with Sonoma and newer and will no longe
 ## Incremental updates:
 Incremental updates will not work and a full installer will be downloaded instead unless```BlueToolFixup.kext``` is disabled.
 
-![macOS Monterey](https://github.com/zearp/Nucintosh/blob/master/Stuff/Ventura.png?raw=true)
+![macOS Sequoia](https://github.com/zearp/Nucintosh/blob/master/Stuff/Sequoia.png?raw=true)
   
 ## Index
 * [Installation](#installation)
