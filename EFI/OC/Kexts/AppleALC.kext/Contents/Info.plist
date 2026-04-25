@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.9.7</string>
+	<string>1.9.8</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleSupportedPlatforms</key>
@@ -25,7 +25,7 @@
 		<string>MacOSX</string>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1.9.7</string>
+	<string>1.9.8</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
@@ -65,6 +65,33 @@
 			<string>as.vit9696.AppleALC</string>
 			<key>HDAConfigDefault</key>
 			<array>
+				<dict>
+					<key>AFGLowPowerState</key>
+					<data>
+					AwAAAA==
+					</data>
+					<key>Codec</key>
+					<string>Msi X670E Gaming Wifi  ALC897 by ycg31</string>
+					<key>CodecID</key>
+					<integer>283904151</integer>
+					<key>ConfigData</key>
+					<data>
+					AUccAAFHHUABRx4RAUcfAQFHDAIBtxwQAbcd
+					QAG3HiEBtx8CAbcMAgGHHCABhx2QAYceoQGH
+					H5EBpxwhAacdMAGnHoEBpx8BAZccIgGXHZAB
+					lx6hAZcfAg==
+					</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>31</integer>
+					<key>WakeConfigData</key>
+					<data>
+					AUcMAgG3DAI=
+					</data>
+					<key>WakeVerbReinit</key>
+					<true/>
+				</dict>
 				<dict>
 					<key>AFGLowPowerState</key>
 					<data>
@@ -12175,6 +12202,35 @@
 					<integer>1</integer>
 					<key>LayoutID</key>
 					<integer>28</integer>
+				</dict>
+				<dict>
+					<key>AFGLowPowerState</key>
+					<data>
+					AwAAAA==
+					</data>
+					<key>Codec</key>
+					<string>Realtek ALC898 for ASRock Z77 Fatal1ty Professional with Front Panel by AndrewK2685</string>
+					<key>CodecID</key>
+					<integer>283904153</integer>
+					<key>ConfigData</key>
+					<data>
+					AUccEAFHHUABRx4RAUcfkAFXHCABVx0QAVce
+					AQFXHwEBZxwwAWcdYAFnHgEBZx8BAYccUAGH
+					HZABhx6gAYcfkAGXHGABlx2QAZcegQGXHwIB
+					pxxwAacdMAGnHoEBpx8BAbcccAG3HUABtx4h
+					AbcfAgHnHJAB5x1gAeceRQHnHwEBRwwCAbcM
+					Ag==
+					</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>64</integer>
+					<key>WakeConfigData</key>
+					<data>
+					AUcMAg==
+					</data>
+					<key>WakeVerbReinit</key>
+					<true/>
 				</dict>
 				<dict>
 					<key>AFGLowPowerState</key>
