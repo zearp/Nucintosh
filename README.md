@@ -1,5 +1,5 @@
 # NUC8IxBEx Hackintosh
-This is a quick and dirty repo for Intel NUC 8th gen Coffee Lake models. I've used various sources (see credits) to build my EFI and did quite some testing. It should leave you with a stable and reliable build but as always, these things are never really finished. Compatible with macOS Mojave, Catalina, Big Sur, Monterey, Ventura and Sonoma.
+This is a quick and dirty repo for Intel NUC 8th gen Coffee Lake models. I've used various sources (see credits) to build my EFI and did quite some testing. It should leave you with a stable and reliable build but as always, these things are never really finished. Compatible with macOS Mojave, Catalina, Big Sur, Monterey, Ventura, Sonoma and Sequoia.
 
 ## SMBIOS changes
 The SMBIOS on the current and future releases will be ```iMac19,1``` this fixes the Tahoe update from showing and also prevents the App Store from installing Tahoe versions of apps that might not work on Sequoia. Xcode is a good example. This was caused by the usage of the "sbvmm" patch thats part of the now removed ```RestrictEvents``` kext and was used to get updates to show at all. The downside was that it also showed incompatible updates and if you left auto update enabled this could lead to a broken install. I would prefer to keep using the Mac mini but since its a T2 machine it will require the "sbvmm" patch to show updates. The only way to currently solve it in a nice way is to change model.
@@ -24,7 +24,7 @@ Broadcom users need to use OCLP starting with Sonoma and newer and will no longe
 Incremental updates will not work and a full installer will be downloaded instead unless```BlueToolFixup.kext``` is disabled.
 
 ![macOS Sequoia](https://github.com/zearp/Nucintosh/blob/master/Stuff/Sequoia.png?raw=true)
-  
+
 ## Index
 * [Installation](#installation)
 * [Post install](#post-install)
@@ -40,7 +40,7 @@ Incremental updates will not work and a full installer will be downloaded instea
   - [Passive cooling](#passive-cooling)
 * [Todo](#todo)
 * [Credits](#credits)
-  
+
 ## Installation
 + ~~Update to the latest ([0095](https://www.asus.com/supportonly/nuc8i5beh/helpdesk_bios/) BIOS~~ -> load BIOS defaults -> click advanced and change;
 
@@ -87,9 +87,9 @@ Generate new serials/rom with [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS)
 Finally make sure sleep works properly. You can skip some of these but it will make your machine wake up from time to time. Same as real Macs.
 ```
 sudo pmset standby 0
-sudo pmset autopoweroff 0 
+sudo pmset autopoweroff 0
 sudo pmset proximitywake 0
-sudo pmset powernap 0 
+sudo pmset powernap 0
 sudo pmset tcpkeepalive 0
 sudo pmset womp 0
 sudo pmset hibernatemode 0
@@ -107,7 +107,7 @@ With hibernation disabled you can delete the sleepimage file and create an empty
 sudo rm /var/vm/sleepimage
 sudo mkdir /var/vm/sleepimage
 ```
- 
+
 At this point you should enable FileVault to encrypt your disk. The config is setup to support this and it works flawlessly.
 
 To get a nicer boot experience you can remove the verbose boot flag ```-v```in the config and also set ```ShowPicker``` to false. This will show the Apple logo and not show any OpenCore menu or verbose booting. To get the OpenCore picker/menu to show hold down the *alt* key when booting.
@@ -207,14 +207,14 @@ System Agency offset: 0mv
 Analogy I/O: 0mv
 OC mailbox cmd failed
 Digital I/O: 0mv
-CPU BaseFreq: 2300, CPU MaxFreq(1/2/4): 3800/3800/3600 (mhz)  PL1: 35W PL2: 65W 
+CPU BaseFreq: 2300, CPU MaxFreq(1/2/4): 3800/3800/3600 (mhz)  PL1: 35W PL2: 65W
 CPU Freq: 0.8ghz, Voltage: 0.6144v, Power:pkg 3.53w /core 0.80w,Temp: 94 c
 ```
 
 Take note of your PL1 and PL2 numbers. Close all open apps and start out with only applying some light undervolting to CPU and CPU Cache by running ```./voltageshift offset -25 0 -25``` and you'll see a message like this;
 
 ```
-zearp@nuc ~ % ./voltageshift offset -25 0 -25                                       
+zearp@nuc ~ % ./voltageshift offset -25 0 -25
 --------------------------------------------------------------------------
 VoltageShift offset Tool
 --------------------------------------------------------------------------
@@ -248,7 +248,7 @@ There are a lot more things you can do but as a start just undervolting CPU/CPU 
 While benchmarks don't really represent real life it can be handy when testing. In my tests undervolting didn't have any impact on Geekbench results scores. But using CPUFriend can have some impact on (immediate) performance depending on which power profile you select.
 
 * Without CPUFriend: ~915 / ~4000
-* With CPUFriend: 
+* With CPUFriend:
   - Performance: same as without
   - Balanced performance: same as without
   - Balanced power savings: ~875 / ~3800
