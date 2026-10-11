@@ -93,6 +93,7 @@ sudo pmset powernap 0
 sudo pmset tcpkeepalive 0
 sudo pmset womp 0
 sudo pmset hibernatemode 0
+sudo pmset -a lowpowermode 0
 ```
 The first two and last need to be ```0``` the rest can be left on if you want.
 
