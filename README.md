@@ -1,5 +1,8 @@
 # NUC8IxBEx Hackintosh
 
+## 07/11/2026 update:
+Thunderbolt hot plugging has been fixed using ACPI but it doesn't make the controller appear as "native" Apple but it does work fine. So while this is no longer needed it could still be interesting to work on at some point and keep it for the sake of documenting it. Ideally we could get into this state with patching the firmware of the Thunderbolt controller but I fear that might be the only way to get macOS to see the controller as if it's a real Apple one.
+
 This is the Thundebolt "hotplug" testing branch. Do not use this unless you want to experiment with Thunderbolt firmware patching.
 
 Current issues with firmware patches:
