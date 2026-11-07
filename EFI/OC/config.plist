@@ -56,11 +56,11 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Type-C Fixes (Requires _RMV to XRMV rename)</string>
+				<string>Fix for Thunderbolt hotplug</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
-				<string>SSDT-TYPC-NUC8-BC.aml</string>
+				<string>SSDT-TBT-HOTPLUG.aml</string>
 			</dict>
 		</array>
 		<key>Delete</key>
@@ -82,36 +82,6 @@
 		</array>
 		<key>Patch</key>
 		<array>
-			<dict>
-				<key>Base</key>
-				<string></string>
-				<key>BaseSkip</key>
-				<integer>0</integer>
-				<key>Comment</key>
-				<string>_RMV to XRMV Rename</string>
-				<key>Count</key>
-				<integer>0</integer>
-				<key>Enabled</key>
-				<true/>
-				<key>Find</key>
-				<data>X1JNVg==</data>
-				<key>Limit</key>
-				<integer>0</integer>
-				<key>Mask</key>
-				<data></data>
-				<key>OemTableId</key>
-				<data>AAAAAA==</data>
-				<key>Replace</key>
-				<data>WFJNVg==</data>
-				<key>ReplaceMask</key>
-				<data></data>
-				<key>Skip</key>
-				<integer>0</integer>
-				<key>TableLength</key>
-				<integer>0</integer>
-				<key>TableSignature</key>
-				<data>AAAAAA==</data>
-			</dict>
 			<dict>
 				<key>Base</key>
 				<string></string>
