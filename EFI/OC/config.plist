@@ -56,6 +56,22 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
+				<string>Remove XDCI device</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-XDCI-STA.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Fix card reader aspm</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-SDXC.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string>Thunderbolt 3 hotplug fix</string>
 				<key>Enabled</key>
 				<true/>
@@ -231,13 +247,6 @@
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x1C,0x4)/Pci(0x0,0x0)/Pci(0x2,0x0)/Pci(0x0,0x0)</key>
 			<dict>
-				<key>pci-aspm-default</key>
-				<data>AgAAAA==</data>
-			</dict>
-			<key>PciRoot(0x0)/Pci(0x1D,0x0)/Pci(0x0,0x0)</key>
-			<dict>
-				<key>built-in</key>
-				<data>AQ==</data>
 				<key>pci-aspm-default</key>
 				<data>AgAAAA==</data>
 			</dict>
