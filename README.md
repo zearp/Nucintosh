@@ -56,15 +56,15 @@ Generate new serials/rom with [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS)
 - Disable `NVMeFix.kext` if you don't have an NVMe drive
 - Copy the EFI folder from the installer's EFI partition to the internal disk's EFI partition so it can booted from it. You can use [EFI Agent](https://github.com/benbaker76/EFI-Agent) to easily mount EFI partitions.
 
-Finally make sure sleep works properly. You can skip some of these but it will make your machine wake up from time to time. Same as real Macs, it's called `DarkWake`.
+Finally make sure sleep works properly, `hibernatemode` and `standby` must be set to 0 or sleep will be buggy and misbehave. You can skip some of the others it will increase the number of `DarkWake` cycles it will do. Which is normal, it can check for mail, messages, etc. I prefer to reduce those as much as possible. So it all goes to `0` on my machines.
 ```
-sudo pmset standby 0
 sudo pmset autopoweroff 0
-sudo pmset proximitywake 0
+sudo pmset hibernatemode 0
 sudo pmset powernap 0
+sudo pmset proximitywake 0
+sudo pmset standby 0
 sudo pmset tcpkeepalive 0
 sudo pmset womp 0
-sudo pmset hibernatemode 0
 ```
 
 - Proximity wake can wake your machine when an iDevice is near
