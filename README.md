@@ -56,7 +56,7 @@ Generate new serials/rom with [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS)
 - Disable `NVMeFix.kext` if you don't have an NVMe drive
 - Copy the EFI folder from the installer's EFI partition to the internal disk's EFI partition so it can booted from it. You can use [EFI Agent](https://github.com/benbaker76/EFI-Agent) to easily mount EFI partitions.
 
-Finally make sure sleep works properly, `hibernatemode` and `standby` must be set to 0 or sleep will be buggy and misbehave. You can skip some of the others it will increase the number of `DarkWake` cycles it will do. Which is normal, it can check for mail, messages, etc. I prefer to reduce those as much as possible. So it all goes to `0` on my machines.
+Finally make sure sleep works properly, `hibernatemode` and `standby` must be set to 0 or sleep will be buggy and misbehave. You can skip some of the others, but it will increase the number of `DarkWake` cycles it will do. Which is normal, it can check for mail, messages, etc without turning the screen on. I prefer to reduce those as much as possible. So it all goes to `0` on my machines.
 ```
 sudo pmset autopoweroff 0
 sudo pmset hibernatemode 0
@@ -98,9 +98,20 @@ That's all!
 ## Updating
 Updating the EFI is easy, first copy the MLB/ROM/SystemSerialNumber/SystemUUID values from your current config to a text file then delete the whole EFI folder and replace it with the latest release/clone from this repo. Copy your PlatformInfo fields from the text file into the new config. Unless you made other changes this is all thats needed.
 
-Sometimes macOS updates can revert sleep related settings. This doesn't always happen but is something to keep in mind. If sleep stops working (properly) check and re-apply the power settings like the (post install section)[#post-install].
+Sometimes macOS updates can revert sleep related settings. This doesn't always happen but is something to keep in mind. If sleep stops working (properly) check and re-apply the power settings like the [post install section](#post-install).
 
 > Note: Incremental updates will not always work and will error out during the preparation phase and a full installer will be downloaded as fallback unless `BlueToolFixup.kext` is disabled. Disable it when it errors out to speed OTA updates up or just let it download the full installer if you have the bandwidth and time for it. There is a (small) chance it is caused by another kext but it's rare in which case just fall back on the full installer. If you really want to find out which kext may have caused it you can learn more here: https://github.com/acidanthera/bugtracker/issues/2080
+
+After updating it is a good idea to re-run the `pmset` commands to prevent sleep issues. I've had a couple of times that an update enabled standby/hibernate and sleep became buggy. You can also use `Hackintool` to check on the setting but don't rely on the auto fixer, we need `standby`, `hibernatemode` and `proximityake` set to `0` for sleep to work properly: 
+```
+sudo pmset autopoweroff 0
+sudo pmset hibernatemode 0
+sudo pmset powernap 0
+sudo pmset proximitywake 0
+sudo pmset standby 0
+sudo pmset tcpkeepalive 0
+sudo pmset womp 0
+```
 
 ## Assumed install target is Sequoia:
 Please note that from the 13th of October 2025 the assumed installation target will be macOS Sequoia.
@@ -117,11 +128,15 @@ Booting into the installer will take a while, it will show the beginning of a pr
 #### Installation:
 1. Install as normal and copy the EFI to the internal disk
 2. Now edit the `config.plist` and change `SecureBootModel` to `j185` then reboot and reset NVRAM from the picker menu.
-3. Step 2 is done to fix OTA updates and there is no step 3.
+3. OTA updates for macOS should now work.
 
-OTA updates should now work, don't forget to disable `BlueToolFixup.kext` if you want to install the smaller delta updates. Not doing so will trigger it to download a full installer which can take a while depending on your internet speed.
+Please note that updating from Sequoia is possible but you need to make sure you sign out of iCloud/AppleID in settings, App Store, iMessage, FaceTime and any other (Apple) apps that signs you in using AppleID like Mail etc. Not doing so could lead to getting into some issues signing in again using a new model/serial/etc -- this does not always happen but in my experience it is better to just log out everywhere vs dealing with issues later. It only takes a bit of extra time.
 
-> Note: Updating from Sequoia is possible but you need to make sure you sign out of iCloud/AppleID in settings, App Store, iMessage, FaceTime and any other (Apple) apps that signs you in using AppleID like Mail etc. Not doing so could lead to getting into some issues signing in again using a new model/serial/etc -- this does not always happens but in my experience it is better to just log out everywhere vs dealing with issues later. It only takes a bit of extra time. Other software might also behave differently if it uses some kind of machine based hid to register apps and such. In theory all apps including Apple's own should deal with this better, like you could buy a new Mac and move a backup to it without signing out an end up in the same state. Apple support forums have plenty of threads on it, so just log out in apps where you can. This of course does not apply to websites you logged into in a browser.
+Other software might also behave differently if it uses some kind of machine based hwid to register apps and such. In theory all apps including Apple's own should deal with this better, like you could buy a new Mac and move a backup to it without signing out an end up in the same state. Apple support forums have plenty of threads on it, so just log out in apps where you can. This of course does not apply to websites you logged into in a browser.
+
+In short upgrade from Sequoia would mean; sign out, replace the EFI with the Tahoe EFI, generate new serials/etc and reboot into it on Sequoia once and reset NVRAM that boot. If you need wifi to work you can swap the `AirportItlwm.kext` after the upgrade and keep using the one for Sequoia.
+
+Another method would be to make a backup, either a clone or `TimeMachine` and then do a clean Tahoe install and use the migration tool to import apps and settings. The migration step is also part of the first boot setup.
 
 ## What works?
 + Intel Iris 655 iGPU
